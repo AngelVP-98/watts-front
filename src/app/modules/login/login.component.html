@@ -1,0 +1,28 @@
+<div class="login-container">
+  <p-card header="Iniciar sesión" styleClass="login-card">
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <div class="p-field">
+        <label for="username">Usuario</label>
+        <br>
+        <input pInputText id="username" formControlName="username" class="w-full" />
+      </div>
+
+      <div class="p-field">
+        <label for="password">Contraseña</label>
+        <p-password id="password" formControlName="password" [feedback]="false" [toggleMask]="true" styleClass="w-full"
+          inputStyleClass="w-full"></p-password>
+      </div>
+
+      <p-button label="Entrar" type="submit" styleClass="w-full" [loading]="loading()" [disabled]="loginForm.invalid">
+      </p-button>
+
+      @if (error()) {
+      <small class="error">{{ error() }}</small>
+      }
+
+    </form>
+
+  </p-card>
+</div>

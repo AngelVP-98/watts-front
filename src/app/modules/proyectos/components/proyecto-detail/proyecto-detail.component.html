@@ -1,0 +1,125 @@
+<div class="card p-4">
+  <div class="flex justify-content-between align-items-center mb-4">
+    <div class="flex align-items-center gap-3">
+      <p-button icon="pi pi-arrow-left" styleClass="p-button-text" (onClick)="volver()"></p-button>
+      <h2 class="m-0 text-xl font-bold">Archivos del Proyecto</h2>
+    </div>
+  </div>
+
+  @if (authService.hasPermission('PROYECTO_LEER')) {
+    <p-toolbar class="mb-4 gap-2">
+      <ng-template pTemplate="left">
+        <p-fileUpload
+          mode="basic"
+          chooseLabel="Subir Archivo"
+          name="file"
+          customUpload="true"
+          (uploadHandler)="onUpload($event)"
+          [auto]="true"
+          chooseIcon="pi pi-upload"
+          class="mr-2"
+        >
+        </p-fileUpload>
+      </ng-template>
+      <ng-template pTemplate="right">
+        <div class="flex align-items-center gap-2 mr-3 border-right-1 surface-border pr-3">
+          <p-button
+            icon="pi pi-list"
+            [text]="layout() !== 'list'"
+            [outlined]="layout() === 'list'"
+            severity="secondary"
+            (onClick)="layout.set('list')"
+            pTooltip="Vista Lista"
+          >
+          </p-button>
+          <p-button
+            icon="pi pi-th-large"
+            [text]="layout() !== 'grid'"
+            [outlined]="layout() === 'grid'"
+            severity="secondary"
+            (onClick)="layout.set('grid')"
+            pTooltip="Vista Cuadrícula"
+          >
+          </p-button>
+        </div>
+        <p-button
+          label="Invitar Miembro"
+          icon="pi pi-user-plus"
+          styleClass="p-button-outlined"
+          (onClick)="abrirDialogoInvitar()"
+        ></p-button>
+      </ng-template>
+    </p-toolbar>
+  }
+  @if (layout() === 'list') {
+    <app-proyecto-detail-list
+      [archivos]="archivos()"
+      [totalRecords]="totalRecords()"
+      [loading]="loading()"
+      [rows]="pageSize()"
+      [canDelete]="authService.hasPermission('ARCHIVO_BORRAR')"
+      (onLazyLoad)="cargarArchivos($event)"
+      (onDownload)="descargarArchivo($event)"
+      (onDelete)="eliminarArchivo($event)"
+      (onPreview)="previsualizarArchivo($event)"
+    >
+    </app-proyecto-detail-list>
+  } @else {
+    <app-proyecto-detail-grid
+      [archivos]="archivos()"
+      [totalRecords]="totalRecords()"
+      [loading]="loading()"
+      [rows]="pageSize()"
+      [canDelete]="authService.hasPermission('ARCHIVO_BORRAR')"
+      (onLazyLoad)="cargarArchivos($event)"
+      (onDownload)="descargarArchivo($event)"
+      (onDelete)="eliminarArchivo($event)"
+      (onPreview)="previsualizarArchivo($event)"
+    >
+    </app-proyecto-detail-grid>
+  }
+</div>
+
+<p-dialog
+  [(visible)]="dialogInvitarVisible"
+  header="Invitar al Proyecto"
+  [modal]="true"
+  [style]="{ width: '400px' }"
+>
+  <form [formGroup]="invitarForm" class="flex flex-column gap-3 pt-3">
+    <div class="field">
+      <label class="block font-medium mb-1">Nombre de Usuario</label>
+      <input pInputText formControlName="username" placeholder="ej. usuario123" class="w-full" />
+      <small class="text-500">Introduce el username exacto de la persona.</small>
+    </div>
+    <div class="field">
+      <label class="block font-medium mb-1">Rol</label>
+      <p-select
+        [options]="rolesOptions"
+        formControlName="rol"
+        optionLabel="label"
+        optionValue="value"
+        appendTo="body"
+        class="w-full"
+      >
+      </p-select>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <p-button
+      label="Cancelar"
+      icon="pi pi-times"
+      styleClass="p-button-text"
+      (onClick)="dialogInvitarVisible.set(false)"
+    ></p-button>
+    <p-button
+      label="Enviar Invitación"
+      icon="pi pi-send"
+      (onClick)="enviarInvitacion()"
+      [disabled]="invitarForm.invalid"
+    ></p-button>
+  </ng-template>
+</p-dialog>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>

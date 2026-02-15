@@ -1,0 +1,893 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  MovimientoFilters</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interfaz interna que representa el estado actual de los filtros aplicados en la tabla.
+Se utiliza para mantener un registro de las búsquedas activas y aplicarlas al exportar archivos.</p>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#almacenNombre" 
+>
+                                            almacenNombre
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#creadoPor" 
+>
+                                            creadoPor
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fechaFin" 
+>
+                                            fechaFin
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fechaInicio" 
+>
+                                            fechaInicio
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#observaciones" 
+>
+                                            observaciones
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#tipo" 
+>
+                                            tipo
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#varianteNombre" 
+>
+                                            varianteNombre
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="almacenNombre"></a>
+                                        <span class="name "><b>almacenNombre</b>
+                                            <a href="#almacenNombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>almacenNombre:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Filtro para el nombre o descripción del almacén.</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="creadoPor"></a>
+                                        <span class="name "><b>creadoPor</b>
+                                            <a href="#creadoPor">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>creadoPor:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Filtro por el usuario que registró el movimiento.</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fechaFin"></a>
+                                        <span class="name "><b>fechaFin</b>
+                                            <a href="#fechaFin">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fechaFin:     <code>string | undefined</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | undefined</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Fecha de fin para el rango de búsqueda (formato YYYY-MM-DD).</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fechaInicio"></a>
+                                        <span class="name "><b>fechaInicio</b>
+                                            <a href="#fechaInicio">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fechaInicio:     <code>string | undefined</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | undefined</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Fecha de inicio para el rango de búsqueda (formato YYYY-MM-DD).</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="observaciones"></a>
+                                        <span class="name "><b>observaciones</b>
+                                            <a href="#observaciones">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>observaciones:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Filtro por el contenido de las observaciones.</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tipo"></a>
+                                        <span class="name "><b>tipo</b>
+                                            <a href="#tipo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tipo:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Filtro por el tipo de movimiento (ej. COMPRA, VENTA).</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="varianteNombre"></a>
+                                        <span class="name "><b>varianteNombre</b>
+                                            <a href="#varianteNombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>varianteNombre:     <code>literal type</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>literal type</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Filtro para el nombre o SKU de la variante del producto.</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, signal } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { TableLazyLoadEvent, TableModule } from &#x27;primeng/table&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { ToolbarModule } from &#x27;primeng/toolbar&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { TagModule } from &#x27;primeng/tag&#x27;;
+import { RippleModule } from &#x27;primeng/ripple&#x27;;
+import { SelectModule } from &#x27;primeng/select&#x27;;
+import { DatePickerModule } from &#x27;primeng/datepicker&#x27;;
+
+import { MovimientoService } from &#x27;../../services/movimiento.service&#x27;;
+import { MovimientoResponse, MovimientoRequest } from &#x27;../../models/movimiento.model&#x27;;
+import { MovimientoFormComponent } from &#x27;../movimiento-form/movimiento-form.component&#x27;;
+import { AuthService } from &#x27;../../../../core/auth/auth.service&#x27;;
+import { FileDownloadService } from &#x27;../../../../shared/services/file-download.service&#x27;;
+
+/**
+ * Interfaz interna que representa el estado actual de los filtros aplicados en la tabla.
+ * Se utiliza para mantener un registro de las búsquedas activas y aplicarlas al exportar archivos.
+ */
+interface MovimientoFilters {
+    /** Filtro para el nombre o SKU de la variante del producto. */
+    varianteNombre?: { value: string; matchMode?: string };
+    /** Filtro para el nombre o descripción del almacén. */
+    almacenNombre?: { value: string; matchMode?: string };
+    /** Filtro por el tipo de movimiento (ej. COMPRA, VENTA). */
+    tipo?: { value: string; matchMode?: string };
+    /** Filtro por el contenido de las observaciones. */
+    observaciones?: { value: string; matchMode?: string };
+    /** Fecha de inicio para el rango de búsqueda (formato YYYY-MM-DD). */
+    fechaInicio?: string | undefined;
+    /** Fecha de fin para el rango de búsqueda (formato YYYY-MM-DD). */
+    fechaFin?: string | undefined;
+    /** Filtro por el usuario que registró el movimiento. */
+    creadoPor?: { value: string; matchMode?: string };
+}
+
+/**
+ * Componente principal para la gestión de transacciones e historial de movimientos de inventario.
+ * Proporciona una tabla interactiva con soporte para filtrado avanzado, paginación (Lazy Load), 
+ * exportación de reportes (PDF/CSV) y un modal para registrar nuevos movimientos.
+ */
+@Component({
+    selector: &#x27;app-movimiento-list&#x27;,
+    changeDetection: ChangeDetectionStrategy.Default,
+    providers: [MessageService],
+    imports: [
+        CommonModule,
+        FormsModule,
+        TableModule,
+        ButtonModule,
+        ToolbarModule,
+        ToastModule,
+        DialogModule,
+        TagModule,
+        RippleModule,
+        SelectModule,
+        DatePickerModule,
+        MovimientoFormComponent
+    ],
+    templateUrl: &#x27;./movimiento-list.component.html&#x27;
+})
+export class MovimientoListComponent {
+    // Inyección de dependencias
+    private readonly _movimientoService &#x3D; inject(MovimientoService);
+    private readonly _messageService &#x3D; inject(MessageService);
+    private readonly _fileService &#x3D; inject(FileDownloadService);
+    /** Servicio de autenticación inyectado públicamente para validación de permisos en la plantilla. */
+    public readonly authService &#x3D; inject(AuthService);
+
+    /** Almacena los filtros activos en la tabla de PrimeNG para usarlos en futuras peticiones o exportaciones. */
+    private filtrosActuales: MovimientoFilters &#x3D; {};
+
+    // Signals para los datos
+    /** Señal que contiene la lista de movimientos a mostrar en la tabla. */
+    movimientos &#x3D; signal&lt;MovimientoResponse[]&gt;([]);
+    /** Señal con el total de registros disponibles en el servidor para la configuración del paginador. */
+    totalRecords &#x3D; signal(0);
+    /** Señal que indica si la tabla está en proceso de carga de datos. */
+    loading &#x3D; signal(true);
+    /** Señal que determina la cantidad de filas que se muestran por página. */
+    pageSize &#x3D; signal(10);
+    /** Señal que controla la visibilidad del modal para crear un nuevo movimiento. */
+    mostrarModal &#x3D; signal(false);
+    /** Objeto que rastrea qué filas de la tabla están expandidas (si se utiliza la función de row expansion). */
+    expandedRows: { [key: string]: boolean } &#x3D; {};
+
+    /** Opciones disponibles para el selector de filtrado por tipo de movimiento en la cabecera de la tabla. */
+    tiposMovimiento &#x3D; [
+        { label: &#x27;COMPRA&#x27;, value: &#x27;COMPRA&#x27; },
+        { label: &#x27;VENTA&#x27;, value: &#x27;VENTA&#x27; },
+        { label: &#x27;ENTRADA_FABRICACION&#x27;, value: &#x27;ENTRADA_FABRICACION&#x27; },
+        { label: &#x27;ENTRADA_DEVOLUCION&#x27;, value: &#x27;ENTRADA_DEVOLUCION&#x27; },
+        { label: &#x27;SALIDA_DEFECTO&#x27;, value: &#x27;SALIDA_DEFECTO&#x27; },
+        { label: &#x27;SALIDA_REGALO&#x27;, value: &#x27;SALIDA_REGALO&#x27; }
+    ];
+
+    /**
+     * Se ejecuta automáticamente por PrimeNG cuando cambia la página, el orden o se aplica un filtro.
+     * Extrae todos los parámetros del evento, formatea las fechas si es necesario y solicita los datos al servidor.
+     * * @param event Evento emitido por la tabla que contiene el estado de la paginación y los filtros aplicados.
+     */
+    cargarMovimientos(event: TableLazyLoadEvent) {
+        this.loading.set(true);
+        const page &#x3D; (event.first ?? 0) / (event.rows ?? 10);
+        const size &#x3D; event.rows ?? 10;
+
+        this.pageSize.set(size);
+
+        // Extraer filtros del evento de PrimeNG
+        const filters &#x3D; event.filters || {};
+
+        // Helper para extraer valor y matchMode
+        const extract &#x3D; (field: string) &#x3D;&gt; {
+            const meta &#x3D; filters[field];
+            if (!meta) return { value: undefined, matchMode: undefined };
+            if (Array.isArray(meta)) {
+                return { value: meta[0].value, matchMode: meta[0].matchMode };
+            }
+            return { value: meta?.value, matchMode: meta?.matchMode };
+        };
+
+        const tipo &#x3D; extract(&#x27;tipo&#x27;);
+        const observaciones &#x3D; extract(&#x27;observaciones&#x27;);
+        const creadoPor &#x3D; extract(&#x27;creadoPor&#x27;);
+        const productoNombre &#x3D; extract(&#x27;productoNombre&#x27;);
+        const almacenDescripcion &#x3D; extract(&#x27;almacenDescripcion&#x27;);
+        const fechaCreacion &#x3D; extract(&#x27;fechaCreacion&#x27;);
+
+        // Formatear fechas si existen
+        let fechaInicio: string | undefined;
+        let fechaFin: string | undefined;
+        if (fechaCreacion.value) {
+            const fechas &#x3D; fechaCreacion.value;
+            if (Array.isArray(fechas)) {
+                if (fechas[0]) fechaInicio &#x3D; this.formatDate(fechas[0]);
+                if (fechas[1]) fechaFin &#x3D; this.formatDate(fechas[1]);
+            } else if (fechas instanceof Date) {
+                fechaInicio &#x3D; this.formatDate(fechas);
+                fechaFin &#x3D; this.formatDate(fechas);
+            }
+        }
+
+        this.filtrosActuales &#x3D; {
+            tipo: tipo.value ? tipo : undefined,
+            observaciones: observaciones.value ? observaciones : undefined,
+            creadoPor: creadoPor.value ? creadoPor : undefined,
+            varianteNombre: productoNombre.value ? productoNombre : undefined,
+            almacenNombre: almacenDescripcion.value ? almacenDescripcion : undefined,
+            fechaInicio: fechaInicio,
+            fechaFin: fechaFin
+        };
+
+        this._movimientoService.listarMovimientos(
+            page,
+            size,
+            tipo.value,
+            observaciones.value,
+            observaciones.matchMode,
+            creadoPor.value,
+            creadoPor.matchMode,
+            productoNombre.value,
+            productoNombre.matchMode,
+            almacenDescripcion.value,
+            almacenDescripcion.matchMode,
+            fechaInicio,
+            fechaFin
+        ).subscribe({
+            next: (data) &#x3D;&gt; {
+                this.movimientos.set(data.content);
+                this.totalRecords.set(data.totalElements);
+                this.loading.set(false);
+            },
+            error: () &#x3D;&gt; {
+                this.loading.set(false);
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al cargar&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Convierte un objeto &#x60;Date&#x60; de JavaScript a una cadena con formato &#x60;YYYY-MM-DD&#x60; compatible con la API.
+     * * @param date Fecha a formatear.
+     * @returns Cadena de texto que representa la fecha.
+     */
+    private formatDate(date: Date): string {
+        const year &#x3D; date.getFullYear();
+        const month &#x3D; (&#x27;0&#x27; + (date.getMonth() + 1)).slice(-2);
+        const day &#x3D; (&#x27;0&#x27; + date.getDate()).slice(-2);
+        return &#x60;${year}-${month}-${day}&#x60;;
+    }
+
+    /**
+     * Cambia el estado para mostrar el modal del formulario de creación de movimientos.
+     */
+    abrirModalCrear() {
+        this.mostrarModal.set(true);
+    }
+
+    /**
+     * Cambia el estado para ocultar el modal del formulario de creación.
+     */
+    cerrarModal() {
+        this.mostrarModal.set(false);
+    }
+
+    /**
+     * Recibe los datos validados del componente formulario y los envía al backend para registrar un nuevo movimiento.
+     * Muestra notificaciones de éxito o error, recarga la tabla y cierra el modal al finalizar correctamente.
+     * * @param request Objeto DTO con los datos del nuevo movimiento a crear.
+     */
+    guardarMovimiento(request: MovimientoRequest) {
+        this._movimientoService.crearMovimiento(request).subscribe({
+            next: () &#x3D;&gt; {
+                this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Registrado correctamente&#x27; });
+                this.recargarTabla();
+                this.cerrarModal();
+            },
+            error: () &#x3D;&gt; {
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al registrar&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Solicita al servidor un reporte de los movimientos actuales (aplicando los filtros activos de la tabla) 
+     * y procede a descargarlo en el navegador del usuario.
+     * * @param formato El formato deseado para el archivo exportado (&#x60;pdf&#x60; o &#x60;csv&#x60;).
+     */
+    exportarArchivo(formato: &#x27;pdf&#x27; | &#x27;csv&#x27;) {
+        // this.loading.set(true);
+        const timestamp &#x3D; new Date().toISOString().split(&#x27;T&#x27;)[0];
+        const nombreArchivo &#x3D; &#x60;movimientos_${timestamp}.${formato}&#x60;;
+
+        this._movimientoService.exportar(
+            formato,
+            this.filtrosActuales?.varianteNombre?.value,
+            this.filtrosActuales?.varianteNombre?.matchMode,
+            this.filtrosActuales?.almacenNombre?.value,
+            this.filtrosActuales?.almacenNombre?.matchMode,
+            this.filtrosActuales?.tipo?.value,
+            this.filtrosActuales?.observaciones?.value,
+            this.filtrosActuales?.observaciones?.matchMode,
+            this.filtrosActuales?.fechaInicio,
+            this.filtrosActuales?.fechaFin,
+            this.filtrosActuales?.creadoPor?.value,
+            this.filtrosActuales?.creadoPor?.matchMode
+        ).subscribe({
+            next: (blob) &#x3D;&gt; {
+                this._fileService.download(blob, nombreArchivo);
+                // this.loading.set(false);
+                this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Archivo descargado&#x27; });
+            },
+            error: () &#x3D;&gt; {
+                // this.loading.set(false);
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al exportar&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Método auxiliar privado que fuerza la recarga de la tabla devolviéndola a la primera página.
+     */
+    private recargarTabla() {
+        this.cargarMovimientos({ first: 0, rows: this.pageSize() });
+    }
+
+    /**
+     * Determina la clase CSS de severidad (color) a aplicar en el componente &#x60;p-tag&#x60; de PrimeNG 
+     * dependiendo del tipo de movimiento, para facilitar su identificación visual.
+     * * @param tipo El tipo de movimiento (ej. &#x60;COMPRA&#x60;, &#x60;VENTA&#x60;, &#x60;SALIDA_DEFECTO&#x60;).
+     * @returns El string correspondiente a la severidad soportada por PrimeNG, o &#x60;undefined&#x60; por defecto.
+     */
+    getSeverity(tipo: string): &#x27;success&#x27; | &#x27;info&#x27; | &#x27;warn&#x27; | &#x27;danger&#x27; | &#x27;secondary&#x27; | undefined {
+        switch (tipo) {
+            case &#x27;COMPRA&#x27;:
+            case &#x27;ENTRADA_FABRICACION&#x27;:
+            case &#x27;ENTRADA_DEVOLUCION&#x27;: return &#x27;success&#x27;;
+            case &#x27;VENTA&#x27;: return &#x27;info&#x27;;
+            case &#x27;SALIDA_DEFECTO&#x27;: return &#x27;danger&#x27;;
+            case &#x27;SALIDA_REGALO&#x27;: return &#x27;warn&#x27;;
+            default: return undefined;
+        }
+    }
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'MovimientoFilters.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

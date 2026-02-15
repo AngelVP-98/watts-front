@@ -1,0 +1,120 @@
+<p-dialog
+  [header]="varianteEditar() ? 'Editar Variante' : 'Nueva Variante'"
+  [modal]="true"
+  [visible]="visible()"
+  (visibleChange)="onCancel()"
+  [style]="{ width: '450px' }"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3">
+    <div class="flex flex-column gap-2">
+      <label for="producto" class="font-bold">Producto</label>
+      <p-select
+        id="producto"
+        formControlName="productoId"
+        [options]="productos()"
+        optionLabel="nombre"
+        optionValue="id"
+        placeholder="Seleccione un producto"
+        [filter]="true"
+        filterBy="nombre,codigoBase"
+        [loading]="loadingProductos()"
+        [virtualScroll]="true"
+        [virtualScrollItemSize]="3"
+        appendTo="body"
+        class="w-full"
+      >
+      </p-select>
+      @if (form.controls.productoId.invalid && form.controls.productoId.touched) {
+        <small class="text-red-500">El producto es requerido.</small>
+      }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="talla" class="font-bold">Talla</label>
+      <p-select
+        id="talla"
+        formControlName="tallaId"
+        [options]="tallas()"
+        optionLabel="nombre"
+        optionValue="id"
+        placeholder="Seleccione una talla"
+        appendTo="body"
+        class="w-full"
+      >
+      </p-select>
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="color" class="font-bold">Color</label>
+      <p-select
+        id="color"
+        formControlName="colorId"
+        [options]="colores()"
+        optionLabel="nombre"
+        optionValue="id"
+        placeholder="Seleccione un color"
+        [filter]="true"
+        filterBy="nombre"
+        appendTo="body"
+        class="w-full"
+      >
+      </p-select>
+    </div>
+
+    <div class="formgrid grid">
+      <div class="field col">
+        <label for="precioCompra" class="font-bold">Precio Compra</label>
+        <p-inputnumber
+          id="precioCompra"
+          formControlName="precioCompra"
+          mode="currency"
+          currency="EUR"
+          locale="es-ES"
+          class="w-full"
+        />
+      </div>
+      <div class="field col">
+        <label for="precioVenta" class="font-bold">Precio Venta</label>
+        <p-inputnumber
+          id="precioVenta"
+          formControlName="precioVenta"
+          mode="currency"
+          currency="EUR"
+          locale="es-ES"
+          class="w-full"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label class="font-bold">Imagen de la Variante</label>
+
+      <p-fileUpload
+        mode="basic"
+        chooseLabel="Seleccionar Imagen"
+        accept="image/*"
+        maxFileSize="1000000"
+        [auto]="true"
+        customUpload="true"
+        (uploadHandler)="onFileSelect($event)"
+        class="w-full"
+        styleClass="w-full"
+      />
+
+      @if (imagenPreview()) {
+        <div class="mt-2 flex justify-content-center border-1 surface-border border-round p-3">
+          <img
+            [src]="imagenPreview() | secureImage | async"
+            alt="Previsualización"
+            class="max-w-full h-10rem object-contain"
+          />
+        </div>
+      }
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <p-button label="Cancelar" icon="pi pi-times" [text]="true" (onClick)="onCancel()" />
+      <p-button label="Guardar" icon="pi pi-check" type="submit" [disabled]="form.invalid" />
+    </div>
+  </form>
+</p-dialog>

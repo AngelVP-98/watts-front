@@ -1,0 +1,1412 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UsuarioListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/components/usuario-list/usuario-list.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente principal encargado de visualizar y administrar la lista de usuarios del sistema.
+Proporciona una tabla interactiva con paginación (Lazy Load) y se integra con un componente
+de formulario modal para realizar operaciones de creación, edición y eliminación (CRUD).</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MessageService</code>
+                            <code>ConfirmationService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-usuario-list</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TableModule</code>
+                            <code>ButtonModule</code>
+                            <code>ToolbarModule</code>
+                            <code>ToastModule</code>
+                            <code>ConfirmDialogModule</code>
+                            <code>TooltipModule</code>
+                                <code><a href="../components/UsuarioFormComponent.html" target="_self" >UsuarioFormComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./usuario-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_confirmationService" >_confirmationService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_messageService" >_messageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_usuarioService" >_usuarioService</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarModal" >mostrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#pageSize" >pageSize</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                            <li>
+                                <a href="#usuarioSeleccionado" >usuarioSeleccionado</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirModalCrear" >abrirModalCrear</a>
+                            </li>
+                            <li>
+                                <a href="#abrirModalEditar" >abrirModalEditar</a>
+                            </li>
+                            <li>
+                                <a href="#cargarUsuarios" >cargarUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#cerrarModal" >cerrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#confirmarEliminacion" >confirmarEliminacion</a>
+                            </li>
+                            <li>
+                                <a href="#guardarUsuario" >guardarUsuario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#recargarTabla" >recargarTabla</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalCrear"></a>
+                    <span class="name">
+                        <span ><b>abrirModalCrear</b></span>
+                        <a href="#abrirModalCrear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalCrear()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal del formulario preparado para registrar un nuevo usuario en el sistema.
+Asegura que no haya ningún usuario previamente seleccionado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalEditar"></a>
+                    <span class="name">
+                        <span ><b>abrirModalEditar</b></span>
+                        <a href="#abrirModalEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalEditar(usuario: <a href="../interfaces/Usuario.html" target="_self">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el modal del formulario cargando los datos del usuario seleccionado para su edición.</p>
+<ul>
+<li>@param usuario Objeto que contiene los datos del usuario a modificar.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto que contiene los datos del usuario a modificar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarUsuarios"></a>
+                    <span class="name">
+                        <span ><b>cargarUsuarios</b></span>
+                        <a href="#cargarUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarUsuarios(event: TableLazyLoadEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga la lista paginada de usuarios solicitándola al backend.
+Se ejecuta automáticamente por la tabla de PrimeNG cada vez que el usuario cambia de página o altera el tamaño de la misma.</p>
+<ul>
+<li>@param event Evento emitido por la tabla con la información del estado de la paginación.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>TableLazyLoadEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento emitido por la tabla con la información del estado de la paginación.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarModal"></a>
+                    <span class="name">
+                        <span ><b>cerrarModal</b></span>
+                        <a href="#cerrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el modal del formulario y resetea el estado de la selección activa.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmarEliminacion"></a>
+                    <span class="name">
+                        <span ><b>confirmarEliminacion</b></span>
+                        <a href="#confirmarEliminacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmarEliminacion(usuario: <a href="../interfaces/Usuario.html" target="_self">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Despliega un cuadro de diálogo de confirmación para validar la intención de eliminar al usuario seleccionado.
+Si es confirmado, realiza la petición al servidor para borrarlo del sistema de forma permanente.</p>
+<ul>
+<li>@param usuario Objeto del usuario que se desea eliminar.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto del usuario que se desea eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarUsuario"></a>
+                    <span class="name">
+                        <span ><b>guardarUsuario</b></span>
+                        <a href="#guardarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarUsuario(usuario: <a href="../interfaces/Usuario.html" target="_self">Partial&lt;Usuario&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Procesa el evento de guardado emitido por el componente del formulario.
+Determina si debe llamar al servicio de actualización (PATCH) o de creación (POST) en función
+de si existe un usuario actualmente seleccionado.</p>
+<ul>
+<li>@param usuario Objeto (parcial o completo) emitido por el formulario con los datos a guardar.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Usuario.html" target="_self" >Partial&lt;Usuario&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto (parcial o completo) emitido por el formulario con los datos a guardar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recargarTabla"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>recargarTabla</b></span>
+                        <a href="#recargarTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recargarTabla()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método auxiliar privado para forzar una recarga manual de la tabla de datos,
+manteniendo el número de filas seleccionado por el usuario pero volviendo a la primera página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_confirmationService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_confirmationService</b></span>
+                        <a href="#_confirmationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ConfirmationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_messageService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_messageService</b></span>
+                        <a href="#_messageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MessageService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_usuarioService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_usuarioService</b></span>
+                        <a href="#_usuarioService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(UsuarioService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal booleana que activa o desactiva el indicador de carga (spinner) de la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarModal"></a>
+                    <span class="name">
+                        <span ><b>mostrarModal</b></span>
+                        <a href="#mostrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que controla la visibilidad del modal para crear o editar usuarios.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageSize"></a>
+                    <span class="name">
+                        <span ><b>pageSize</b></span>
+                        <a href="#pageSize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(10)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que define el número de filas o registros a mostrar por cada página.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalRecords"></a>
+                    <span class="name">
+                        <span ><b>totalRecords</b></span>
+                        <a href="#totalRecords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que indica la cantidad total de registros de usuarios en la base de datos (usado para paginación).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Usuario[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que almacena el conjunto de usuarios que se muestran actualmente en la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioSeleccionado"></a>
+                    <span class="name">
+                        <span ><b>usuarioSeleccionado</b></span>
+                        <a href="#usuarioSeleccionado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Usuario | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/modules/admin/components/usuario-list/usuario-list.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que mantiene la referencia al usuario seleccionado para su edición. Es <code>null</code> si se está creando uno nuevo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, inject, signal } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;; // Necesario para pipes comunes
+import { TableModule, TableLazyLoadEvent } from &#x27;primeng/table&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { ToolbarModule } from &#x27;primeng/toolbar&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { ConfirmDialogModule } from &#x27;primeng/confirmdialog&#x27;;
+import { TooltipModule } from &#x27;primeng/tooltip&#x27;;
+import { MessageService, ConfirmationService } from &#x27;primeng/api&#x27;;
+
+import { UsuarioService } from &#x27;../../services/usuario.service&#x27;;
+import { Usuario } from &#x27;../../models/usuario.model&#x27;;
+import { UsuarioFormComponent } from &#x27;../usuario-form/usuario-form.component&#x27;;
+
+/**
+ * Componente principal encargado de visualizar y administrar la lista de usuarios del sistema.
+ * Proporciona una tabla interactiva con paginación (Lazy Load) y se integra con un componente 
+ * de formulario modal para realizar operaciones de creación, edición y eliminación (CRUD).
+ */
+@Component({
+  selector: &#x27;app-usuario-list&#x27;,
+  imports: [
+    CommonModule,
+    TableModule,
+    ButtonModule,
+    ToolbarModule,
+    ToastModule,
+    ConfirmDialogModule,
+    TooltipModule,
+    UsuarioFormComponent // Importamos el componente para usarlo en el HTML
+  ],
+  templateUrl: &#x27;./usuario-list.component.html&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [MessageService, ConfirmationService]
+})
+export class UsuarioListComponent {
+  private readonly _usuarioService &#x3D; inject(UsuarioService);
+  private readonly _messageService &#x3D; inject(MessageService);
+  private readonly _confirmationService &#x3D; inject(ConfirmationService);
+
+  // Estados
+  /** Señal que almacena el conjunto de usuarios que se muestran actualmente en la tabla. */
+  usuarios &#x3D; signal&lt;Usuario[]&gt;([]);
+  /** Señal que indica la cantidad total de registros de usuarios en la base de datos (usado para paginación). */
+  totalRecords &#x3D; signal(0);
+  /** Señal booleana que activa o desactiva el indicador de carga (spinner) de la tabla. */
+  loading &#x3D; signal(true);
+  /** Señal que define el número de filas o registros a mostrar por cada página. */
+  pageSize &#x3D; signal(10);
+
+  // Estados para el Modal
+  /** Señal que controla la visibilidad del modal para crear o editar usuarios. */
+  mostrarModal &#x3D; signal(false);
+  /** Señal que mantiene la referencia al usuario seleccionado para su edición. Es &#x60;null&#x60; si se está creando uno nuevo. */
+  usuarioSeleccionado &#x3D; signal&lt;Usuario | null&gt;(null);
+
+  /**
+   * Carga la lista paginada de usuarios solicitándola al backend. 
+   * Se ejecuta automáticamente por la tabla de PrimeNG cada vez que el usuario cambia de página o altera el tamaño de la misma.
+   * * @param event Evento emitido por la tabla con la información del estado de la paginación.
+   */
+  cargarUsuarios(event: TableLazyLoadEvent) {
+    this.loading.set(true);
+    const page &#x3D; (event.first ?? 0) / (event.rows ?? 10);
+    const size &#x3D; event.rows ?? 10;
+    this.pageSize.set(size);
+
+    this._usuarioService.listar(page, size).subscribe({
+      next: (data) &#x3D;&gt; {
+        this.usuarios.set(data.content);
+        this.totalRecords.set(data.totalElements);
+        this.loading.set(false);
+      },
+      error: () &#x3D;&gt; {
+        this.loading.set(false);
+        this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al cargar usuarios&#x27; });
+      }
+    });
+  }
+
+  /**
+   * Abre el modal del formulario preparado para registrar un nuevo usuario en el sistema.
+   * Asegura que no haya ningún usuario previamente seleccionado.
+   */
+  abrirModalCrear() {
+    this.usuarioSeleccionado.set(null);
+    this.mostrarModal.set(true);
+  }
+
+  /**
+   * Abre el modal del formulario cargando los datos del usuario seleccionado para su edición.
+   * * @param usuario Objeto que contiene los datos del usuario a modificar.
+   */
+  abrirModalEditar(usuario: Usuario) {
+    this.usuarioSeleccionado.set(usuario);
+    this.mostrarModal.set(true);
+  }
+
+  /**
+   * Cierra el modal del formulario y resetea el estado de la selección activa.
+   */
+  cerrarModal() {
+    this.mostrarModal.set(false);
+    this.usuarioSeleccionado.set(null);
+  }
+
+  /**
+   * Procesa el evento de guardado emitido por el componente del formulario. 
+   * Determina si debe llamar al servicio de actualización (PATCH) o de creación (POST) en función 
+   * de si existe un usuario actualmente seleccionado.
+   * * @param usuario Objeto (parcial o completo) emitido por el formulario con los datos a guardar.
+   */
+  guardarUsuario(usuario: Partial&lt;Usuario&gt;) {
+    const usuarioEditar &#x3D; this.usuarioSeleccionado();
+
+    if (usuarioEditar) {
+      // Editar usando PATCH
+      this._usuarioService.actualizar(usuarioEditar.id, usuario).subscribe({
+        next: () &#x3D;&gt; {
+          this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Usuario actualizado&#x27; });
+          this.recargarTabla();
+          this.cerrarModal();
+        },
+        error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;No se pudo actualizar&#x27; })
+      });
+    } else {
+      // Crear (aquí hacemos un cast seguro porque sabemos que al crear vienen todos los datos obligatorios)
+      this._usuarioService.crear(usuario as Usuario).subscribe({
+        next: () &#x3D;&gt; {
+          this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Usuario creado&#x27; });
+          this.recargarTabla();
+          this.cerrarModal();
+        },
+        error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;No se pudo crear&#x27; })
+      });
+    }
+  }
+
+  /**
+   * Despliega un cuadro de diálogo de confirmación para validar la intención de eliminar al usuario seleccionado.
+   * Si es confirmado, realiza la petición al servidor para borrarlo del sistema de forma permanente.
+   * * @param usuario Objeto del usuario que se desea eliminar.
+   */
+  confirmarEliminacion(usuario: Usuario) {
+    this._confirmationService.confirm({
+      message: &#x60;¿Estás seguro de eliminar a ${usuario.username}?&#x60;,
+      header: &#x27;Confirmar Eliminación&#x27;,
+      icon: &#x27;pi pi-exclamation-triangle&#x27;,
+      accept: () &#x3D;&gt; {
+        this._usuarioService.eliminar(usuario.id).subscribe({
+          next: () &#x3D;&gt; {
+            this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Usuario eliminado&#x27; });
+            this.recargarTabla();
+          },
+          error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;No se pudo eliminar&#x27; })
+        });
+      }
+    });
+  }
+
+  /**
+   * Método auxiliar privado para forzar una recarga manual de la tabla de datos, 
+   * manteniendo el número de filas seleccionado por el usuario pero volviendo a la primera página.
+   */
+  private recargarTabla() {
+    // Forzamos la recarga llamando a cargarUsuarios con el estado actual
+    this.cargarUsuarios({ first: 0, rows: this.pageSize() });
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card p-4&quot;&gt;
+  &lt;p-toast /&gt;
+  &lt;p-confirmDialog /&gt;
+
+  &lt;p-toolbar class&#x3D;&quot;mb-4 gap-2&quot;&gt;
+    &lt;ng-template pTemplate&#x3D;&quot;left&quot;&gt;
+      &lt;p-button
+        label&#x3D;&quot;Nuevo Usuario&quot;
+        icon&#x3D;&quot;pi pi-plus&quot;
+        class&#x3D;&quot;mr-2&quot;
+        (onClick)&#x3D;&quot;abrirModalCrear()&quot;
+      /&gt;
+    &lt;/ng-template&gt;
+  &lt;/p-toolbar&gt;
+
+  &lt;p-table
+    [value]&#x3D;&quot;usuarios()&quot;
+    [lazy]&#x3D;&quot;true&quot;
+    (onLazyLoad)&#x3D;&quot;cargarUsuarios($event)&quot;
+    [paginator]&#x3D;&quot;true&quot;
+    [rows]&#x3D;&quot;pageSize()&quot;
+    [totalRecords]&#x3D;&quot;totalRecords()&quot;
+    [rowsPerPageOptions]&#x3D;&quot;[5, 10, 20]&quot;
+    [loading]&#x3D;&quot;loading()&quot;
+    [rowHover]&#x3D;&quot;true&quot;
+    dataKey&#x3D;&quot;id&quot;
+    class&#x3D;&quot;p-datatable-sm&quot;
+    [showCurrentPageReport]&#x3D;&quot;true&quot;
+    currentPageReportTemplate&#x3D;&quot;Mostrando {first} a {last} de {totalRecords} usuarios&quot;
+  &gt;
+    &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+      &lt;tr&gt;
+        &lt;th style&#x3D;&quot;width: 25%&quot;&gt;Usuario&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 30%&quot;&gt;Email&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 15%&quot;&gt;Rol&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 15%&quot;&gt;Estado&lt;/th&gt;
+        &lt;th class&#x3D;&quot;text-center&quot; style&#x3D;&quot;width: 15%&quot;&gt;Acciones&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-usuario&gt;
+      &lt;tr&gt;
+        &lt;td&gt;{{ usuario.username }}&lt;/td&gt;
+        &lt;td&gt;{{ usuario.email }}&lt;/td&gt;
+        &lt;td&gt;
+          &lt;span
+            [class]&#x3D;&quot;
+              &#x27;px-2 py-1 border-round text-sm font-bold &#x27; +
+              (usuario.rol &#x3D;&#x3D;&#x3D; &#x27;ADMIN&#x27;
+                ? &#x27;bg-purple-100 text-purple-700&#x27;
+                : &#x27;bg-blue-100 text-blue-700&#x27;)
+            &quot;
+          &gt;
+            {{ usuario.rol.nombre }}
+          &lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;span
+            [class]&#x3D;&quot;
+              &#x27;px-2 py-1 border-round text-sm font-bold &#x27; +
+              (usuario.activo ? &#x27;bg-green-100 text-green-700&#x27; : &#x27;bg-red-100 text-red-700&#x27;)
+            &quot;
+          &gt;
+            {{ usuario.activo ? &#x27;ACTIVO&#x27; : &#x27;INACTIVO&#x27; }}
+          &lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;text-center&quot;&gt;
+          &lt;p-button
+            icon&#x3D;&quot;pi pi-pencil&quot;
+            [rounded]&#x3D;&quot;true&quot;
+            [text]&#x3D;&quot;true&quot;
+            severity&#x3D;&quot;success&quot;
+            pTooltip&#x3D;&quot;Editar&quot;
+            tooltipPosition&#x3D;&quot;top&quot;
+            (onClick)&#x3D;&quot;abrirModalEditar(usuario)&quot;
+          /&gt;
+          &lt;p-button
+            icon&#x3D;&quot;pi pi-trash&quot;
+            [rounded]&#x3D;&quot;true&quot;
+            [text]&#x3D;&quot;true&quot;
+            severity&#x3D;&quot;danger&quot;
+            pTooltip&#x3D;&quot;Eliminar&quot;
+            tooltipPosition&#x3D;&quot;top&quot;
+            (onClick)&#x3D;&quot;confirmarEliminacion(usuario)&quot;
+          /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;empty&quot;&gt;
+      &lt;tr&gt;
+        &lt;td colspan&#x3D;&quot;5&quot; class&#x3D;&quot;text-center p-4&quot;&gt;No se encontraron usuarios.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+  &lt;/p-table&gt;
+
+  &lt;app-usuario-form
+    [visible]&#x3D;&quot;mostrarModal()&quot;
+    [usuarioEditar]&#x3D;&quot;usuarioSeleccionado()&quot;
+    (save)&#x3D;&quot;guardarUsuario($event)&quot;
+    (cancel)&#x3D;&quot;cerrarModal()&quot;
+  /&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card p-4">  <p-toast />  <p-confirmDialog />  <p-toolbar class="mb-4 gap-2">    <ng-template pTemplate="left">      <p-button        label="Nuevo Usuario"        icon="pi pi-plus"        class="mr-2"        (onClick)="abrirModalCrear()"      />    </ng-template>  </p-toolbar>  <p-table    [value]="usuarios()"    [lazy]="true"    (onLazyLoad)="cargarUsuarios($event)"    [paginator]="true"    [rows]="pageSize()"    [totalRecords]="totalRecords()"    [rowsPerPageOptions]="[5, 10, 20]"    [loading]="loading()"    [rowHover]="true"    dataKey="id"    class="p-datatable-sm"    [showCurrentPageReport]="true"    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} usuarios"  >    <ng-template pTemplate="header">      <tr>        <th style="width: 25%">Usuario</th>        <th style="width: 30%">Email</th>        <th style="width: 15%">Rol</th>        <th style="width: 15%">Estado</th>        <th class="text-center" style="width: 15%">Acciones</th>      </tr>    </ng-template>    <ng-template pTemplate="body" let-usuario>      <tr>        <td>{{ usuario.username }}</td>        <td>{{ usuario.email }}</td>        <td>          <span            [class]="              \'px-2 py-1 border-round text-sm font-bold \' +              (usuario.rol === \'ADMIN\'                ? \'bg-purple-100 text-purple-700\'                : \'bg-blue-100 text-blue-700\')            "          >            {{ usuario.rol.nombre }}          </span>        </td>        <td>          <span            [class]="              \'px-2 py-1 border-round text-sm font-bold \' +              (usuario.activo ? \'bg-green-100 text-green-700\' : \'bg-red-100 text-red-700\')            "          >            {{ usuario.activo ? \'ACTIVO\' : \'INACTIVO\' }}          </span>        </td>        <td class="text-center">          <p-button            icon="pi pi-pencil"            [rounded]="true"            [text]="true"            severity="success"            pTooltip="Editar"            tooltipPosition="top"            (onClick)="abrirModalEditar(usuario)"          />          <p-button            icon="pi pi-trash"            [rounded]="true"            [text]="true"            severity="danger"            pTooltip="Eliminar"            tooltipPosition="top"            (onClick)="confirmarEliminacion(usuario)"          />        </td>      </tr>    </ng-template>    <ng-template pTemplate="empty">      <tr>        <td colspan="5" class="text-center p-4">No se encontraron usuarios.</td>      </tr>    </ng-template>  </p-table>  <app-usuario-form    [visible]="mostrarModal()"    [usuarioEditar]="usuarioSeleccionado()"    (save)="guardarUsuario($event)"    (cancel)="cerrarModal()"  /></div></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UsuarioListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsuarioListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<p-dialog
+  [header]="usuarioEditar() ? 'Editar Usuario' : 'Nuevo Usuario'"
+  [visible]="visible()"
+  [modal]="true"
+  [style]="{ width: '500px' }"
+  (onHide)="onCancel()"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4 mt-2">
+    <div class="flex flex-column gap-2">
+      <label for="username" class="font-bold">Usuario</label>
+      <input pInputText id="username" formControlName="username" [readonly]="!!usuarioEditar()" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="email" class="font-bold">Email</label>
+      <input pInputText id="email" type="email" formControlName="email" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="password" class="font-bold">Contraseña</label>
+      <p-password
+        id="password"
+        formControlName="passwordHash"
+        [feedback]="false"
+        toggleMask
+        class="w-full"
+        [inputStyle]="{ width: '100%' }"
+      />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="rol" class="font-bold">Rol</label>
+      <p-select
+        id="rol"
+        formControlName="rol"
+        [options]="roles()"
+        optionLabel="nombre"
+        dataKey="id"
+        placeholder="Seleccione un rol"
+        appendTo="body"
+        class="w-full"
+        [style]="{ width: '100%' }"
+      />
+    </div>
+
+    <div class="flex align-items-center gap-2">
+      <p-checkbox id="activo" formControlName="activo" [binary]="true" />
+      <label for="activo">Usuario Activo</label>
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <p-button label="Cancelar" severity="secondary" (onClick)="onCancel()" />
+      <p-button label="Guardar" type="submit" [loading]="saving()" [disabled]="form.invalid" />
+    </div>
+  </form>
+</p-dialog>

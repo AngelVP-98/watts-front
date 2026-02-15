@@ -1,0 +1,86 @@
+<div class="grid">
+  <div class="col-12 lg:col-6 xl:col-4">
+    <div class="surface-card p-4 shadow-1 border-round h-full">
+      <div class="flex justify-content-between mb-3">
+        <div>
+          <span class="block text-500 font-medium mb-3">Productos</span>
+          <div class="text-900 font-medium text-xl">{{ totalProductos() }}</div>
+        </div>
+        <div
+          class="flex align-items-center justify-content-center bg-blue-100 border-round"
+          style="width: 2.5rem; height: 2.5rem"
+        >
+          <i class="pi pi-box text-blue-500 text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 lg:col-6 xl:col-4">
+    <div class="surface-card p-4 shadow-1 border-round h-full">
+      <div class="flex justify-content-between mb-3">
+        <div>
+          <span class="block text-500 font-medium mb-3">Variantes</span>
+          <div class="text-900 font-medium text-xl">{{ totalVariantes() }}</div>
+        </div>
+        <div
+          class="flex align-items-center justify-content-center bg-orange-100 border-round"
+          style="width: 2.5rem; height: 2.5rem"
+        >
+          <i class="pi pi-tags text-orange-500 text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 lg:col-12 xl:col-4">
+    <div class="surface-card p-4 shadow-1 border-round h-full">
+      <div class="flex justify-content-between mb-3">
+        <div>
+          <span class="block text-500 font-medium mb-3">Movimientos</span>
+          <div class="text-900 font-medium text-xl">{{ totalMovimientos() }}</div>
+        </div>
+        <div
+          class="flex align-items-center justify-content-center bg-purple-100 border-round"
+          style="width: 2.5rem; height: 2.5rem"
+        >
+          <i class="pi pi-arrow-right-arrow-left text-purple-500 text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 lg:col-12 xl:col-4">
+    <div class="surface-card p-4 shadow-1 border-round h-full">
+      <div class="flex justify-content-between mb-3">
+        <div>
+          <span class="block text-500 font-medium mb-3">Proyectos</span>
+          <div class="text-900 font-medium text-xl">{{ totalProyectos() }}</div>
+        </div>
+        <div
+          class="flex align-items-center justify-content-center bg-purple-100 border-round"
+          style="width: 2.5rem; height: 2.5rem"
+        >
+          <i class="pi pi-folder text-purple-500 text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 lg:col-12 xl:col-4">
+    <div class="surface-card p-4 shadow-1 border-round h-full">
+      <div class="flex justify-content-between mb-3">
+        <div>
+          <span class="block text-500 font-medium mb-3">Almacenes</span>
+          <div class="text-900 font-medium text-xl">{{ totalAlmacenes() }}</div>
+        </div>
+        <div
+          class="flex align-items-center justify-content-center bg-purple-100 border-round"
+          style="width: 2.5rem; height: 2.5rem"
+        >
+          <i class="pi pi-building text-purple-500 text-xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

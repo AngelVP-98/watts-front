@@ -1,0 +1,275 @@
+<div class="card p-4">
+  <div class="flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0 text-xl font-bold">Variantes</h2>
+  </div>
+  <p-toast />
+  <p-confirmDialog />
+
+  @if (authService.hasPermission('VARIANTE_CREAR')) {
+    <p-toolbar class="mb-4 gap-2">
+      <ng-template pTemplate="left">
+        <p-button
+          label="Nueva Variante"
+          icon="pi pi-plus"
+          class="mr-2"
+          (onClick)="abrirModalCrear()"
+        />
+      </ng-template>
+      <ng-template pTemplate="right">
+        <div class="flex gap-2">
+          <p-button
+            icon="pi pi-file-excel"
+            severity="success"
+            pTooltip="Exportar CSV"
+            tooltipPosition="bottom"
+            [outlined]="true"
+            (onClick)="exportarArchivo('csv')"
+          />
+
+          <p-button
+            icon="pi pi-file-pdf"
+            severity="danger"
+            pTooltip="Exportar PDF"
+            tooltipPosition="bottom"
+            [outlined]="true"
+            (onClick)="exportarArchivo('pdf')"
+          />
+        </div>
+      </ng-template>
+    </p-toolbar>
+  }
+
+  <p-table
+    [value]="variantes()"
+    [lazy]="true"
+    (onLazyLoad)="cargarVariantes($event)"
+    [paginator]="true"
+    [rows]="pageSize()"
+    [totalRecords]="totalRecords()"
+    [loading]="loading()"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    dataKey="id"
+    class="p-datatable-sm"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} variantes"
+    [expandedRowKeys]="expandedRows"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem"></th>
+        <th pResizableColumn style="width: 14%">SKU</th>
+        <th pResizableColumn style="width: 18%">Producto</th>
+        <th pResizableColumn style="width: 9%">Talla</th>
+        <th pResizableColumn style="width: 9%">Color</th>
+        <th pResizableColumn style="width: 13%">Precio Compra</th>
+        <th pResizableColumn style="width: 13%">Precio Venta</th>
+        <th pResizableColumn style="width: 10%">Estado</th>
+        @if (authService.hasPermission('VARIANTE_EDITAR')) {
+          <th class="text-center" style="width: 14%; min-width: 120px">Acciones</th>
+        }
+      </tr>
+      <tr>
+        <th></th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="sku"
+            placeholder="Buscar SKU"
+            ariaLabel="Filtrar por SKU"
+            filterOn="input"
+            [showClearButton]="false"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th></th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="talla"
+            placeholder="Talla"
+            ariaLabel="Filtrar por Talla"
+            filterOn="input"
+            [showMenu]="false"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th>
+          <p-columnFilter
+            type="text"
+            field="color"
+            placeholder="Color"
+            ariaLabel="Filtrar por Color"
+            filterOn="input"
+            [showMenu]="false"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th></th>
+        <th></th>
+        <th></th>
+        @if (
+          authService.hasPermission('VARIANTE_EDITAR') ||
+          authService.hasPermission('VARIANTE_ELIMINAR') ||
+          authService.hasPermission('VARIANTE_CREAR')
+        ) {
+          <th></th>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-variante let-expanded="expanded">
+      <tr>
+        <td>
+          <p-button
+            type="button"
+            pRipple
+            [pRowToggler]="variante"
+            [text]="true"
+            severity="secondary"
+            [rounded]="true"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+          />
+        </td>
+        <td>{{ variante.sku }}</td>
+        <td>{{ variante.producto.nombre }}</td>
+        <td>{{ variante.talla }}</td>
+        <td>{{ variante.color }}</td>
+        <td>{{ variante.precioCompra | currency: 'EUR' }}</td>
+        <td class="font-bold">{{ variante.precioVenta | currency: 'EUR' }}</td>
+        <td>
+          <span
+            [class]="
+              'px-2 py-1 border-round text-sm font-bold ' +
+              (variante.activo ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700')
+            "
+          >
+            {{ variante.activo ? 'ACTIVO' : 'INACTIVO' }}
+          </span>
+        </td>
+
+        @if (
+          authService.hasPermission('VARIANTE_EDITAR') ||
+          authService.hasPermission('VARIANTE_ELIMINAR') ||
+          authService.hasPermission('VARIANTE_CREAR')
+        ) {
+          <td class="text-center">
+            <div class="flex flex-nowrap gap-2 justify-content-center align-items-center">
+              @if (authService.hasPermission('VARIANTE_EDITAR')) {
+                <p-button
+                  icon="pi pi-pencil"
+                  [rounded]="true"
+                  [text]="true"
+                  severity="success"
+                  (onClick)="abrirModalEditar(variante)"
+                />
+              }
+              @if (
+                authService.hasPermission('VARIANTE_ELIMINAR') ||
+                authService.hasPermission('VARIANTE_CREAR')
+              ) {
+                @if (variante.activo && authService.hasPermission('VARIANTE_ELIMINAR')) {
+                  <p-button
+                    icon="pi pi-trash"
+                    [rounded]="true"
+                    [text]="true"
+                    severity="danger"
+                    (onClick)="confirmarEliminacion(variante)"
+                    pTooltip="Eliminar"
+                  />
+                }
+                @if (!variante.activo && authService.hasPermission('VARIANTE_CREAR')) {
+                  <p-button
+                    icon="pi pi-refresh"
+                    [rounded]="true"
+                    [text]="true"
+                    severity="info"
+                    (onClick)="confirmarActivacion(variante)"
+                    pTooltip="Reactivar"
+                  />
+                }
+              }
+            </div>
+          </td>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #expandedrow let-variante>
+      <tr>
+        <td colspan="9">
+          <div class="p-3">
+            <div class="flex gap-4">
+              <div class="flex-none">
+                @if (variante.imagenUrl) {
+                  <div
+                    class="border-round overflow-hidden shadow-2"
+                    style="width: 150px; height: 150px"
+                  >
+                    <img
+                      [src]="variante.imagenUrl | secureImage | async"
+                      [alt]="variante.nombre"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                } @else {
+                  <div
+                    class="flex align-items-center justify-content-center bg-gray-100 border-round text-gray-500"
+                    style="width: 150px; height: 150px"
+                  >
+                    <i class="pi pi-image text-3xl"></i>
+                  </div>
+                }
+              </div>
+
+              <div class="flex-grow-1">
+                <h5 class="mb-3 text-900"><i class="pi pi-history mr-2"></i>Auditoría</h5>
+                <div class="flex flex-wrap gap-3">
+                  <div
+                    class="flex-1 surface-ground p-3 border-round shadow-1"
+                    style="border-left: 4px solid var(--p-primary-color)"
+                  >
+                    <div class="flex align-items-center mb-2">
+                      <span class="font-bold text-900">Creación</span>
+                    </div>
+                    <div class="text-sm text-700">Por: {{ variante.creadoPor }}</div>
+                    <div class="text-sm text-700">{{ variante.fechaCreacion | customDate }}</div>
+                  </div>
+
+                  <div
+                    class="flex-1 surface-ground p-3 border-round shadow-1"
+                    style="border-left: 4px solid var(--green-500)"
+                  >
+                    <div class="flex align-items-center mb-2">
+                      <span class="font-bold text-900">Modificación</span>
+                    </div>
+                    <div class="text-sm text-700">Por: {{ variante.modificadoPor }}</div>
+                    <div class="text-sm text-700">
+                      {{ variante.fechaModificacion | customDate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="empty">
+      <tr>
+        <td colspan="9" class="text-center p-4">No se encontraron variantes.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <app-variante-form
+    [visible]="mostrarModal()"
+    [productoPreseleccionado]="productoId() ?? productoIdFromRoute()"
+    [varianteEditar]="varianteSeleccionada()"
+    (save)="guardarVariante($event)"
+    (cancel)="cerrarModal()"
+  />
+</div>

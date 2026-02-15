@@ -1,0 +1,72 @@
+<p-table
+  [value]="archivos()"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad.emit($event)"
+  [paginator]="true"
+  [rows]="rows()"
+  [totalRecords]="totalRecords()"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  [loading]="loading()"
+  class="p-datatable-sm"
+  [showCurrentPageReport]="true"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Tamaño</th>
+      <th>Subido Por</th>
+      <th>Fecha</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-archivo>
+    <tr>
+      <td>
+        <i class="pi pi-file mr-2"></i>
+
+        @if (isPreviewable(archivo.nombreOriginal)) {
+          <span
+            class="font-bold text-primary cursor-pointer hover:underline"
+            (click)="onPreview.emit(archivo)"
+            pTooltip="Clic para abrir en nueva pestaña"
+            tooltipPosition="top"
+          >
+            {{ archivo.nombreOriginal }}
+          </span>
+        } @else {
+          <span class="font-bold">{{ archivo.nombreOriginal }}</span>
+        }
+      </td>
+
+      <td>{{ archivo.tipo | fileType }}</td>
+      <td>{{ (archivo.tamanyo / 1024).toFixed(2) }} KB</td>
+      <td>{{ archivo.subidoPor }}</td>
+      <td>{{ archivo.fechaSubida | date: 'dd/MM/yyyy' }}</td>
+
+      <td class="text-center">
+        <p-button
+          icon="pi pi-download"
+          styleClass="p-button-rounded p-button-text p-button-success mr-2"
+          (onClick)="onDownload.emit(archivo)"
+          pTooltip="Descargar"
+        >
+        </p-button>
+        <p-button
+          icon="pi pi-trash"
+          styleClass="p-button-rounded p-button-text p-button-danger"
+          (onClick)="onDelete.emit(archivo)"
+          pTooltip="Eliminar"
+        >
+        </p-button>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="6" class="text-center p-4">El proyecto está vacío.</td>
+    </tr>
+  </ng-template>
+</p-table>

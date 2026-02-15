@@ -1,0 +1,1111 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProyectoDetailListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de presentación encargado de renderizar la vista de lista
+para los archivos de un proyecto. Muestra los metadatos de los archivos y emite eventos
+al componente padre para manejar acciones como la descarga, eliminación y previsualización.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-proyecto-detail-list</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TableModule</code>
+                            <code>ButtonModule</code>
+                            <code>TooltipModule</code>
+                            <code>FileTypePipe</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./proyecto-detail-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#archivos" >archivos</a>
+                            </li>
+                            <li>
+                                <a href="#canDelete" >canDelete</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onDownload" >onDownload</a>
+                            </li>
+                            <li>
+                                <a href="#onLazyLoad" >onLazyLoad</a>
+                            </li>
+                            <li>
+                                <a href="#onPreview" >onPreview</a>
+                            </li>
+                            <li>
+                                <a href="#rows" >rows</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isPreviewable" >isPreviewable</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#canDelete" >canDelete</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#rows" >rows</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onDownload" >onDownload</a>
+                            </li>
+                            <li>
+                                <a href="#onLazyLoad" >onLazyLoad</a>
+                            </li>
+                            <li>
+                                <a href="#onPreview" >onPreview</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="canDelete"></a>
+                        <b>canDelete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:41</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Determina si se debe mostrar el botón de eliminar archivo en cada fila.
+Basado en los permisos del usuario activo. Por defecto es <code>false</code>.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loading"></a>
+                        <b>loading</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Indicador de estado que muestra un spinner en la tabla cuando los datos están siendo cargados.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rows"></a>
+                        <b>rows</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:36</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Cantidad de filas o elementos a mostrar por página en la tabla.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalRecords"></a>
+                        <b>totalRecords</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:28</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Número total de archivos disponibles en el servidor, necesario para la paginación de la tabla.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDelete"></a>
+                        <b>onDelete</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:54</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario hace clic en el botón de eliminar un archivo.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDownload"></a>
+                        <b>onDownload</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario hace clic en el botón de descargar un archivo específico.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onLazyLoad"></a>
+                        <b>onLazyLoad</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:46</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando la tabla requiere cargar una nueva página de datos o cambia su ordenamiento.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onPreview"></a>
+                        <b>onPreview</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:58</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario solicita previsualizar un archivo directamente en el navegador.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPreviewable"></a>
+                    <span class="name">
+                        <span ><b>isPreviewable</b></span>
+                        <a href="#isPreviewable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isPreviewable(fileName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determina si un archivo tiene un formato que el navegador puede previsualizar de forma nativa.
+Actualmente soporta archivos PDF y formatos de imagen comunes.</p>
+<ul>
+<li>@param fileName Nombre original del archivo, incluyendo su extensión.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fileName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre original del archivo, incluyendo su extensión.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p><code>true</code> si el archivo puede ser previsualizado, <code>false</code> si no tiene una extensión soportada o si el nombre es nulo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archivos"></a>
+                    <span class="name">
+                        <span ><b>archivos</b></span>
+                        <a href="#archivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input.required&lt;Archivo[]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Arreglo de archivos que se mostrarán en la tabla de PrimeNG.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canDelete"></a>
+                    <span class="name">
+                        <span ><b>canDelete</b></span>
+                        <a href="#canDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Determina si se debe mostrar el botón de eliminar archivo en cada fila.
+Basado en los permisos del usuario activo. Por defecto es <code>false</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indicador de estado que muestra un spinner en la tabla cuando los datos están siendo cargados.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDelete"></a>
+                    <span class="name">
+                        <span ><b>onDelete</b></span>
+                        <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario hace clic en el botón de eliminar un archivo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDownload"></a>
+                    <span class="name">
+                        <span ><b>onDownload</b></span>
+                        <a href="#onDownload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario hace clic en el botón de descargar un archivo específico.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLazyLoad"></a>
+                    <span class="name">
+                        <span ><b>onLazyLoad</b></span>
+                        <a href="#onLazyLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando la tabla requiere cargar una nueva página de datos o cambia su ordenamiento.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPreview"></a>
+                    <span class="name">
+                        <span ><b>onPreview</b></span>
+                        <a href="#onPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario solicita previsualizar un archivo directamente en el navegador.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rows"></a>
+                    <span class="name">
+                        <span ><b>rows</b></span>
+                        <a href="#rows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cantidad de filas o elementos a mostrar por página en la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalRecords"></a>
+                    <span class="name">
+                        <span ><b>totalRecords</b></span>
+                        <a href="#totalRecords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-list/proyecto-detail-list.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Número total de archivos disponibles en el servidor, necesario para la paginación de la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, input, output } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { TableModule, TableLazyLoadEvent } from &#x27;primeng/table&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { TooltipModule } from &#x27;primeng/tooltip&#x27;;
+import { Archivo } from &#x27;../../models/proyecto.model&#x27;;
+import { FileTypePipe } from &#x27;../../../../shared/pipes/file-type.pipe&#x27;;
+
+/**
+ * Componente de presentación encargado de renderizar la vista de lista
+ * para los archivos de un proyecto. Muestra los metadatos de los archivos y emite eventos 
+ * al componente padre para manejar acciones como la descarga, eliminación y previsualización.
+ */
+@Component({
+    selector: &#x27;app-proyecto-detail-list&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, TableModule, ButtonModule, TooltipModule, FileTypePipe],
+    templateUrl: &#x27;./proyecto-detail-list.component.html&#x27;
+})
+export class ProyectoDetailListComponent {
+    /**
+     * Arreglo de archivos que se mostrarán en la tabla de PrimeNG.
+     */
+    archivos &#x3D; input.required&lt;Archivo[]&gt;();
+    /**
+     * Número total de archivos disponibles en el servidor, necesario para la paginación de la tabla.
+     */
+    totalRecords &#x3D; input.required&lt;number&gt;();
+    /**
+     * Indicador de estado que muestra un spinner en la tabla cuando los datos están siendo cargados.
+     */
+    loading &#x3D; input.required&lt;boolean&gt;();
+    /**
+     * Cantidad de filas o elementos a mostrar por página en la tabla.
+     */
+    rows &#x3D; input.required&lt;number&gt;();
+    /**
+     * Determina si se debe mostrar el botón de eliminar archivo en cada fila.
+     * Basado en los permisos del usuario activo. Por defecto es &#x60;false&#x60;.
+     */
+    canDelete &#x3D; input&lt;boolean&gt;(false);
+
+    /**
+     * Evento emitido cuando la tabla requiere cargar una nueva página de datos o cambia su ordenamiento.
+     */
+    onLazyLoad &#x3D; output&lt;TableLazyLoadEvent&gt;();
+    /**
+     * Evento emitido cuando el usuario hace clic en el botón de descargar un archivo específico.
+     */
+    onDownload &#x3D; output&lt;Archivo&gt;();
+    /**
+     * Evento emitido cuando el usuario hace clic en el botón de eliminar un archivo.
+     */
+    onDelete &#x3D; output&lt;Archivo&gt;();
+    /**
+     * Evento emitido cuando el usuario solicita previsualizar un archivo directamente en el navegador.
+     */
+    onPreview &#x3D; output&lt;Archivo&gt;();
+
+    /**
+     * Determina si un archivo tiene un formato que el navegador puede previsualizar de forma nativa.
+     * Actualmente soporta archivos PDF y formatos de imagen comunes.
+     * * @param fileName Nombre original del archivo, incluyendo su extensión.
+     * @returns &#x60;true&#x60; si el archivo puede ser previsualizado, &#x60;false&#x60; si no tiene una extensión soportada o si el nombre es nulo.
+     */
+    isPreviewable(fileName: string): boolean {
+        if (!fileName) return false;
+        const ext &#x3D; fileName.split(&#x27;.&#x27;).pop()?.toLowerCase();
+        return [&#x27;pdf&#x27;, &#x27;jpg&#x27;, &#x27;jpeg&#x27;, &#x27;png&#x27;, &#x27;gif&#x27;, &#x27;webp&#x27;].includes(ext || &#x27;&#x27;);
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-table
+  [value]&#x3D;&quot;archivos()&quot;
+  [lazy]&#x3D;&quot;true&quot;
+  (onLazyLoad)&#x3D;&quot;onLazyLoad.emit($event)&quot;
+  [paginator]&#x3D;&quot;true&quot;
+  [rows]&#x3D;&quot;rows()&quot;
+  [totalRecords]&#x3D;&quot;totalRecords()&quot;
+  [rowsPerPageOptions]&#x3D;&quot;[5, 10, 20]&quot;
+  [loading]&#x3D;&quot;loading()&quot;
+  class&#x3D;&quot;p-datatable-sm&quot;
+  [showCurrentPageReport]&#x3D;&quot;true&quot;
+&gt;
+  &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nombre&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamaño&lt;/th&gt;
+      &lt;th&gt;Subido Por&lt;/th&gt;
+      &lt;th&gt;Fecha&lt;/th&gt;
+      &lt;th class&#x3D;&quot;text-center&quot;&gt;Acciones&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-archivo&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;i class&#x3D;&quot;pi pi-file mr-2&quot;&gt;&lt;/i&gt;
+
+        @if (isPreviewable(archivo.nombreOriginal)) {
+          &lt;span
+            class&#x3D;&quot;font-bold text-primary cursor-pointer hover:underline&quot;
+            (click)&#x3D;&quot;onPreview.emit(archivo)&quot;
+            pTooltip&#x3D;&quot;Clic para abrir en nueva pestaña&quot;
+            tooltipPosition&#x3D;&quot;top&quot;
+          &gt;
+            {{ archivo.nombreOriginal }}
+          &lt;/span&gt;
+        } @else {
+          &lt;span class&#x3D;&quot;font-bold&quot;&gt;{{ archivo.nombreOriginal }}&lt;/span&gt;
+        }
+      &lt;/td&gt;
+
+      &lt;td&gt;{{ archivo.tipo | fileType }}&lt;/td&gt;
+      &lt;td&gt;{{ (archivo.tamanyo / 1024).toFixed(2) }} KB&lt;/td&gt;
+      &lt;td&gt;{{ archivo.subidoPor }}&lt;/td&gt;
+      &lt;td&gt;{{ archivo.fechaSubida | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/td&gt;
+
+      &lt;td class&#x3D;&quot;text-center&quot;&gt;
+        &lt;p-button
+          icon&#x3D;&quot;pi pi-download&quot;
+          styleClass&#x3D;&quot;p-button-rounded p-button-text p-button-success mr-2&quot;
+          (onClick)&#x3D;&quot;onDownload.emit(archivo)&quot;
+          pTooltip&#x3D;&quot;Descargar&quot;
+        &gt;
+        &lt;/p-button&gt;
+        &lt;p-button
+          icon&#x3D;&quot;pi pi-trash&quot;
+          styleClass&#x3D;&quot;p-button-rounded p-button-text p-button-danger&quot;
+          (onClick)&#x3D;&quot;onDelete.emit(archivo)&quot;
+          pTooltip&#x3D;&quot;Eliminar&quot;
+        &gt;
+        &lt;/p-button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template pTemplate&#x3D;&quot;emptymessage&quot;&gt;
+    &lt;tr&gt;
+      &lt;td colspan&#x3D;&quot;6&quot; class&#x3D;&quot;text-center p-4&quot;&gt;El proyecto está vacío.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/ng-template&gt;
+&lt;/p-table&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-table  [value]="archivos()"  [lazy]="true"  (onLazyLoad)="onLazyLoad.emit($event)"  [paginator]="true"  [rows]="rows()"  [totalRecords]="totalRecords()"  [rowsPerPageOptions]="[5, 10, 20]"  [loading]="loading()"  class="p-datatable-sm"  [showCurrentPageReport]="true">  <ng-template pTemplate="header">    <tr>      <th>Nombre</th>      <th>Tipo</th>      <th>Tamaño</th>      <th>Subido Por</th>      <th>Fecha</th>      <th class="text-center">Acciones</th>    </tr>  </ng-template>  <ng-template pTemplate="body" let-archivo>    <tr>      <td>        <i class="pi pi-file mr-2"></i>        @if (isPreviewable(archivo.nombreOriginal)) {          <span            class="font-bold text-primary cursor-pointer hover:underline"            (click)="onPreview.emit(archivo)"            pTooltip="Clic para abrir en nueva pestaña"            tooltipPosition="top"          >            {{ archivo.nombreOriginal }}          </span>        } @else {          <span class="font-bold">{{ archivo.nombreOriginal }}</span>        }      </td>      <td>{{ archivo.tipo | fileType }}</td>      <td>{{ (archivo.tamanyo / 1024).toFixed(2) }} KB</td>      <td>{{ archivo.subidoPor }}</td>      <td>{{ archivo.fechaSubida | date: \'dd/MM/yyyy\' }}</td>      <td class="text-center">        <p-button          icon="pi pi-download"          styleClass="p-button-rounded p-button-text p-button-success mr-2"          (onClick)="onDownload.emit(archivo)"          pTooltip="Descargar"        >        </p-button>        <p-button          icon="pi pi-trash"          styleClass="p-button-rounded p-button-text p-button-danger"          (onClick)="onDelete.emit(archivo)"          pTooltip="Eliminar"        >        </p-button>      </td>    </tr>  </ng-template>  <ng-template pTemplate="emptymessage">    <tr>      <td colspan="6" class="text-center p-4">El proyecto está vacío.</td>    </tr>  </ng-template></p-table></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProyectoDetailListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProyectoDetailListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

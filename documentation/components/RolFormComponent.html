@@ -1,0 +1,1025 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  RolFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/components/rol-form/rol-form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente encargado de renderizar el formulario (modal) para la creación y edición de roles de usuario.
+Permite asignar un nombre descriptivo al rol y seleccionar los permisos asociados al mismo
+mediante un componente de selección múltiple.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-rol-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>DialogModule</code>
+                            <code>MultiSelectModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./rol-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_permisoService" >_permisoService</a>
+                            </li>
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#permisosDisponibles" >permisosDisponibles</a>
+                            </li>
+                            <li>
+                                <a href="#rolEditar" >rolEditar</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                <a href="#saving" >saving</a>
+                            </li>
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onCancel" >onCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Inicializa el componente solicitando al backend la lista de permisos del sistema.
+Además, configura un <code>effect</code> reactivo que escucha los cambios en el input <code>rolEditar</code>
+para poblar el formulario automáticamente con los datos del rol a modificar,
+o resetearlo si se abre en modo de creación.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <b>visible</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:35</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Señal de entrada que determina si el modal (diálogo) del formulario es visible o está oculto.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancel"></a>
+                        <b>cancel</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario cancela la acción o cierra el cuadro de diálogo.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCancel"></a>
+                    <span class="name">
+                        <span ><b>onCancel</b></span>
+                        <a href="#onCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Resetea el formulario eliminando los datos previos introducidos por el usuario
+y emite el evento <code>cancel</code> para indicar que el modal debe cerrarse.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Evalúa el formulario y, si es válido, extrae sus valores y los emite
+a través del evento <code>save</code> para que el componente padre realice la petición de guardado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_permisoService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_permisoService</b></span>
+                        <a href="#_permisoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(PermisoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario cancela la acción o cierra el cuadro de diálogo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.nonNullable.group({
+        id: [0],
+        nombre: [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+        permisos: [[] as Permiso[]] // Campo para los permisos
+    })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo tipado estrictamente (nonNullable) que maneja las validaciones
+y el estado de los campos del rol (id, nombre y arreglo de permisos).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permisosDisponibles"></a>
+                    <span class="name">
+                        <span ><b>permisosDisponibles</b></span>
+                        <a href="#permisosDisponibles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Permiso[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que almacena la lista completa de permisos disponibles en el sistema.
+Estos datos se utilizan para poblar las opciones del menú desplegable <code>MultiSelect</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rolEditar"></a>
+                    <span class="name">
+                        <span ><b>rolEditar</b></span>
+                        <a href="#rolEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;Rol | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal de entrada que recibe el objeto <code>Rol</code> a modificar si estamos en modo edición.
+Recibe <code>null</code> por defecto si la intención es crear un nuevo rol desde cero.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>output&lt;Partial&lt;Rol&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido al componente padre cuando el usuario guarda el formulario correctamente.
+Envía un objeto con los datos del rol (nuevo o editado).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saving"></a>
+                    <span class="name">
+                        <span ><b>saving</b></span>
+                        <a href="#saving"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que indica si se está ejecutando el proceso de guardado (útil para deshabilitar botones).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                        <span ><b>visible</b></span>
+                        <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/admin/components/rol-form/rol-form.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal de entrada que determina si el modal (diálogo) del formulario es visible o está oculto.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, inject, signal, input, output, effect } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { MultiSelectModule } from &#x27;primeng/multiselect&#x27;; // Importar MultiSelect
+import { Rol } from &#x27;../../models/rol.model&#x27;;
+import { Permiso } from &#x27;../../models/permiso.model&#x27;;
+import { PermisoService } from &#x27;../../services/permiso.service&#x27;;
+
+/**
+ * Componente encargado de renderizar el formulario (modal) para la creación y edición de roles de usuario.
+ * Permite asignar un nombre descriptivo al rol y seleccionar los permisos asociados al mismo 
+ * mediante un componente de selección múltiple.
+ */
+@Component({
+    selector: &#x27;app-rol-form&#x27;,
+    imports: [
+        ReactiveFormsModule,
+        ButtonModule,
+        InputTextModule,
+        DialogModule,
+        MultiSelectModule // Añadir a imports
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: &#x27;./rol-form.component.html&#x27;
+})
+export class RolFormComponent {
+    private readonly _fb &#x3D; inject(FormBuilder);
+    private readonly _permisoService &#x3D; inject(PermisoService);
+
+    /**
+     * Señal de entrada que determina si el modal (diálogo) del formulario es visible o está oculto.
+     */
+    visible &#x3D; input.required&lt;boolean&gt;();
+    /**
+     * Señal de entrada que recibe el objeto &#x60;Rol&#x60; a modificar si estamos en modo edición. 
+     * Recibe &#x60;null&#x60; por defecto si la intención es crear un nuevo rol desde cero.
+     */
+    rolEditar &#x3D; input&lt;Rol | null&gt;(null);
+    
+    /**
+     * Evento emitido al componente padre cuando el usuario guarda el formulario correctamente.
+     * Envía un objeto con los datos del rol (nuevo o editado).
+     */
+    save &#x3D; output&lt;Partial&lt;Rol&gt;&gt;();
+    /**
+     * Evento emitido cuando el usuario cancela la acción o cierra el cuadro de diálogo.
+     */
+    cancel &#x3D; output&lt;void&gt;();
+
+    /**
+     * Señal reactiva que indica si se está ejecutando el proceso de guardado (útil para deshabilitar botones).
+     */
+    saving &#x3D; signal(false);
+    /**
+     * Señal que almacena la lista completa de permisos disponibles en el sistema.
+     * Estos datos se utilizan para poblar las opciones del menú desplegable &#x60;MultiSelect&#x60;.
+     */
+    permisosDisponibles &#x3D; signal&lt;Permiso[]&gt;([]);
+
+    /**
+     * Formulario reactivo tipado estrictamente (nonNullable) que maneja las validaciones 
+     * y el estado de los campos del rol (id, nombre y arreglo de permisos).
+     */
+    form &#x3D; this._fb.nonNullable.group({
+        id: [0],
+        nombre: [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+        permisos: [[] as Permiso[]] // Campo para los permisos
+    });
+
+    /**
+     * Inicializa el componente solicitando al backend la lista de permisos del sistema.
+     * Además, configura un &#x60;effect&#x60; reactivo que escucha los cambios en el input &#x60;rolEditar&#x60; 
+     * para poblar el formulario automáticamente con los datos del rol a modificar, 
+     * o resetearlo si se abre en modo de creación.
+     */
+    constructor() {
+        // Cargamos los permisos del sistema
+        this._permisoService.listarTodos().subscribe({
+            next: (data) &#x3D;&gt; this.permisosDisponibles.set(data),
+            error: (err) &#x3D;&gt; console.error(&#x27;Error cargando permisos&#x27;, err)
+        });
+
+        effect(() &#x3D;&gt; {
+            const rol &#x3D; this.rolEditar();
+            if (rol) {
+                this.form.patchValue({
+                    id: rol.id,
+                    nombre: rol.nombre,
+                    permisos: rol.permisos || [] // Cargar permisos existentes
+                });
+            } else {
+                this.form.reset({ id: 0, nombre: &#x27;&#x27;, permisos: [] });
+            }
+        });
+    }
+
+    /**
+     * Evalúa el formulario y, si es válido, extrae sus valores y los emite 
+     * a través del evento &#x60;save&#x60; para que el componente padre realice la petición de guardado.
+     */
+    onSubmit() {
+        if (this.form.invalid) return;
+        this.saving.set(true);
+
+        const formValue &#x3D; this.form.getRawValue();
+        this.save.emit(formValue as Rol);
+        this.saving.set(false);
+    }
+
+    /**
+     * Resetea el formulario eliminando los datos previos introducidos por el usuario 
+     * y emite el evento &#x60;cancel&#x60; para indicar que el modal debe cerrarse.
+     */
+    onCancel() {
+        this.form.reset();
+        this.cancel.emit();
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-dialog
+  [header]&#x3D;&quot;rolEditar() ? &#x27;Editar Rol&#x27; : &#x27;Nuevo Rol&#x27;&quot;
+  [visible]&#x3D;&quot;visible()&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [style]&#x3D;&quot;{ width: &#x27;450px&#x27; }&quot;
+  (onHide)&#x3D;&quot;onCancel()&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;flex flex-column gap-4 mt-2&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;font-bold&quot;&gt;Nombre del Rol&lt;/label&gt;
+      &lt;input pInputText id&#x3D;&quot;nombre&quot; formControlName&#x3D;&quot;nombre&quot; autofocus /&gt;
+      @if (form.controls.nombre.dirty &amp;&amp; form.controls.nombre.invalid) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;
+          &gt;El nombre es requerido y debe tener al menos 3 caracteres.&lt;/small
+        &gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;permisos&quot; class&#x3D;&quot;font-bold&quot;&gt;Permisos&lt;/label&gt;
+      &lt;p-multiSelect
+        id&#x3D;&quot;permisos&quot;
+        formControlName&#x3D;&quot;permisos&quot;
+        [options]&#x3D;&quot;permisosDisponibles()&quot;
+        optionLabel&#x3D;&quot;nombre&quot;
+        placeholder&#x3D;&quot;Seleccione permisos&quot;
+        display&#x3D;&quot;chip&quot;
+        appendTo&#x3D;&quot;body&quot;
+        [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+      /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-content-end gap-2 mt-4&quot;&gt;
+      &lt;p-button label&#x3D;&quot;Cancelar&quot; severity&#x3D;&quot;secondary&quot; (onClick)&#x3D;&quot;onCancel()&quot; /&gt;
+      &lt;p-button label&#x3D;&quot;Guardar&quot; type&#x3D;&quot;submit&quot; [loading]&#x3D;&quot;saving()&quot; [disabled]&#x3D;&quot;form.invalid&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-dialog  [header]="rolEditar() ? \'Editar Rol\' : \'Nuevo Rol\'"  [visible]="visible()"  [modal]="true"  [style]="{ width: \'450px\' }"  (onHide)="onCancel()">  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4 mt-2">    <div class="flex flex-column gap-2">      <label for="nombre" class="font-bold">Nombre del Rol</label>      <input pInputText id="nombre" formControlName="nombre" autofocus />      @if (form.controls.nombre.dirty && form.controls.nombre.invalid) {        <small class="text-red-500"          >El nombre es requerido y debe tener al menos 3 caracteres.</small        >      }    </div>    <div class="flex flex-column gap-2">      <label for="permisos" class="font-bold">Permisos</label>      <p-multiSelect        id="permisos"        formControlName="permisos"        [options]="permisosDisponibles()"        optionLabel="nombre"        placeholder="Seleccione permisos"        display="chip"        appendTo="body"        [style]="{ width: \'100%\' }"      />    </div>    <div class="flex justify-content-end gap-2 mt-4">      <p-button label="Cancelar" severity="secondary" (onClick)="onCancel()" />      <p-button label="Guardar" type="submit" [loading]="saving()" [disabled]="form.invalid" />    </div>  </form></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RolFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RolFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

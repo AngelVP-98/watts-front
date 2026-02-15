@@ -1,0 +1,105 @@
+<div class="p-4 mx-auto" style="max-width: 1200px">
+  <h1 class="text-center mb-5">Menú Principal</h1>
+
+  <app-stats-widget class="block mb-4"></app-stats-widget>
+
+  <div class="grid">
+    <div class="col-12 lg:col-6 xl:col-4">
+      <a
+        routerLink="/inventario/productos"
+        class="block surface-card p-4 border-round shadow-1 h-full no-underline text-color cursor-pointer transition-all transition-duration-200 hover:shadow-4 hover:-translate-y-1"
+      >
+        <div class="flex align-items-center gap-3 mb-3">
+          <div
+            class="flex align-items-center justify-content-center bg-blue-100 border-round"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-box text-blue-500 text-xl"></i>
+          </div>
+          <h2 class="m-0 text-900 text-xl">Productos</h2>
+        </div>
+        <p class="m-0 text-600 line-height-3">
+          Gestión completa del catálogo de productos y referencias base.
+        </p>
+      </a>
+    </div>
+
+    <div class="col-12 lg:col-6 xl:col-4">
+      <a
+        routerLink="/inventario/variantes"
+        class="block surface-card p-4 border-round shadow-1 h-full no-underline text-color cursor-pointer transition-all transition-duration-200 hover:shadow-4 hover:-translate-y-1"
+      >
+        <div class="flex align-items-center gap-3 mb-3">
+          <div
+            class="flex align-items-center justify-content-center bg-orange-100 border-round"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-tags text-orange-500 text-xl"></i>
+          </div>
+          <h2 class="m-0 text-900 text-xl">Variantes</h2>
+        </div>
+        <p class="m-0 text-600 line-height-3">
+          Administración de tallas, colores y combinaciones de stock.
+        </p>
+      </a>
+    </div>
+
+    <div class="col-12 lg:col-12 xl:col-4">
+      <a
+        routerLink="/transacciones/movimientos"
+        class="block surface-card p-4 border-round shadow-1 h-full no-underline text-color cursor-pointer transition-all transition-duration-200 hover:shadow-4 hover:-translate-y-1"
+      >
+        <div class="flex align-items-center gap-3 mb-3">
+          <div
+            class="flex align-items-center justify-content-center bg-purple-100 border-round"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-arrow-right-arrow-left text-purple-500 text-xl"></i>
+          </div>
+          <h2 class="m-0 text-900 text-xl">Movimientos</h2>
+        </div>
+        <p class="m-0 text-600 line-height-3">
+          Registro histórico de entradas, salidas y ajustes de inventario.
+        </p>
+      </a>
+    </div>
+
+    <div class="col-12 lg:col-12 xl:col-4">
+      <a
+        routerLink="/proyectos"
+        class="block surface-card p-4 border-round shadow-1 h-full no-underline text-color cursor-pointer transition-all transition-duration-200 hover:shadow-4 hover:-translate-y-1"
+      >
+        <div class="flex align-items-center gap-3 mb-3">
+          <div
+            class="flex align-items-center justify-content-center bg-purple-100 border-round"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-folder text-purple-500 text-xl"></i>
+          </div>
+          <h2 class="m-0 text-900 text-xl">Proyectos</h2>
+        </div>
+        <p class="m-0 text-600 line-height-3">Registro de documentos añadidos</p>
+      </a>
+    </div>
+
+    <div class="col-12 lg:col-12 xl:col-4">
+      <a
+        routerLink="/almacenes"
+        class="block surface-card p-4 border-round shadow-1 h-full no-underline text-color cursor-pointer transition-all transition-duration-200 hover:shadow-4 hover:-translate-y-1"
+      >
+        <div class="flex align-items-center gap-3 mb-3">
+          <div
+            class="flex align-items-center justify-content-center bg-purple-100 border-round"
+            style="width: 2.5rem; height: 2.5rem"
+          >
+            <i class="pi pi-building text-purple-500 text-xl"></i>
+          </div>
+          <h2 class="m-0 text-900 text-xl">Almacenes</h2>
+        </div>
+        <p class="m-0 text-600 line-height-3">
+          Registro de Almacenes y stock disponible de cada uno de ellos
+        </p>
+      </a>
+    </div>
+  </div>
+</div>

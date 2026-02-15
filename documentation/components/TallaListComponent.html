@@ -1,0 +1,1024 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TallaListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/inventario/components/talla-list/talla-list.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que gestiona y muestra la lista de tallas disponibles.
+Permite visualizar las tallas en una tabla y proporciona la funcionalidad
+para abrir un modal de creación de nuevas tallas.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MessageService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-talla-list</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TableModule</code>
+                            <code>ButtonModule</code>
+                            <code>ToolbarModule</code>
+                            <code>ToastModule</code>
+                                <code><a href="../components/TallaFormComponent.html" target="_self" >TallaFormComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./talla-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_catalogoService" >_catalogoService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_messageService" >_messageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarModal" >mostrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#tallas" >tallas</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirModalCrear" >abrirModalCrear</a>
+                            </li>
+                            <li>
+                                <a href="#cargarTallas" >cargarTallas</a>
+                            </li>
+                            <li>
+                                <a href="#cerrarModal" >cerrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#guardarTalla" >guardarTalla</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalCrear"></a>
+                    <span class="name">
+                        <span ><b>abrirModalCrear</b></span>
+                        <a href="#abrirModalCrear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalCrear()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia el estado de la señal <code>mostrarModal</code> para abrir y hacer visible
+el formulario de creación de tallas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarTallas"></a>
+                    <span class="name">
+                        <span ><b>cargarTallas</b></span>
+                        <a href="#cargarTallas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarTallas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene la lista de tallas desde el servicio de catálogo.
+Actualiza el estado de carga y almacena las tallas recuperadas en la señal <code>tallas</code>.
+En caso de error, muestra una notificación al usuario indicando el fallo.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarModal"></a>
+                    <span class="name">
+                        <span ><b>cerrarModal</b></span>
+                        <a href="#cerrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia el estado de la señal <code>mostrarModal</code> para cerrar y ocultar
+el formulario de creación de tallas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarTalla"></a>
+                    <span class="name">
+                        <span ><b>guardarTalla</b></span>
+                        <a href="#guardarTalla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarTalla(talla: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Envía la solicitud para crear una nueva talla utilizando el servicio de catálogo.
+Si la operación es exitosa, muestra un mensaje de éxito, recarga la lista
+de tallas y cierra el modal. Si falla, muestra un mensaje de error.</p>
+<ul>
+<li>@param talla - Objeto que contiene los datos de la nueva talla a crear.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>talla</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Objeto que contiene los datos de la nueva talla a crear.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida de Angular que se ejecuta al inicializar el componente.
+Se encarga de disparar la carga inicial de la lista de tallas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_catalogoService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_catalogoService</b></span>
+                        <a href="#_catalogoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(CatalogoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio inyectado para gestionar las operaciones del catálogo (tallas).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_messageService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_messageService</b></span>
+                        <a href="#_messageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MessageService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio inyectado para mostrar notificaciones (toasts) al usuario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de autenticación público inyectado, utilizado generalmente para control de permisos en la vista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que indica si los datos se están cargando actualmente.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarModal"></a>
+                    <span class="name">
+                        <span ><b>mostrarModal</b></span>
+                        <a href="#mostrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que controla la visibilidad del modal para crear una nueva talla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tallas"></a>
+                    <span class="name">
+                        <span ><b>tallas</b></span>
+                        <a href="#tallas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Talla[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/modules/inventario/components/talla-list/talla-list.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que almacena la lista de tallas obtenida del servidor.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, inject, signal, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { TableModule } from &#x27;primeng/table&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { ToolbarModule } from &#x27;primeng/toolbar&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+
+import { CatalogoService } from &#x27;../../../../shared/services/catalogo.service&#x27;;
+import { Talla } from &#x27;../../../../shared/models/catalogo.model&#x27;;
+import { TallaFormComponent } from &#x27;../talla-form/talla-form.component&#x27;;
+import { AuthService } from &#x27;../../../../core/auth/auth.service&#x27;;
+
+/**
+ * Componente que gestiona y muestra la lista de tallas disponibles.
+ * Permite visualizar las tallas en una tabla y proporciona la funcionalidad
+ * para abrir un modal de creación de nuevas tallas.
+ */
+@Component({
+    selector: &#x27;app-talla-list&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [MessageService],
+    imports: [
+        CommonModule,
+        TableModule,
+        ButtonModule,
+        ToolbarModule,
+        ToastModule,
+        TallaFormComponent
+    ],
+    templateUrl: &#x27;./talla-list.component.html&#x27;,
+})
+export class TallaListComponent implements OnInit {
+    /** Servicio inyectado para gestionar las operaciones del catálogo (tallas). */
+    private readonly _catalogoService &#x3D; inject(CatalogoService);
+    /** Servicio inyectado para mostrar notificaciones (toasts) al usuario. */
+    private readonly _messageService &#x3D; inject(MessageService);
+    /** Servicio de autenticación público inyectado, utilizado generalmente para control de permisos en la vista. */
+    public readonly authService &#x3D; inject(AuthService);
+
+    // Signals
+    /** Señal reactiva que almacena la lista de tallas obtenida del servidor. */
+    tallas &#x3D; signal&lt;Talla[]&gt;([]);
+    /** Señal reactiva que indica si los datos se están cargando actualmente. */
+    loading &#x3D; signal(true);
+    /** Señal reactiva que controla la visibilidad del modal para crear una nueva talla. */
+    mostrarModal &#x3D; signal(false);
+
+    /**
+     * Método del ciclo de vida de Angular que se ejecuta al inicializar el componente.
+     * Se encarga de disparar la carga inicial de la lista de tallas.
+     */
+    ngOnInit() {
+        this.cargarTallas();
+    }
+
+    /**
+     * Obtiene la lista de tallas desde el servicio de catálogo.
+     * Actualiza el estado de carga y almacena las tallas recuperadas en la señal &#x60;tallas&#x60;.
+     * En caso de error, muestra una notificación al usuario indicando el fallo.
+     */
+    cargarTallas() {
+        this.loading.set(true);
+        this._catalogoService.obtenerTallas().subscribe({
+            next: (data) &#x3D;&gt; {
+                this.tallas.set(data);
+                this.loading.set(false);
+            },
+            error: () &#x3D;&gt; {
+                this.loading.set(false);
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al cargar tallas&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Cambia el estado de la señal &#x60;mostrarModal&#x60; para abrir y hacer visible
+     * el formulario de creación de tallas.
+     */
+    abrirModalCrear() {
+        this.mostrarModal.set(true);
+    }
+
+    /**
+     * Cambia el estado de la señal &#x60;mostrarModal&#x60; para cerrar y ocultar
+     * el formulario de creación de tallas.
+     */
+    cerrarModal() {
+        this.mostrarModal.set(false);
+    }
+
+    /**
+     * Envía la solicitud para crear una nueva talla utilizando el servicio de catálogo.
+     * Si la operación es exitosa, muestra un mensaje de éxito, recarga la lista
+     * de tallas y cierra el modal. Si falla, muestra un mensaje de error.
+     * * @param talla - Objeto que contiene los datos de la nueva talla a crear.
+     * @param talla.nombre - El nombre o identificador de la talla a registrar.
+     */
+    guardarTalla(talla: { nombre: string }) {
+        this._catalogoService.crearTalla(talla).subscribe({
+            next: () &#x3D;&gt; {
+                this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Talla creada&#x27; });
+                this.cargarTallas();
+                this.cerrarModal();
+            },
+            error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;No se pudo crear la talla&#x27; })
+        });
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card p-4&quot;&gt;
+  &lt;p-toast /&gt;
+  @if (authService.hasPermission(&#x27;TALLA_CREAR&#x27;)) {
+    &lt;p-toolbar class&#x3D;&quot;mb-4 gap-2&quot;&gt;
+      &lt;ng-template pTemplate&#x3D;&quot;left&quot;&gt;
+        &lt;p-button
+          label&#x3D;&quot;Nueva Talla&quot;
+          icon&#x3D;&quot;pi pi-plus&quot;
+          class&#x3D;&quot;mr-2&quot;
+          (onClick)&#x3D;&quot;abrirModalCrear()&quot;
+        /&gt;
+      &lt;/ng-template&gt;
+    &lt;/p-toolbar&gt;
+  }
+  &lt;p-table
+    [value]&#x3D;&quot;tallas()&quot;
+    [paginator]&#x3D;&quot;true&quot;
+    [rows]&#x3D;&quot;10&quot;
+    [loading]&#x3D;&quot;loading()&quot;
+    [rowHover]&#x3D;&quot;true&quot;
+    dataKey&#x3D;&quot;id&quot;
+    class&#x3D;&quot;p-datatable-sm&quot;
+    [showCurrentPageReport]&#x3D;&quot;true&quot;
+    currentPageReportTemplate&#x3D;&quot;Mostrando {first} a {last} de {totalRecords} tallas&quot;
+  &gt;
+    &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+      &lt;tr&gt;
+        &lt;th style&#x3D;&quot;width: 80%&quot;&gt;Nombre&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 20%&quot;&gt;ID&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-talla&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;span class&#x3D;&quot;font-bold&quot;&gt;{{ talla.nombre }}&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;{{ talla.id }}&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;empty&quot;&gt;
+      &lt;tr&gt;
+        &lt;td colspan&#x3D;&quot;2&quot; class&#x3D;&quot;text-center p-4&quot;&gt;No se encontraron tallas.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+  &lt;/p-table&gt;
+
+  &lt;app-talla-form
+    [visible]&#x3D;&quot;mostrarModal()&quot;
+    (save)&#x3D;&quot;guardarTalla($event)&quot;
+    (cancel)&#x3D;&quot;cerrarModal()&quot;
+  /&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card p-4">  <p-toast />  @if (authService.hasPermission(\'TALLA_CREAR\')) {    <p-toolbar class="mb-4 gap-2">      <ng-template pTemplate="left">        <p-button          label="Nueva Talla"          icon="pi pi-plus"          class="mr-2"          (onClick)="abrirModalCrear()"        />      </ng-template>    </p-toolbar>  }  <p-table    [value]="tallas()"    [paginator]="true"    [rows]="10"    [loading]="loading()"    [rowHover]="true"    dataKey="id"    class="p-datatable-sm"    [showCurrentPageReport]="true"    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} tallas"  >    <ng-template pTemplate="header">      <tr>        <th style="width: 80%">Nombre</th>        <th style="width: 20%">ID</th>      </tr>    </ng-template>    <ng-template pTemplate="body" let-talla>      <tr>        <td>          <span class="font-bold">{{ talla.nombre }}</span>        </td>        <td>{{ talla.id }}</td>      </tr>    </ng-template>    <ng-template pTemplate="empty">      <tr>        <td colspan="2" class="text-center p-4">No se encontraron tallas.</td>      </tr>    </ng-template>  </p-table>  <app-talla-form    [visible]="mostrarModal()"    (save)="guardarTalla($event)"    (cancel)="cerrarModal()"  /></div></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TallaListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TallaListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

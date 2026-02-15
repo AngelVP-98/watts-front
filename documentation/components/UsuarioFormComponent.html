@@ -1,0 +1,1109 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UsuarioFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/components/usuario-form/usuario-form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente encargado de renderizar el formulario (modal) para la creación y edición de usuarios del sistema.
+Gestiona validaciones dinámicas (como la obligatoriedad de la contraseña según el modo) y carga
+los roles disponibles para asignárselos al usuario.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-usuario-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>CheckboxModule</code>
+                            <code>SelectModule</code>
+                            <code>PasswordModule</code>
+                            <code>DialogModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./usuario-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_rolService" >_rolService</a>
+                            </li>
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#roles" >roles</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                <a href="#saving" >saving</a>
+                            </li>
+                            <li>
+                                <a href="#usuarioEditar" >usuarioEditar</a>
+                            </li>
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onCancel" >onCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:76</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Inicializa el componente solicitando al backend la lista de roles paginada.
+Adicionalmente, configura un <code>effect</code> reactivo que se dispara al cambiar la señal <code>usuarioEditar</code>,
+encargándose de rellenar el formulario en modo edición o limpiarlo en modo creación,
+así como de ajustar dinámicamente las validaciones del campo de contraseña.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <b>visible</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:41</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Señal de entrada que controla la visibilidad del cuadro de diálogo (modal) del formulario.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancel"></a>
+                        <b>cancel</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:57</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario cancela la operación o cierra el modal sin guardar cambios.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCancel"></a>
+                    <span class="name">
+                        <span ><b>onCancel</b></span>
+                        <a href="#onCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Limpia los valores actuales del formulario y emite el evento <code>cancel</code> para cerrar el modal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Valida el formulario y procesa el payload antes de emitirlo.
+En modo edición, excluye la contraseña del objeto si el usuario la dejó en blanco.
+Finalmente, emite el evento <code>save</code> con los datos preparados.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_rolService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_rolService</b></span>
+                        <a href="#_rolService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(RolService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario cancela la operación o cierra el modal sin guardar cambios.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.nonNullable.group({
+        id: [0],
+        username: [&#x27;&#x27;, Validators.required],
+        email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+        passwordHash: [&#x27;&#x27;, Validators.required],
+        rol: [null as Rol | null, Validators.required],
+        activo: [true]
+    })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo tipado estrictamente (nonNullable) que administra el estado y validaciones
+de los campos de datos del usuario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="roles"></a>
+                    <span class="name">
+                        <span ><b>roles</b></span>
+                        <a href="#roles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Rol[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que almacena el catálogo de roles recuperados del servidor para poblar el selector (dropdown).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>output&lt;Partial&lt;Usuario&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido al componente padre cuando el usuario guarda correctamente el formulario.
+Envía un objeto parcial con los datos del usuario (nuevo o modificado).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saving"></a>
+                    <span class="name">
+                        <span ><b>saving</b></span>
+                        <a href="#saving"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que indica si se está ejecutando el proceso de guardado (para bloquear la UI).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioEditar"></a>
+                    <span class="name">
+                        <span ><b>usuarioEditar</b></span>
+                        <a href="#usuarioEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;Usuario | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal de entrada que recibe el objeto <code>Usuario</code> a modificar si el formulario se abre en modo edición.
+Recibe <code>null</code> por defecto si el objetivo es registrar un usuario nuevo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                        <span ><b>visible</b></span>
+                        <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/admin/components/usuario-form/usuario-form.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal de entrada que controla la visibilidad del cuadro de diálogo (modal) del formulario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, inject, signal, input, output, effect } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { CheckboxModule } from &#x27;primeng/checkbox&#x27;;
+import { SelectModule } from &#x27;primeng/select&#x27;;
+import { PasswordModule } from &#x27;primeng/password&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { Usuario } from &#x27;../../models/usuario.model&#x27;;
+import { Rol } from &#x27;../../models/rol.model&#x27;
+import { RolService } from &#x27;../../services/rol.service&#x27;;
+
+/**
+ * Componente encargado de renderizar el formulario (modal) para la creación y edición de usuarios del sistema.
+ * Gestiona validaciones dinámicas (como la obligatoriedad de la contraseña según el modo) y carga 
+ * los roles disponibles para asignárselos al usuario.
+ */
+@Component({
+    selector: &#x27;app-usuario-form&#x27;,
+    imports: [
+        ReactiveFormsModule,
+        ButtonModule,
+        InputTextModule,
+        CheckboxModule,
+        SelectModule,
+        PasswordModule,
+        DialogModule
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: &#x27;./usuario-form.component.html&#x27;
+})
+export class UsuarioFormComponent {
+    // Inyección de dependencias
+    private readonly _fb &#x3D; inject(FormBuilder);
+    private readonly _rolService &#x3D; inject(RolService);
+
+    // Inputs
+    /**
+     * Señal de entrada que controla la visibilidad del cuadro de diálogo (modal) del formulario.
+     */
+    visible &#x3D; input.required&lt;boolean&gt;();
+    /**
+     * Señal de entrada que recibe el objeto &#x60;Usuario&#x60; a modificar si el formulario se abre en modo edición. 
+     * Recibe &#x60;null&#x60; por defecto si el objetivo es registrar un usuario nuevo.
+     */
+    usuarioEditar &#x3D; input&lt;Usuario | null&gt;(null);
+
+    // Outputs
+    /**
+     * Evento emitido al componente padre cuando el usuario guarda correctamente el formulario.
+     * Envía un objeto parcial con los datos del usuario (nuevo o modificado).
+     */
+    save &#x3D; output&lt;Partial&lt;Usuario&gt;&gt;();
+    /**
+     * Evento emitido cuando el usuario cancela la operación o cierra el modal sin guardar cambios.
+     */
+    cancel &#x3D; output&lt;void&gt;();
+
+    // Signals para componentes UI
+    /** Señal reactiva que indica si se está ejecutando el proceso de guardado (para bloquear la UI). */
+    saving &#x3D; signal(false);
+    /** Señal que almacena el catálogo de roles recuperados del servidor para poblar el selector (dropdown). */
+    roles &#x3D; signal&lt;Rol[]&gt;([]);
+
+    /**
+     * Formulario reactivo tipado estrictamente (nonNullable) que administra el estado y validaciones 
+     * de los campos de datos del usuario.
+     */
+    form &#x3D; this._fb.nonNullable.group({
+        id: [0],
+        username: [&#x27;&#x27;, Validators.required],
+        email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+        passwordHash: [&#x27;&#x27;, Validators.required],
+        rol: [null as Rol | null, Validators.required],
+        activo: [true]
+    });
+
+    /**
+     * Inicializa el componente solicitando al backend la lista de roles paginada.
+     * Adicionalmente, configura un &#x60;effect&#x60; reactivo que se dispara al cambiar la señal &#x60;usuarioEditar&#x60;, 
+     * encargándose de rellenar el formulario en modo edición o limpiarlo en modo creación, 
+     * así como de ajustar dinámicamente las validaciones del campo de contraseña.
+     */
+    constructor() {
+        // Cargamos catálogo de roles al iniciar
+        this._rolService.listar(0, 100).subscribe({
+            next: (page) &#x3D;&gt; this.roles.set(page.content),
+            error: (err) &#x3D;&gt; console.error(&#x27;Error cargando roles&#x27;, err)
+        });
+
+        // Effect: Maneja la lógica de llenado del formulario reactivamente
+        effect(() &#x3D;&gt; {
+            const usuario &#x3D; this.usuarioEditar();
+
+            if (usuario) {
+                // MODO EDICIÓN
+
+                // Buscamos explícitamente el rol en la lista de opciones para asegurar la referencia
+                const foundRol &#x3D; this.roles().find(r &#x3D;&gt; r.nombre &#x3D;&#x3D;&#x3D; usuario.rol.nombre);
+
+                this.form.patchValue({
+                    id: usuario.id,
+                    username: usuario.username,
+                    email: usuario.email,
+                    // Asignamos el valor encontrado o un fallback seguro
+                    rol: usuario.rol, // Al tener id, PrimeNG lo vincula
+                    activo: usuario.activo,
+                    passwordHash: &#x27;&#x27; // Limpiamos el campo para que no muestre el hash
+                });
+
+                // En edición, la contraseña es opcional
+                this.form.controls.passwordHash.removeValidators(Validators.required);
+            } else {
+                // &#x3D;&#x3D;&#x3D; MODO CREACIÓN &#x3D;&#x3D;&#x3D;
+                this.form.reset({ id: 0, rol: null, activo: true });
+
+                // En creación, la contraseña es obligatoria
+                this.form.controls.passwordHash.addValidators(Validators.required);
+            }
+
+            // Actualizamos el estado de validación del campo password
+            this.form.controls.passwordHash.updateValueAndValidity();
+        });
+    }
+
+    /**
+     * Valida el formulario y procesa el payload antes de emitirlo.
+     * En modo edición, excluye la contraseña del objeto si el usuario la dejó en blanco.
+     * Finalmente, emite el evento &#x60;save&#x60; con los datos preparados.
+     */
+    onSubmit() {
+        if (this.form.invalid) return;
+        this.saving.set(true);
+
+        const formValue &#x3D; this.form.getRawValue();
+        const usuarioOriginal &#x3D; this.usuarioEditar();
+
+        // Casteamos el rol
+        const rolSeleccionado &#x3D; formValue.rol as Rol;
+
+        if (usuarioOriginal) {
+            // MODO EDICIÓN
+
+            // Construimos el payload con solo lo necesario
+            const payload: any &#x3D; {
+                email: formValue.email,
+                rol: rolSeleccionado,
+                activo: formValue.activo
+            };
+
+            // Solo añadimos passwordHash si el usuario escribió una nueva
+            if (formValue.passwordHash &amp;&amp; formValue.passwordHash.trim() !&#x3D;&#x3D; &#x27;&#x27;) {
+                payload.passwordHash &#x3D; formValue.passwordHash;
+            }
+
+            this.save.emit(payload);
+
+        } else {
+            // MODO CREACIÓN
+            const nuevoUsuario: Usuario &#x3D; {
+                id: 0,
+                username: formValue.username,
+                email: formValue.email,
+                passwordHash: formValue.passwordHash,
+                rol: rolSeleccionado,
+                activo: formValue.activo
+            };
+            
+            this.save.emit(nuevoUsuario);
+        }
+
+        this.saving.set(false);
+    }
+
+    /**
+     * Limpia los valores actuales del formulario y emite el evento &#x60;cancel&#x60; para cerrar el modal.
+     */
+    onCancel() {
+        this.form.reset();
+        this.cancel.emit();
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-dialog
+  [header]&#x3D;&quot;usuarioEditar() ? &#x27;Editar Usuario&#x27; : &#x27;Nuevo Usuario&#x27;&quot;
+  [visible]&#x3D;&quot;visible()&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [style]&#x3D;&quot;{ width: &#x27;500px&#x27; }&quot;
+  (onHide)&#x3D;&quot;onCancel()&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;flex flex-column gap-4 mt-2&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;username&quot; class&#x3D;&quot;font-bold&quot;&gt;Usuario&lt;/label&gt;
+      &lt;input pInputText id&#x3D;&quot;username&quot; formControlName&#x3D;&quot;username&quot; [readonly]&#x3D;&quot;!!usuarioEditar()&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;font-bold&quot;&gt;Email&lt;/label&gt;
+      &lt;input pInputText id&#x3D;&quot;email&quot; type&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;password&quot; class&#x3D;&quot;font-bold&quot;&gt;Contraseña&lt;/label&gt;
+      &lt;p-password
+        id&#x3D;&quot;password&quot;
+        formControlName&#x3D;&quot;passwordHash&quot;
+        [feedback]&#x3D;&quot;false&quot;
+        toggleMask
+        class&#x3D;&quot;w-full&quot;
+        [inputStyle]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+      /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;rol&quot; class&#x3D;&quot;font-bold&quot;&gt;Rol&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;rol&quot;
+        formControlName&#x3D;&quot;rol&quot;
+        [options]&#x3D;&quot;roles()&quot;
+        optionLabel&#x3D;&quot;nombre&quot;
+        dataKey&#x3D;&quot;id&quot;
+        placeholder&#x3D;&quot;Seleccione un rol&quot;
+        appendTo&#x3D;&quot;body&quot;
+        class&#x3D;&quot;w-full&quot;
+        [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+      /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex align-items-center gap-2&quot;&gt;
+      &lt;p-checkbox id&#x3D;&quot;activo&quot; formControlName&#x3D;&quot;activo&quot; [binary]&#x3D;&quot;true&quot; /&gt;
+      &lt;label for&#x3D;&quot;activo&quot;&gt;Usuario Activo&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-content-end gap-2 mt-4&quot;&gt;
+      &lt;p-button label&#x3D;&quot;Cancelar&quot; severity&#x3D;&quot;secondary&quot; (onClick)&#x3D;&quot;onCancel()&quot; /&gt;
+      &lt;p-button label&#x3D;&quot;Guardar&quot; type&#x3D;&quot;submit&quot; [loading]&#x3D;&quot;saving()&quot; [disabled]&#x3D;&quot;form.invalid&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-dialog  [header]="usuarioEditar() ? \'Editar Usuario\' : \'Nuevo Usuario\'"  [visible]="visible()"  [modal]="true"  [style]="{ width: \'500px\' }"  (onHide)="onCancel()">  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4 mt-2">    <div class="flex flex-column gap-2">      <label for="username" class="font-bold">Usuario</label>      <input pInputText id="username" formControlName="username" [readonly]="!!usuarioEditar()" />    </div>    <div class="flex flex-column gap-2">      <label for="email" class="font-bold">Email</label>      <input pInputText id="email" type="email" formControlName="email" />    </div>    <div class="flex flex-column gap-2">      <label for="password" class="font-bold">Contraseña</label>      <p-password        id="password"        formControlName="passwordHash"        [feedback]="false"        toggleMask        class="w-full"        [inputStyle]="{ width: \'100%\' }"      />    </div>    <div class="flex flex-column gap-2">      <label for="rol" class="font-bold">Rol</label>      <p-select        id="rol"        formControlName="rol"        [options]="roles()"        optionLabel="nombre"        dataKey="id"        placeholder="Seleccione un rol"        appendTo="body"        class="w-full"        [style]="{ width: \'100%\' }"      />    </div>    <div class="flex align-items-center gap-2">      <p-checkbox id="activo" formControlName="activo" [binary]="true" />      <label for="activo">Usuario Activo</label>    </div>    <div class="flex justify-content-end gap-2 mt-4">      <p-button label="Cancelar" severity="secondary" (onClick)="onCancel()" />      <p-button label="Guardar" type="submit" [loading]="saving()" [disabled]="form.invalid" />    </div>  </form></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UsuarioFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsuarioFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

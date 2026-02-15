@@ -1,0 +1,27 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--surface-ground);
+}
+
+.login-card {
+  width: 350px;
+}
+
+.p-field {
+  margin-bottom: 1rem;
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+.error {
+  color: red;
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}

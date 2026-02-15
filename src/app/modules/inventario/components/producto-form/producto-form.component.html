@@ -1,0 +1,66 @@
+<p-dialog
+  [header]="productoEditar() ? 'Editar Producto' : 'Nuevo Producto'"
+  [modal]="true"
+  [visible]="visible()"
+  (visibleChange)="onCancel()"
+  [style]="{ width: '450px' }"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3">
+    <div class="flex flex-column gap-2">
+      <label for="codigoBase" class="font-bold">Código Base</label>
+      <input pInputText id="codigoBase" formControlName="codigoBase" />
+      @if (form.controls.codigoBase.invalid && form.controls.codigoBase.touched) {
+        <small class="text-red-500">El código es requerido.</small>
+      }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="nombre" class="font-bold">Nombre</label>
+      <input pInputText id="nombre" formControlName="nombre" />
+      @if (form.controls.nombre.invalid && form.controls.nombre.touched) {
+        <small class="text-red-500">El nombre es requerido.</small>
+      }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="caracteristicas" class="font-bold">Características Técnicas</label>
+      <textarea
+        pTextarea
+        id="caracteristicas"
+        formControlName="caracteristicasTecnicas"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label class="font-bold">Imagen del Producto</label>
+
+      <p-fileUpload
+        mode="basic"
+        chooseLabel="Seleccionar Imagen"
+        accept="image/*"
+        maxFileSize="1000000"
+        [auto]="true"
+        customUpload="true"
+        (uploadHandler)="onFileSelect($event)"
+        class="w-full"
+        styleClass="w-full"
+      />
+
+      @if (imagenPreview()) {
+        <div class="mt-2 flex justify-content-center border-1 surface-border border-round p-3">
+          <img
+            [src]="imagenPreview() | secureImage | async"
+            alt="Previsualización"
+            class="max-w-full h-10rem object-contain"
+          />
+        </div>
+      }
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <p-button label="Cancelar" icon="pi pi-times" [text]="true" (onClick)="onCancel()" />
+      <p-button label="Guardar" icon="pi pi-check" type="submit" [disabled]="form.invalid" />
+    </div>
+  </form>
+</p-dialog>

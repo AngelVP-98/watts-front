@@ -1,0 +1,1696 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProyectoListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente principal encargado de mostrar y gestionar la lista de proyectos del usuario.
+Proporciona un listado con paginación y filtrado (Lazy Load), además de permitir
+crear, editar, eliminar y acceder a los detalles de cada proyecto.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MessageService</code>
+                            <code>ConfirmationService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-proyecto-list</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>TableModule</code>
+                            <code>ButtonModule</code>
+                            <code>DialogModule</code>
+                            <code>InputTextModule</code>
+                            <code>TextareaModule</code>
+                            <code>ToastModule</code>
+                            <code>ConfirmDialogModule</code>
+                            <code>ToolbarModule</code>
+                            <code>SelectModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./proyecto-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_confirmationService" >_confirmationService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_messageService" >_messageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_proyectoService" >_proyectoService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_router" >_router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#currentId" >currentId</a>
+                            </li>
+                            <li>
+                                <a href="#dialogVisible" >dialogVisible</a>
+                            </li>
+                            <li>
+                                <a href="#isEditMode" >isEditMode</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#pageSize" >pageSize</a>
+                            </li>
+                            <li>
+                                <a href="#proyectoForm" >proyectoForm</a>
+                            </li>
+                            <li>
+                                <a href="#proyectos" >proyectos</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirDialogoCrear" >abrirDialogoCrear</a>
+                            </li>
+                            <li>
+                                <a href="#abrirDialogoEditar" >abrirDialogoEditar</a>
+                            </li>
+                            <li>
+                                <a href="#cargarProyectos" >cargarProyectos</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarProyecto" >eliminarProyecto</a>
+                            </li>
+                            <li>
+                                <a href="#guardarProyecto" >guardarProyecto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#recargarTabla" >recargarTabla</a>
+                            </li>
+                            <li>
+                                <a href="#verDetalle" >verDetalle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirDialogoCrear"></a>
+                    <span class="name">
+                        <span ><b>abrirDialogoCrear</b></span>
+                        <a href="#abrirDialogoCrear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirDialogoCrear()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepara el formulario y abre el cuadro de diálogo en modo de creación para un nuevo proyecto.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirDialogoEditar"></a>
+                    <span class="name">
+                        <span ><b>abrirDialogoEditar</b></span>
+                        <a href="#abrirDialogoEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirDialogoEditar(proyecto: <a href="../interfaces/Proyecto.html" target="_self">Proyecto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Rellena el formulario con los datos del proyecto seleccionado y abre el cuadro de diálogo en modo edición.</p>
+<ul>
+<li>@param proyecto Objeto con los datos del proyecto que se desea editar.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>proyecto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Proyecto.html" target="_self" >Proyecto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto con los datos del proyecto que se desea editar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarProyectos"></a>
+                    <span class="name">
+                        <span ><b>cargarProyectos</b></span>
+                        <a href="#cargarProyectos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarProyectos(event: TableLazyLoadEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga la lista de proyectos desde el backend. Se ejecuta automáticamente por PrimeNG al cambiar
+de página, ordenar o aplicar filtros en la tabla (Lazy Load).</p>
+<ul>
+<li>@param event Evento emitido por la tabla de PrimeNG con el estado actual de paginación y filtros.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>TableLazyLoadEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento emitido por la tabla de PrimeNG con el estado actual de paginación y filtros.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarProyecto"></a>
+                    <span class="name">
+                        <span ><b>eliminarProyecto</b></span>
+                        <a href="#eliminarProyecto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarProyecto(proyecto: <a href="../interfaces/Proyecto.html" target="_self">Proyecto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Solicita confirmación al usuario mediante un modal y, en caso afirmativo, envía la petición
+al servidor para eliminar permanentemente el proyecto y sus archivos asociados.</p>
+<ul>
+<li>@param proyecto El proyecto que se desea eliminar.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>proyecto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Proyecto.html" target="_self" >Proyecto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>El proyecto que se desea eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarProyecto"></a>
+                    <span class="name">
+                        <span ><b>guardarProyecto</b></span>
+                        <a href="#guardarProyecto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarProyecto()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Evalúa los datos del formulario y llama al servicio correspondiente para crear o actualizar
+el proyecto en el servidor, dependiendo del modo (creación o edición).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recargarTabla"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>recargarTabla</b></span>
+                        <a href="#recargarTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recargarTabla()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="225"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:225</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método auxiliar privado que fuerza la recarga de la tabla al estado base
+(primera página) utilizando la cantidad de filas actuales.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verDetalle"></a>
+                    <span class="name">
+                        <span ><b>verDetalle</b></span>
+                        <a href="#verDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verDetalle(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega a la vista de detalles del proyecto especificado usando el router de Angular.</p>
+<ul>
+<li>@param id Identificador único del proyecto al que se quiere acceder.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Identificador único del proyecto al que se quiere acceder.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_confirmationService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_confirmationService</b></span>
+                        <a href="#_confirmationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ConfirmationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_messageService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_messageService</b></span>
+                        <a href="#_messageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MessageService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_proyectoService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_proyectoService</b></span>
+                        <a href="#_proyectoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ProyectoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_router</b></span>
+                        <a href="#_router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de autenticación inyectado públicamente para verificar permisos en la plantilla HTML.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentId"></a>
+                    <span class="name">
+                        <span ><b>currentId</b></span>
+                        <a href="#currentId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;number | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que guarda el ID del proyecto que se está editando en este momento. Es null si se está creando.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogVisible"></a>
+                    <span class="name">
+                        <span ><b>dialogVisible</b></span>
+                        <a href="#dialogVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que controla la visibilidad del cuadro de diálogo (modal) para crear/editar proyectos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditMode"></a>
+                    <span class="name">
+                        <span ><b>isEditMode</b></span>
+                        <a href="#isEditMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal booleana que indica si el formulario modal se está utilizando para editar (true) o para crear (false).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal de estado que muestra un indicador de carga en la tabla. Inicia en true para esperar el evento Lazy de PrimeNG.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageSize"></a>
+                    <span class="name">
+                        <span ><b>pageSize</b></span>
+                        <a href="#pageSize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(10)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que define la cantidad de proyectos que se muestran por página.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="proyectoForm"></a>
+                    <span class="name">
+                        <span ><b>proyectoForm</b></span>
+                        <a href="#proyectoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.group({
+        nombre: [&#x27;&#x27;, [Validators.required]],
+        descripcion: [&#x27;&#x27;, [Validators.maxLength(500)]]
+    })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo utilizado para capturar y validar los datos al crear o editar un proyecto.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="proyectos"></a>
+                    <span class="name">
+                        <span ><b>proyectos</b></span>
+                        <a href="#proyectos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Proyecto[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que almacena el listado actual de proyectos a mostrar en la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalRecords"></a>
+                    <span class="name">
+                        <span ><b>totalRecords</b></span>
+                        <a href="#totalRecords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/modules/proyectos/components/proyecto-list/proyecto-list.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que indica el total de proyectos disponibles en el servidor (usado para paginación).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, signal } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { TableModule, TableLazyLoadEvent } from &#x27;primeng/table&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { ToolbarModule } from &#x27;primeng/toolbar&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { TextareaModule } from &#x27;primeng/textarea&#x27;;
+import { SelectModule } from &#x27;primeng/select&#x27;; 
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { ConfirmDialogModule } from &#x27;primeng/confirmdialog&#x27;;
+import { MessageService, ConfirmationService } from &#x27;primeng/api&#x27;;
+
+import { ProyectoService } from &#x27;../../services/proyecto.service&#x27;;
+import { Proyecto, ProyectoRequest } from &#x27;../../models/proyecto.model&#x27;;
+import { AuthService } from &#x27;../../../../core/auth/auth.service&#x27;;
+
+/**
+ * Componente principal encargado de mostrar y gestionar la lista de proyectos del usuario.
+ * Proporciona un listado con paginación y filtrado (Lazy Load), además de permitir 
+ * crear, editar, eliminar y acceder a los detalles de cada proyecto.
+ */
+@Component({
+    selector: &#x27;app-proyecto-list&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule, 
+        ReactiveFormsModule,
+        TableModule, 
+        ButtonModule, 
+        DialogModule, 
+        InputTextModule, 
+        TextareaModule, 
+        ToastModule, 
+        ConfirmDialogModule,
+        ToolbarModule,
+        SelectModule,
+        FormsModule
+    ],
+    providers: [MessageService, ConfirmationService],
+    templateUrl: &#x27;./proyecto-list.component.html&#x27;
+})
+export class ProyectoListComponent {
+    // Inyección de dependencias
+    private readonly _proyectoService &#x3D; inject(ProyectoService);
+    private readonly _messageService &#x3D; inject(MessageService);
+    private readonly _confirmationService &#x3D; inject(ConfirmationService);
+    private readonly _router &#x3D; inject(Router);
+    private readonly _fb &#x3D; inject(FormBuilder);
+    /** * Servicio de autenticación inyectado públicamente para verificar permisos en la plantilla HTML. 
+     */
+    public readonly authService &#x3D; inject(AuthService);
+
+    // Signals
+    /** Señal que almacena el listado actual de proyectos a mostrar en la tabla. */
+    proyectos &#x3D; signal&lt;Proyecto[]&gt;([]);
+    /** Señal que indica el total de proyectos disponibles en el servidor (usado para paginación). */
+    totalRecords &#x3D; signal(0);
+    /** Señal de estado que muestra un indicador de carga en la tabla. Inicia en true para esperar el evento Lazy de PrimeNG. */
+    loading &#x3D; signal(true);
+    /** Señal que define la cantidad de proyectos que se muestran por página. */
+    pageSize &#x3D; signal(10);
+    /** Señal que controla la visibilidad del cuadro de diálogo (modal) para crear/editar proyectos. */
+    dialogVisible &#x3D; signal(false);
+    /** Señal booleana que indica si el formulario modal se está utilizando para editar (true) o para crear (false). */
+    isEditMode &#x3D; signal(false);
+    /** Señal que guarda el ID del proyecto que se está editando en este momento. Es null si se está creando. */
+    currentId &#x3D; signal&lt;number | null&gt;(null);
+
+    /** * Formulario reactivo utilizado para capturar y validar los datos al crear o editar un proyecto. 
+     */
+    proyectoForm &#x3D; this._fb.group({
+        nombre: [&#x27;&#x27;, [Validators.required]],
+        descripcion: [&#x27;&#x27;, [Validators.maxLength(500)]]
+    });
+
+    /**
+     * Carga la lista de proyectos desde el backend. Se ejecuta automáticamente por PrimeNG al cambiar
+     * de página, ordenar o aplicar filtros en la tabla (Lazy Load).
+     * * @param event Evento emitido por la tabla de PrimeNG con el estado actual de paginación y filtros.
+     */
+    cargarProyectos(event: TableLazyLoadEvent) {
+        this.loading.set(true);
+        // Calculamos índice de página basado en filas y desplazamiento
+        const page &#x3D; (event.first ?? 0) / (event.rows ?? 10);
+        const size &#x3D; event.rows ?? 10;
+        
+        this.pageSize.set(size);
+
+        // Extraer filtros del evento de PrimeNG
+        const filters &#x3D; event.filters || {};
+
+        // Helper para extraer valor Y modo
+        // PrimeNG en modo menú envía un array de reglas. Tomamos la primera (regla principal).
+        const extract &#x3D; (field: string) &#x3D;&gt; {
+            const meta &#x3D; filters[field];
+            // Si no existe el filtro, devolvemos undefined
+            if (!meta) return { value: undefined, matchMode: undefined };
+            // PrimeNG puede devolver array o objeto
+            if (Array.isArray(meta)) {
+                return { value: meta[0].value, matchMode: meta[0].matchMode };
+            }
+            // Fallback por si acaso no es array (modo row simple)
+            return { value: meta?.value, matchMode: meta?.matchMode };
+        };
+
+        const nombre &#x3D; extract(&#x27;nombre&#x27;);
+        const descripcion &#x3D; extract(&#x27;descripcion&#x27;);
+
+        this._proyectoService.listarMisProyectos(
+            page, 
+            size,
+            nombre.value,
+            nombre.matchMode,
+            descripcion.value,
+            descripcion.matchMode
+        ).subscribe({
+            next: (data) &#x3D;&gt; {
+                this.proyectos.set(data.content); // Actualizamos signal de datos
+                this.totalRecords.set(data.totalElements); // Actualizamos total para el paginador
+                this.loading.set(false);
+            },
+            error: () &#x3D;&gt; {
+                this.loading.set(false);
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;No se pudieron cargar los proyectos&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Prepara el formulario y abre el cuadro de diálogo en modo de creación para un nuevo proyecto.
+     */
+    abrirDialogoCrear() {
+        this.isEditMode.set(false);
+        this.currentId.set(null);
+        this.proyectoForm.reset();
+        this.dialogVisible.set(true);
+    }
+
+    /**
+     * Rellena el formulario con los datos del proyecto seleccionado y abre el cuadro de diálogo en modo edición.
+     * * @param proyecto Objeto con los datos del proyecto que se desea editar.
+     */
+    abrirDialogoEditar(proyecto: Proyecto) {
+        this.isEditMode.set(true);
+        this.currentId.set(proyecto.id);
+        this.proyectoForm.patchValue({
+            nombre: proyecto.nombre,
+            descripcion: proyecto.descripcion
+        });
+        this.dialogVisible.set(true);
+    }
+
+    /**
+     * Evalúa los datos del formulario y llama al servicio correspondiente para crear o actualizar 
+     * el proyecto en el servidor, dependiendo del modo (creación o edición).
+     */
+    guardarProyecto() {
+        if (this.proyectoForm.invalid) return;
+
+        // Casteo seguro de los valores del formulario al modelo request
+        const formValue &#x3D; this.proyectoForm.value;
+        const request: ProyectoRequest &#x3D; {
+            nombre: formValue.nombre!,
+            descripcion: formValue.descripcion || &#x27;&#x27;
+        };
+
+        if (this.isEditMode() &amp;&amp; this.currentId()) {
+            this._proyectoService.actualizarProyecto(this.currentId()!, request).subscribe({
+                next: () &#x3D;&gt; {
+                    this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Proyecto actualizado&#x27; });
+                    this.dialogVisible.set(false);
+                    this.recargarTabla();
+                },
+                error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Fallo al actualizar&#x27; })
+            });
+        } else {
+            this._proyectoService.crearProyecto(request).subscribe({
+                next: () &#x3D;&gt; {
+                    this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Proyecto creado&#x27; });
+                    this.dialogVisible.set(false);
+                    this.recargarTabla();
+                },
+                error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Fallo al crear&#x27; })
+            });
+        }
+    }
+
+    /**
+     * Solicita confirmación al usuario mediante un modal y, en caso afirmativo, envía la petición 
+     * al servidor para eliminar permanentemente el proyecto y sus archivos asociados.
+     * * @param proyecto El proyecto que se desea eliminar.
+     */
+    eliminarProyecto(proyecto: Proyecto) {
+        this._confirmationService.confirm({
+            message: &#x60;¿Seguro que deseas eliminar &quot;${proyecto.nombre}&quot;? Se borrarán todos los archivos.&#x60;,
+            header: &#x27;Confirmar Eliminación&#x27;,
+            icon: &#x27;pi pi-exclamation-triangle&#x27;,
+            accept: () &#x3D;&gt; {
+                this._proyectoService.eliminarProyecto(proyecto.id).subscribe({
+                    next: () &#x3D;&gt; {
+                        this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Eliminado&#x27;, detail: &#x27;Proyecto eliminado&#x27; });
+                        this.recargarTabla();
+                    },
+                    error: () &#x3D;&gt; this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;No se pudo eliminar&#x27; })
+                });
+            }
+        });
+    }
+
+    /**
+     * Navega a la vista de detalles del proyecto especificado usando el router de Angular.
+     * * @param id Identificador único del proyecto al que se quiere acceder.
+     */
+    verDetalle(id: number) {
+        this._router.navigate([&#x27;/proyectos&#x27;, id]);
+    }
+
+    /**
+     * Método auxiliar privado que fuerza la recarga de la tabla al estado base 
+     * (primera página) utilizando la cantidad de filas actuales.
+     */
+    private recargarTabla() {
+        // Se llama a cargarArchivos reiniciando a la primera página o manteniendo el estado actual según necesidad
+        this.cargarProyectos({ first: 0, rows: this.pageSize() });
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card p-4&quot;&gt;
+  &lt;div class&#x3D;&quot;flex justify-content-between align-items-center mb-4&quot;&gt;
+    &lt;h2 class&#x3D;&quot;m-0 text-xl font-bold&quot;&gt;Proyectos&lt;/h2&gt;
+  &lt;/div&gt;
+  @if (authService.hasPermission(&#x27;PROYECTO_CREAR&#x27;)) {
+    &lt;p-toolbar class&#x3D;&quot;mb-4 gap-2&quot;&gt;
+      &lt;ng-template pTemplate&#x3D;&quot;left&quot;&gt;
+        &lt;p-button
+          label&#x3D;&quot;Nuevo Proyecto&quot;
+          icon&#x3D;&quot;pi pi-plus&quot;
+          (onClick)&#x3D;&quot;abrirDialogoCrear()&quot;
+        &gt;&lt;/p-button&gt;
+      &lt;/ng-template&gt;
+    &lt;/p-toolbar&gt;
+  }
+  &lt;p-table
+    [value]&#x3D;&quot;proyectos()&quot;
+    [lazy]&#x3D;&quot;true&quot;
+    (onLazyLoad)&#x3D;&quot;cargarProyectos($event)&quot;
+    [paginator]&#x3D;&quot;true&quot;
+    [rows]&#x3D;&quot;pageSize()&quot;
+    [totalRecords]&#x3D;&quot;totalRecords()&quot;
+    [loading]&#x3D;&quot;loading()&quot;
+    [rowsPerPageOptions]&#x3D;&quot;[5, 10, 20]&quot;
+    dataKey&#x3D;&quot;id&quot;
+    class&#x3D;&quot;p-datatable-sm&quot;
+    [showCurrentPageReport]&#x3D;&quot;true&quot;
+    currentPageReportTemplate&#x3D;&quot;Mostrando {first} a {last} de {totalRecords} proyectos&quot;
+  &gt;
+    &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+      &lt;tr&gt;
+        &lt;th style&#x3D;&quot;width: 25%&quot;&gt;Nombre&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 40%&quot;&gt;Descripción&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 10%&quot;&gt;Mi Rol&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 5%&quot;&gt;Miembros&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 10%&quot;&gt;Creación&lt;/th&gt;
+        &lt;th class&#x3D;&quot;text-center&quot; style&#x3D;&quot;width: 20%&quot;&gt;Acciones&lt;/th&gt;
+      &lt;/tr&gt;
+
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;p-columnFilter
+            type&#x3D;&quot;text&quot;
+            field&#x3D;&quot;nombre&quot;
+            placeholder&#x3D;&quot;Buscar por nombre&quot;
+            filterOn&#x3D;&quot;input&quot;
+          &gt;
+          &lt;/p-columnFilter&gt;
+        &lt;/th&gt;
+
+        &lt;th&gt;
+          &lt;p-columnFilter
+            type&#x3D;&quot;text&quot;
+            field&#x3D;&quot;descripcion&quot;
+            placeholder&#x3D;&quot;Buscar en descripción&quot;
+            filterOn&#x3D;&quot;input&quot;
+          &gt;
+          &lt;/p-columnFilter&gt;
+        &lt;/th&gt;
+
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template #body let-proyecto let-expanded&#x3D;&quot;expanded&quot;&gt;
+      &lt;tr&gt;
+        &lt;td class&#x3D;&quot;font-semibold text-primary cursor-pointer&quot; (click)&#x3D;&quot;verDetalle(proyecto.id)&quot;&gt;
+          &lt;i class&#x3D;&quot;pi pi-folder mr-2&quot;&gt;&lt;/i&gt;{{ proyecto.nombre }}
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;cursor-pointer&quot; (click)&#x3D;&quot;verDetalle(proyecto.id)&quot;&gt;
+          {{ proyecto.descripcion }}
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;cursor-pointer&quot; (click)&#x3D;&quot;verDetalle(proyecto.id)&quot;&gt;
+          &lt;span [class]&#x3D;&quot;&#x27;badge-rol &#x27; + proyecto.miRol.toLowerCase()&quot;&gt;{{ proyecto.miRol }}&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;cursor-pointer&quot; (click)&#x3D;&quot;verDetalle(proyecto.id)&quot;&gt;
+          {{ proyecto.cantidadMiembros }}
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;cursor-pointer&quot; (click)&#x3D;&quot;verDetalle(proyecto.id)&quot;&gt;
+          {{ proyecto.fechaCreacion | date: &#x27;dd/MM/yyyy&#x27; }}
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;text-center&quot;&gt;
+          @if (proyecto.miRol &#x3D;&#x3D;&#x3D; &#x27;PROPIETARIO&#x27;) {
+            &lt;p-button
+              icon&#x3D;&quot;pi pi-pencil&quot;
+              styleClass&#x3D;&quot;p-button-rounded p-button-text p-button-warning mr-1&quot;
+              (onClick)&#x3D;&quot;abrirDialogoEditar(proyecto)&quot;
+            &gt;
+            &lt;/p-button&gt;
+            &lt;p-button
+              icon&#x3D;&quot;pi pi-trash&quot;
+              styleClass&#x3D;&quot;p-button-rounded p-button-text p-button-danger&quot;
+              (onClick)&#x3D;&quot;eliminarProyecto(proyecto)&quot;
+            &gt;
+            &lt;/p-button&gt;
+          }
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;empty&quot;&gt;
+      &lt;tr&gt;
+        &lt;td colspan&#x3D;&quot;6&quot; class&#x3D;&quot;text-center p-4&quot;&gt;No se encontraron proyectos.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+  &lt;/p-table&gt;
+&lt;/div&gt;
+
+&lt;p-dialog
+  [(visible)]&#x3D;&quot;dialogVisible&quot;
+  [header]&#x3D;&quot;isEditMode() ? &#x27;Editar Proyecto&#x27; : &#x27;Nuevo Proyecto&#x27;&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [style]&#x3D;&quot;{ width: &#x27;400px&#x27; }&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;proyectoForm&quot; class&#x3D;&quot;flex flex-column gap-3 pt-3&quot;&gt;
+    &lt;div class&#x3D;&quot;field&quot;&gt;
+      &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;block font-medium mb-1&quot;&gt;Nombre&lt;/label&gt;
+      &lt;input pInputText id&#x3D;&quot;nombre&quot; formControlName&#x3D;&quot;nombre&quot; class&#x3D;&quot;w-full&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;field&quot;&gt;
+      &lt;label for&#x3D;&quot;desc&quot; class&#x3D;&quot;block font-medium mb-1&quot;&gt;Descripción&lt;/label&gt;
+      &lt;textarea
+        pTextarea
+        id&#x3D;&quot;desc&quot;
+        formControlName&#x3D;&quot;descripcion&quot;
+        rows&#x3D;&quot;3&quot;
+        class&#x3D;&quot;w-full&quot;
+      &gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+
+  &lt;ng-template pTemplate&#x3D;&quot;footer&quot;&gt;
+    &lt;p-button
+      label&#x3D;&quot;Cancelar&quot;
+      icon&#x3D;&quot;pi pi-times&quot;
+      styleClass&#x3D;&quot;p-button-text&quot;
+      (onClick)&#x3D;&quot;dialogVisible.set(false)&quot;
+    &gt;&lt;/p-button&gt;
+    &lt;p-button
+      label&#x3D;&quot;Guardar&quot;
+      icon&#x3D;&quot;pi pi-check&quot;
+      (onClick)&#x3D;&quot;guardarProyecto()&quot;
+      [disabled]&#x3D;&quot;proyectoForm.invalid&quot;
+    &gt;&lt;/p-button&gt;
+  &lt;/ng-template&gt;
+&lt;/p-dialog&gt;
+
+&lt;p-toast&gt;&lt;/p-toast&gt;
+&lt;p-confirmDialog&gt;&lt;/p-confirmDialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card p-4">  <div class="flex justify-content-between align-items-center mb-4">    <h2 class="m-0 text-xl font-bold">Proyectos</h2>  </div>  @if (authService.hasPermission(\'PROYECTO_CREAR\')) {    <p-toolbar class="mb-4 gap-2">      <ng-template pTemplate="left">        <p-button          label="Nuevo Proyecto"          icon="pi pi-plus"          (onClick)="abrirDialogoCrear()"        ></p-button>      </ng-template>    </p-toolbar>  }  <p-table    [value]="proyectos()"    [lazy]="true"    (onLazyLoad)="cargarProyectos($event)"    [paginator]="true"    [rows]="pageSize()"    [totalRecords]="totalRecords()"    [loading]="loading()"    [rowsPerPageOptions]="[5, 10, 20]"    dataKey="id"    class="p-datatable-sm"    [showCurrentPageReport]="true"    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} proyectos"  >    <ng-template pTemplate="header">      <tr>        <th style="width: 25%">Nombre</th>        <th style="width: 40%">Descripción</th>        <th style="width: 10%">Mi Rol</th>        <th style="width: 5%">Miembros</th>        <th style="width: 10%">Creación</th>        <th class="text-center" style="width: 20%">Acciones</th>      </tr>      <tr>        <th>          <p-columnFilter            type="text"            field="nombre"            placeholder="Buscar por nombre"            filterOn="input"          >          </p-columnFilter>        </th>        <th>          <p-columnFilter            type="text"            field="descripcion"            placeholder="Buscar en descripción"            filterOn="input"          >          </p-columnFilter>        </th>        <th></th>        <th></th>        <th></th>        <th></th>      </tr>    </ng-template>    <ng-template #body let-proyecto let-expanded="expanded">      <tr>        <td class="font-semibold text-primary cursor-pointer" (click)="verDetalle(proyecto.id)">          <i class="pi pi-folder mr-2"></i>{{ proyecto.nombre }}        </td>        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">          {{ proyecto.descripcion }}        </td>        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">          <span [class]="\'badge-rol \' + proyecto.miRol.toLowerCase()">{{ proyecto.miRol }}</span>        </td>        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">          {{ proyecto.cantidadMiembros }}        </td>        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">          {{ proyecto.fechaCreacion | date: \'dd/MM/yyyy\' }}        </td>        <td class="text-center">          @if (proyecto.miRol === \'PROPIETARIO\') {            <p-button              icon="pi pi-pencil"              styleClass="p-button-rounded p-button-text p-button-warning mr-1"              (onClick)="abrirDialogoEditar(proyecto)"            >            </p-button>            <p-button              icon="pi pi-trash"              styleClass="p-button-rounded p-button-text p-button-danger"              (onClick)="eliminarProyecto(proyecto)"            >            </p-button>          }        </td>      </tr>    </ng-template>    <ng-template pTemplate="empty">      <tr>        <td colspan="6" class="text-center p-4">No se encontraron proyectos.</td>      </tr>    </ng-template>  </p-table></div><p-dialog  [(visible)]="dialogVisible"  [header]="isEditMode() ? \'Editar Proyecto\' : \'Nuevo Proyecto\'"  [modal]="true"  [style]="{ width: \'400px\' }">  <form [formGroup]="proyectoForm" class="flex flex-column gap-3 pt-3">    <div class="field">      <label for="nombre" class="block font-medium mb-1">Nombre</label>      <input pInputText id="nombre" formControlName="nombre" class="w-full" />    </div>    <div class="field">      <label for="desc" class="block font-medium mb-1">Descripción</label>      <textarea        pTextarea        id="desc"        formControlName="descripcion"        rows="3"        class="w-full"      ></textarea>    </div>  </form>  <ng-template pTemplate="footer">    <p-button      label="Cancelar"      icon="pi pi-times"      styleClass="p-button-text"      (onClick)="dialogVisible.set(false)"    ></p-button>    <p-button      label="Guardar"      icon="pi pi-check"      (onClick)="guardarProyecto()"      [disabled]="proyectoForm.invalid"    ></p-button>  </ng-template></p-dialog><p-toast></p-toast><p-confirmDialog></p-confirmDialog></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProyectoListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProyectoListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

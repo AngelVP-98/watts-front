@@ -1,0 +1,1147 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProductoFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/inventario/components/producto-form/producto-form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de formulario para la creación y edición de productos base.
+Se visualiza como un diálogo y permite introducir la información principal de un producto
+(código base, nombre, características) así como cargar o actualizar su imagen representativa.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-producto-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>AsyncPipe</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>DialogModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>TextareaModule</code>
+                            <code>FileUploadModule</code>
+                            <code>ToastModule</code>
+                            <code>SecureImagePipe</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./producto-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                <a href="#archivoSeleccionado" >archivoSeleccionado</a>
+                            </li>
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#imagenPreview" >imagenPreview</a>
+                            </li>
+                            <li>
+                                <a href="#productoEditar" >productoEditar</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onCancel" >onCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onFileSelect" >onFileSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:86</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.
+Inicializa un efecto reactivo que observa los cambios en el input <code>productoEditar</code>.
+Si recibe un producto (modo edición), rellena el formulario con sus datos y carga su imagen en la vista previa.
+Si recibe <code>null</code> (modo creación), resetea el formulario y limpia las selecciones de archivos.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <b>visible</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:39</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input requerido que controla la visibilidad del diálogo del formulario.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancel"></a>
+                        <b>cancel</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output que emite un evento vacío cuando el usuario cancela o cierra el formulario.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCancel"></a>
+                    <span class="name">
+                        <span ><b>onCancel</b></span>
+                        <a href="#onCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja la cancelación o cierre del formulario.
+Resetea el formulario a sus valores por defecto, rehabilita el control de <code>codigoBase</code>,
+limpia los estados de selección de imagen y emite el evento <code>cancel</code> hacia el componente padre.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileSelect"></a>
+                    <span class="name">
+                        <span ><b>onFileSelect</b></span>
+                        <a href="#onFileSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileSelect(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de selección de archivos desde el componente FileUpload.
+Extrae el primer archivo seleccionado, lo guarda en el estado y genera
+una URL en base64 mediante <code>FileReader</code> para actualizar la vista previa de la imagen.</p>
+<ul>
+<li>@param event - Evento emitido por el componente de PrimeNG o input nativo que contiene los archivos.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento emitido por el componente de PrimeNG o input nativo que contiene los archivos.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:125</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de envío del formulario.
+Comprueba la validez de los campos. Si es válido, recopila todos los valores
+(incluidos los campos deshabilitados) y el archivo seleccionado, y los emite a través del evento <code>save</code>.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Constructor de formularios reactivos inyectado para crear el grupo de controles.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archivoSeleccionado"></a>
+                    <span class="name">
+                        <span ><b>archivoSeleccionado</b></span>
+                        <a href="#archivoSeleccionado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;File | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que almacena el archivo de imagen temporalmente seleccionado por el usuario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Output que emite un evento vacío cuando el usuario cancela o cierra el formulario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.nonNullable.group({
+    codigoBase: [&#x27;&#x27;, Validators.required],
+    nombre: [&#x27;&#x27;, Validators.required],
+    caracteristicasTecnicas: [&#x27;&#x27;, Validators.required]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instancia del formulario reactivo. Contiene los campos:</p>
+<ul>
+<li><code>codigoBase</code>: Código único identificador del producto (requerido).</li>
+<li><code>nombre</code>: Nombre del producto (requerido).</li>
+<li><code>caracteristicasTecnicas</code>: Descripción técnica del producto (requerida).</li>
+</ul>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imagenPreview"></a>
+                    <span class="name">
+                        <span ><b>imagenPreview</b></span>
+                        <a href="#imagenPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que contiene la URL temporal (base64) o la URL remota para mostrar la vista previa de la imagen.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productoEditar"></a>
+                    <span class="name">
+                        <span ><b>productoEditar</b></span>
+                        <a href="#productoEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;Producto | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Input que recibe los datos del producto si el formulario se abre en modo edición.
+Si su valor es <code>null</code>, el componente opera en modo creación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>output&lt;{ request: ProductoRequest, archivo: File | null }&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Output que emite los datos del formulario procesados (<code>request</code>) y el archivo de imagen
+(<code>archivo</code>) listo para ser subido al servidor cuando se guarda exitosamente.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                        <span ><b>visible</b></span>
+                        <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/inventario/components/producto-form/producto-form.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Input requerido que controla la visibilidad del diálogo del formulario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, effect, inject, input, output, signal } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { TextareaModule } from &#x27;primeng/textarea&#x27;;
+import { FileUploadModule } from &#x27;primeng/fileupload&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { Producto, ProductoRequest } from &#x27;../../models/producto.model&#x27;;
+import { AsyncPipe } from &#x27;@angular/common&#x27;;
+import { SecureImagePipe } from &#x27;../../../../shared/pipes/secure-image.pipe&#x27;;
+
+/**
+ * Componente de formulario para la creación y edición de productos base.
+ * Se visualiza como un diálogo y permite introducir la información principal de un producto
+ * (código base, nombre, características) así como cargar o actualizar su imagen representativa.
+ */
+@Component({
+  selector: &#x27;app-producto-form&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    AsyncPipe,
+    ReactiveFormsModule,
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    TextareaModule,
+    FileUploadModule,
+    ToastModule,
+    SecureImagePipe
+  ],
+  templateUrl: &#x27;./producto-form.component.html&#x27;
+})
+export class ProductoFormComponent {
+  /** Constructor de formularios reactivos inyectado para crear el grupo de controles. */
+  private readonly _fb &#x3D; inject(FormBuilder);
+
+  /** Input requerido que controla la visibilidad del diálogo del formulario. */
+  visible &#x3D; input.required&lt;boolean&gt;();
+  /** * Input que recibe los datos del producto si el formulario se abre en modo edición. 
+   * Si su valor es &#x60;null&#x60;, el componente opera en modo creación.
+   */
+  productoEditar &#x3D; input&lt;Producto | null&gt;(null);
+
+  /** * Output que emite los datos del formulario procesados (&#x60;request&#x60;) y el archivo de imagen 
+   * (&#x60;archivo&#x60;) listo para ser subido al servidor cuando se guarda exitosamente.
+   */
+  save &#x3D; output&lt;{ request: ProductoRequest, archivo: File | null }&gt;();
+  /** Output que emite un evento vacío cuando el usuario cancela o cierra el formulario. */
+  cancel &#x3D; output&lt;void&gt;();
+
+  /** Señal reactiva que almacena el archivo de imagen temporalmente seleccionado por el usuario. */
+  archivoSeleccionado &#x3D; signal&lt;File | null&gt;(null);
+  /** Señal reactiva que contiene la URL temporal (base64) o la URL remota para mostrar la vista previa de la imagen. */
+  imagenPreview &#x3D; signal&lt;string | null&gt;(null);
+
+  /** * Instancia del formulario reactivo. Contiene los campos:
+   * - &#x60;codigoBase&#x60;: Código único identificador del producto (requerido).
+   * - &#x60;nombre&#x60;: Nombre del producto (requerido).
+   * - &#x60;caracteristicasTecnicas&#x60;: Descripción técnica del producto (requerida).
+   */
+  form &#x3D; this._fb.nonNullable.group({
+    codigoBase: [&#x27;&#x27;, Validators.required],
+    nombre: [&#x27;&#x27;, Validators.required],
+    caracteristicasTecnicas: [&#x27;&#x27;, Validators.required]
+  });
+
+  /**
+   * Maneja el evento de selección de archivos desde el componente FileUpload.
+   * Extrae el primer archivo seleccionado, lo guarda en el estado y genera
+   * una URL en base64 mediante &#x60;FileReader&#x60; para actualizar la vista previa de la imagen.
+   * * @param event - Evento emitido por el componente de PrimeNG o input nativo que contiene los archivos.
+   */
+  onFileSelect(event: any) {
+    const file &#x3D; event.files[0];
+    if (file) {
+      this.archivoSeleccionado.set(file);
+
+      // Crear preview
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; (e) &#x3D;&gt; {
+        this.imagenPreview.set(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  /**
+   * Constructor del componente.
+   * Inicializa un efecto reactivo que observa los cambios en el input &#x60;productoEditar&#x60;.
+   * Si recibe un producto (modo edición), rellena el formulario con sus datos y carga su imagen en la vista previa.
+   * Si recibe &#x60;null&#x60; (modo creación), resetea el formulario y limpia las selecciones de archivos.
+   */
+  constructor() {
+    // Effect: Reacciona reactivamente cuando cambia el input &#x27;productoEditar&#x27;.
+    // Se ejecuta cada vez que el padre envía un producto diferente o null.
+    effect(() &#x3D;&gt; {
+      const producto &#x3D; this.productoEditar();
+      if (producto) {
+        // MODO EDICIÓN: Rellenamos el formulario y bloqueamos el código base
+        this.form.patchValue({
+          codigoBase: producto.codigoBase,
+          nombre: producto.nombre,
+          caracteristicasTecnicas: producto.caracteristicasTecnicas
+        });
+        if (producto.imagenUrl) {
+          this.imagenPreview.set(producto.imagenUrl || null);
+        } else {
+          this.imagenPreview.set(null);
+        }
+      } else {
+        // MODO CREACIÓN: Limpiamos y habilitamos todo
+        this.form.reset();
+        this.archivoSeleccionado.set(null);
+        this.imagenPreview.set(null);
+      }
+    });
+  }
+
+  /**
+   * Maneja el evento de envío del formulario.
+   * Comprueba la validez de los campos. Si es válido, recopila todos los valores
+   * (incluidos los campos deshabilitados) y el archivo seleccionado, y los emite a través del evento &#x60;save&#x60;.
+   */
+  onSubmit() {
+    if (this.form.valid) {
+      const request &#x3D; this.form.getRawValue();
+      const archivo &#x3D; this.archivoSeleccionado();
+
+      // Emitimos ambos datos (incluyendo campos deshabilitados)
+      this.save.emit({ request, archivo });
+    }
+  }
+
+  /**
+   * Maneja la cancelación o cierre del formulario.
+   * Resetea el formulario a sus valores por defecto, rehabilita el control de &#x60;codigoBase&#x60;,
+   * limpia los estados de selección de imagen y emite el evento &#x60;cancel&#x60; hacia el componente padre.
+   */
+  onCancel() {
+    this.form.reset();
+    this.form.controls.codigoBase.enable();
+    this.archivoSeleccionado.set(null);
+    this.imagenPreview.set(null);
+    this.cancel.emit();
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-dialog
+  [header]&#x3D;&quot;productoEditar() ? &#x27;Editar Producto&#x27; : &#x27;Nuevo Producto&#x27;&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [visible]&#x3D;&quot;visible()&quot;
+  (visibleChange)&#x3D;&quot;onCancel()&quot;
+  [style]&#x3D;&quot;{ width: &#x27;450px&#x27; }&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;flex flex-column gap-3&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;codigoBase&quot; class&#x3D;&quot;font-bold&quot;&gt;Código Base&lt;/label&gt;
+      &lt;input pInputText id&#x3D;&quot;codigoBase&quot; formControlName&#x3D;&quot;codigoBase&quot; /&gt;
+      @if (form.controls.codigoBase.invalid &amp;&amp; form.controls.codigoBase.touched) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;&gt;El código es requerido.&lt;/small&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;nombre&quot; class&#x3D;&quot;font-bold&quot;&gt;Nombre&lt;/label&gt;
+      &lt;input pInputText id&#x3D;&quot;nombre&quot; formControlName&#x3D;&quot;nombre&quot; /&gt;
+      @if (form.controls.nombre.invalid &amp;&amp; form.controls.nombre.touched) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;&gt;El nombre es requerido.&lt;/small&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;caracteristicas&quot; class&#x3D;&quot;font-bold&quot;&gt;Características Técnicas&lt;/label&gt;
+      &lt;textarea
+        pTextarea
+        id&#x3D;&quot;caracteristicas&quot;
+        formControlName&#x3D;&quot;caracteristicasTecnicas&quot;
+        rows&#x3D;&quot;3&quot;
+      &gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label class&#x3D;&quot;font-bold&quot;&gt;Imagen del Producto&lt;/label&gt;
+
+      &lt;p-fileUpload
+        mode&#x3D;&quot;basic&quot;
+        chooseLabel&#x3D;&quot;Seleccionar Imagen&quot;
+        accept&#x3D;&quot;image/*&quot;
+        maxFileSize&#x3D;&quot;1000000&quot;
+        [auto]&#x3D;&quot;true&quot;
+        customUpload&#x3D;&quot;true&quot;
+        (uploadHandler)&#x3D;&quot;onFileSelect($event)&quot;
+        class&#x3D;&quot;w-full&quot;
+        styleClass&#x3D;&quot;w-full&quot;
+      /&gt;
+
+      @if (imagenPreview()) {
+        &lt;div class&#x3D;&quot;mt-2 flex justify-content-center border-1 surface-border border-round p-3&quot;&gt;
+          &lt;img
+            [src]&#x3D;&quot;imagenPreview() | secureImage | async&quot;
+            alt&#x3D;&quot;Previsualización&quot;
+            class&#x3D;&quot;max-w-full h-10rem object-contain&quot;
+          /&gt;
+        &lt;/div&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-content-end gap-2 mt-4&quot;&gt;
+      &lt;p-button label&#x3D;&quot;Cancelar&quot; icon&#x3D;&quot;pi pi-times&quot; [text]&#x3D;&quot;true&quot; (onClick)&#x3D;&quot;onCancel()&quot; /&gt;
+      &lt;p-button label&#x3D;&quot;Guardar&quot; icon&#x3D;&quot;pi pi-check&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;form.invalid&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-dialog  [header]="productoEditar() ? \'Editar Producto\' : \'Nuevo Producto\'"  [modal]="true"  [visible]="visible()"  (visibleChange)="onCancel()"  [style]="{ width: \'450px\' }">  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3">    <div class="flex flex-column gap-2">      <label for="codigoBase" class="font-bold">Código Base</label>      <input pInputText id="codigoBase" formControlName="codigoBase" />      @if (form.controls.codigoBase.invalid && form.controls.codigoBase.touched) {        <small class="text-red-500">El código es requerido.</small>      }    </div>    <div class="flex flex-column gap-2">      <label for="nombre" class="font-bold">Nombre</label>      <input pInputText id="nombre" formControlName="nombre" />      @if (form.controls.nombre.invalid && form.controls.nombre.touched) {        <small class="text-red-500">El nombre es requerido.</small>      }    </div>    <div class="flex flex-column gap-2">      <label for="caracteristicas" class="font-bold">Características Técnicas</label>      <textarea        pTextarea        id="caracteristicas"        formControlName="caracteristicasTecnicas"        rows="3"      ></textarea>    </div>    <div class="flex flex-column gap-2">      <label class="font-bold">Imagen del Producto</label>      <p-fileUpload        mode="basic"        chooseLabel="Seleccionar Imagen"        accept="image/*"        maxFileSize="1000000"        [auto]="true"        customUpload="true"        (uploadHandler)="onFileSelect($event)"        class="w-full"        styleClass="w-full"      />      @if (imagenPreview()) {        <div class="mt-2 flex justify-content-center border-1 surface-border border-round p-3">          <img            [src]="imagenPreview() | secureImage | async"            alt="Previsualización"            class="max-w-full h-10rem object-contain"          />        </div>      }    </div>    <div class="flex justify-content-end gap-2 mt-4">      <p-button label="Cancelar" icon="pi pi-times" [text]="true" (onClick)="onCancel()" />      <p-button label="Guardar" icon="pi pi-check" type="submit" [disabled]="form.invalid" />    </div>  </form></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProductoFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductoFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,852 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/header/header.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente visual encargado del Encabezado (Header) de la aplicación.
+Contiene la barra de navegación principal implementada con <code>Menubar</code> de PrimeNG.</p>
+<p><strong>Características:</strong></p>
+<ul>
+<li>Renderizado dinámico de opciones de menú basado en los permisos del usuario.</li>
+<li>Botón de cierre de sesión.</li>
+<li>Utiliza estrategia <code>OnPush</code> para optimizar el rendimiento.</li>
+</ul>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>Menubar</code>
+                            <code>ButtonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#items" >items</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/components/header/header.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de autenticación para verificar permisos y gestionar el logout.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de enrutamiento para la navegación tras el logout.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra la sesión del usuario actual.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/shared/components/header/header.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de autenticación para verificar permisos y gestionar el logout.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="items"></a>
+                    <span class="name">
+                        <span ><b>items</b></span>
+                        <a href="#items"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;MenuItem[]&gt;(() &#x3D;&gt; {
+
+        // 1. Dashboard siempre visible
+        const menu: MenuItem[] &#x3D; [
+            {
+                label: &#x27;Dashboard&#x27;,
+                icon: &#x27;pi pi-home&#x27;,
+                routerLink: &#x27;/dashboard&#x27;
+            }
+        ];
+
+        // 2. Sección Inventario (Productos y Variantes)
+        // Creamos los sub-items dinámicamente según permisos
+        const inventarioItems: MenuItem[] &#x3D; [];
+
+        if (this.authService.hasPermission(&#x27;PRODUCTO_LEER&#x27;)) {
+            inventarioItems.push({
+                label: &#x27;Productos&#x27;,
+                icon: &#x27;pi pi-list&#x27;,
+                routerLink: &#x27;/inventario/productos&#x27;
+            });
+        }
+
+        if (this.authService.hasPermission(&#x27;VARIANTE_LEER&#x27;)) {
+            inventarioItems.push({
+                label: &#x27;Variantes&#x27;,
+                icon: &#x27;pi pi-tags&#x27;,
+                routerLink: &#x27;/inventario/variantes&#x27;
+            });
+            inventarioItems.push({
+                label: &#x27;Tallas&#x27;,
+                icon: &#x27;pi pi-arrows-h&#x27;,
+                routerLink: &#x27;/inventario/tallas&#x27;
+            });
+            inventarioItems.push({
+                label: &#x27;Colores&#x27;,
+                icon: &#x27;pi pi-palette&#x27;,
+                routerLink: &#x27;/inventario/colores&#x27;
+            });
+        }
+
+        // Solo añadimos la pestaña &quot;Inventario&quot; si tiene al menos un sub-item visible
+        if (inventarioItems.length &gt; 0) {
+            menu.push({
+                label: &#x27;Inventario&#x27;,
+                icon: &#x27;pi pi-box&#x27;,
+                items: inventarioItems
+            });
+        }
+
+        // 3. Sección Transacciones
+        if (this.authService.hasPermission(&#x27;MOVIMIENTO_LEER&#x27;)) {
+            menu.push({
+                label: &#x27;Movimientos&#x27;,
+                icon: &#x27;pi pi-arrow-right-arrow-left&#x27;,
+                routerLink: &#x27;/transacciones/movimientos&#x27;
+            });
+        }
+
+        // 4. Sección Almacenes
+        if (this.authService.hasPermission(&#x27;PRODUCTO_LEER&#x27;)) {
+            menu.push({
+                label: &#x27;Almacenes&#x27;,
+                icon: &#x27;pi pi-building&#x27;,
+                routerLink: &#x27;/almacenes&#x27;
+            });
+        }
+
+        // 5. Sección Proyectos
+        if (this.authService.hasPermission(&#x27;PROYECTO_LEER&#x27;)) {
+            menu.push({
+                label: &#x27;Proyectos&#x27;,
+                icon: &#x27;pi pi-folder&#x27;,
+                routerLink: &#x27;/proyectos&#x27;
+            });
+        }
+
+        // 6. Sección Admin
+        if (this.authService.hasPermission(&#x27;USUARIO_GLOBAL&#x27;)) {
+            menu.push({
+                label: &#x27;Admin&#x27;,
+                icon: &#x27;pi pi-cog&#x27;,
+                items: [
+                    {
+                        label: &#x27;Usuarios&#x27;,
+                        icon: &#x27;pi pi-users&#x27;,
+                        routerLink: &#x27;/admin/usuarios&#x27;
+                    },
+                    {
+                        label: &#x27;Roles&#x27;,
+                        icon: &#x27;pi pi-users&#x27;,
+                        routerLink: &#x27;/admin/roles&#x27;
+                    }
+                ]
+            });
+        }
+
+        return menu;
+    })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/shared/components/header/header.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal computada que define la estructura del menú de navegación (<code>MenuItem[]</code>).</p>
+<p>Se recalcula automáticamente para construir el árbol de opciones
+validando los permisos del usuario actual mediante <code>authService.hasPermission()</code>.</p>
+<p><strong>Secciones del Menú:</strong></p>
+<ol>
+<li><strong>Dashboard</strong>: Accesible para todos los usuarios logueados.</li>
+<li><strong>Inventario</strong>: Agrupa Productos, Variantes, Tallas y Colores (según permisos).</li>
+<li><strong>Transacciones</strong>: Movimientos de inventario.</li>
+<li><strong>Almacenes</strong>: Gestión de ubicaciones.</li>
+<li><strong>Proyectos</strong>: Gestión de proyectos.</li>
+<li><strong>Admin</strong>: Administración de Usuarios y Roles (solo administradores).</li>
+</ol>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy, signal, computed } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Menubar } from &#x27;primeng/menubar&#x27;;
+import { MenuItem } from &#x27;primeng/api&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { AuthService } from &#x27;../../../core/auth/auth.service&#x27;;
+
+/**
+ * Componente visual encargado del Encabezado (Header) de la aplicación.
+ * Contiene la barra de navegación principal implementada con &#x60;Menubar&#x60; de PrimeNG.
+ *
+ * **Características:**
+ * - Renderizado dinámico de opciones de menú basado en los permisos del usuario.
+ * - Botón de cierre de sesión.
+ * - Utiliza estrategia &#x60;OnPush&#x60; para optimizar el rendimiento.
+ */
+@Component({
+    selector: &#x27;app-header&#x27;,
+    imports: [Menubar, ButtonModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: &#x27;./header.component.html&#x27;
+})
+export class HeaderComponent {
+    /**
+     * Constructor del componente.
+     * @param authService Servicio de autenticación para verificar permisos y gestionar el logout.
+     * @param router Servicio de enrutamiento para la navegación tras el logout.
+     */
+    constructor(
+        public authService: AuthService,
+        private router: Router
+    ) { }
+
+    /**
+     * Señal computada que define la estructura del menú de navegación (&#x60;MenuItem[]&#x60;).
+     *
+     * Se recalcula automáticamente para construir el árbol de opciones
+     * validando los permisos del usuario actual mediante &#x60;authService.hasPermission()&#x60;.
+     *
+     * **Secciones del Menú:**
+     * 1. **Dashboard**: Accesible para todos los usuarios logueados.
+     * 2. **Inventario**: Agrupa Productos, Variantes, Tallas y Colores (según permisos).
+     * 3. **Transacciones**: Movimientos de inventario.
+     * 4. **Almacenes**: Gestión de ubicaciones.
+     * 5. **Proyectos**: Gestión de proyectos.
+     * 6. **Admin**: Administración de Usuarios y Roles (solo administradores).
+     *
+     * @returns Un array de objetos &#x60;MenuItem&#x60; configurados para PrimeNG.
+     */
+    items &#x3D; computed&lt;MenuItem[]&gt;(() &#x3D;&gt; {
+
+        // 1. Dashboard siempre visible
+        const menu: MenuItem[] &#x3D; [
+            {
+                label: &#x27;Dashboard&#x27;,
+                icon: &#x27;pi pi-home&#x27;,
+                routerLink: &#x27;/dashboard&#x27;
+            }
+        ];
+
+        // 2. Sección Inventario (Productos y Variantes)
+        // Creamos los sub-items dinámicamente según permisos
+        const inventarioItems: MenuItem[] &#x3D; [];
+
+        if (this.authService.hasPermission(&#x27;PRODUCTO_LEER&#x27;)) {
+            inventarioItems.push({
+                label: &#x27;Productos&#x27;,
+                icon: &#x27;pi pi-list&#x27;,
+                routerLink: &#x27;/inventario/productos&#x27;
+            });
+        }
+
+        if (this.authService.hasPermission(&#x27;VARIANTE_LEER&#x27;)) {
+            inventarioItems.push({
+                label: &#x27;Variantes&#x27;,
+                icon: &#x27;pi pi-tags&#x27;,
+                routerLink: &#x27;/inventario/variantes&#x27;
+            });
+            inventarioItems.push({
+                label: &#x27;Tallas&#x27;,
+                icon: &#x27;pi pi-arrows-h&#x27;,
+                routerLink: &#x27;/inventario/tallas&#x27;
+            });
+            inventarioItems.push({
+                label: &#x27;Colores&#x27;,
+                icon: &#x27;pi pi-palette&#x27;,
+                routerLink: &#x27;/inventario/colores&#x27;
+            });
+        }
+
+        // Solo añadimos la pestaña &quot;Inventario&quot; si tiene al menos un sub-item visible
+        if (inventarioItems.length &gt; 0) {
+            menu.push({
+                label: &#x27;Inventario&#x27;,
+                icon: &#x27;pi pi-box&#x27;,
+                items: inventarioItems
+            });
+        }
+
+        // 3. Sección Transacciones
+        if (this.authService.hasPermission(&#x27;MOVIMIENTO_LEER&#x27;)) {
+            menu.push({
+                label: &#x27;Movimientos&#x27;,
+                icon: &#x27;pi pi-arrow-right-arrow-left&#x27;,
+                routerLink: &#x27;/transacciones/movimientos&#x27;
+            });
+        }
+
+        // 4. Sección Almacenes
+        if (this.authService.hasPermission(&#x27;PRODUCTO_LEER&#x27;)) {
+            menu.push({
+                label: &#x27;Almacenes&#x27;,
+                icon: &#x27;pi pi-building&#x27;,
+                routerLink: &#x27;/almacenes&#x27;
+            });
+        }
+
+        // 5. Sección Proyectos
+        if (this.authService.hasPermission(&#x27;PROYECTO_LEER&#x27;)) {
+            menu.push({
+                label: &#x27;Proyectos&#x27;,
+                icon: &#x27;pi pi-folder&#x27;,
+                routerLink: &#x27;/proyectos&#x27;
+            });
+        }
+
+        // 6. Sección Admin
+        if (this.authService.hasPermission(&#x27;USUARIO_GLOBAL&#x27;)) {
+            menu.push({
+                label: &#x27;Admin&#x27;,
+                icon: &#x27;pi pi-cog&#x27;,
+                items: [
+                    {
+                        label: &#x27;Usuarios&#x27;,
+                        icon: &#x27;pi pi-users&#x27;,
+                        routerLink: &#x27;/admin/usuarios&#x27;
+                    },
+                    {
+                        label: &#x27;Roles&#x27;,
+                        icon: &#x27;pi pi-users&#x27;,
+                        routerLink: &#x27;/admin/roles&#x27;
+                    }
+                ]
+            });
+        }
+
+        return menu;
+    });
+
+    /**
+     * Cierra la sesión del usuario actual.
+     */
+    logout() {
+        this.authService.logout(); // Borra el token
+        this.router.navigate([&#x27;/login&#x27;]); // Redirige al login
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header&gt;
+    &lt;p-menubar [model]&#x3D;&quot;items()&quot;&gt;
+        &lt;ng-template #start&gt;
+            &lt;div class&#x3D;&quot;font-bold text-xl px-2&quot;&gt;WATTS&lt;/div&gt;
+        &lt;/ng-template&gt;
+        
+        &lt;ng-template #end&gt;
+            &lt;div class&#x3D;&quot;flex flex-column align-items-center justify-content-center gap-1&quot;&gt;
+                
+                @if (authService.getUsername(); as user) {
+                    &lt;span class&#x3D;&quot;text-sm font-bold text-primary&quot;&gt;
+                        {{ user }}
+                    &lt;/span&gt;
+                }
+
+                &lt;p-button 
+                    label&#x3D;&quot;Salir&quot; 
+                    icon&#x3D;&quot;pi pi-power-off&quot; 
+                    severity&#x3D;&quot;danger&quot; 
+                    [text]&#x3D;&quot;true&quot; 
+                    size&#x3D;&quot;small&quot;
+                    (onClick)&#x3D;&quot;logout()&quot;&gt;
+                &lt;/p-button&gt;
+            &lt;/div&gt;
+        &lt;/ng-template&gt;
+    &lt;/p-menubar&gt;
+&lt;/header&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header>    <p-menubar [model]="items()">        <ng-template #start>            <div class="font-bold text-xl px-2">WATTS</div>        </ng-template>                <ng-template #end>            <div class="flex flex-column align-items-center justify-content-center gap-1">                                @if (authService.getUsername(); as user) {                    <span class="text-sm font-bold text-primary">                        {{ user }}                    </span>                }                <p-button                     label="Salir"                     icon="pi pi-power-off"                     severity="danger"                     [text]="true"                     size="small"                    (onClick)="logout()">                </p-button>            </div>        </ng-template>    </p-menubar></header></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

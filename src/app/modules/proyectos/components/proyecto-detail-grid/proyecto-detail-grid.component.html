@@ -1,0 +1,75 @@
+<p-dataView
+  [value]="archivos()"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad.emit($event)"
+  [paginator]="true"
+  [rows]="rows()"
+  [totalRecords]="totalRecords()"
+  [rowsPerPageOptions]="[12, 24, 48]"
+  [showCurrentPageReport]="true"
+  [loading]="loading()"
+  [layout]="'grid'"
+>
+  <ng-template #grid pTemplate="grid" let-items>
+    <div class="grid grid-nogutter">
+      @for (archivo of items; track archivo.id) {
+        <div class="col-12 sm:col-6 md:col-4 xl:col-3 p-2">
+          <div
+            class="p-4 border-1 surface-border surface-card border-round flex flex-column align-items-center gap-3 shadow-1 hover:shadow-3 transition-duration-200 h-full"
+          >
+            <div
+              class="relative transition-transform transition-duration-200 hover:scale-110"
+              [ngClass]="{ 'cursor-pointer': isPreviewable(archivo.nombreOriginal) }"
+              (click)="tryPreview(archivo)"
+              [pTooltip]="isPreviewable(archivo.nombreOriginal) ? 'Clic para abrir' : ''"
+              tooltipPosition="top"
+            >
+              <i class="pi text-6xl" [ngClass]="getIconClass(archivo.nombreOriginal)"></i>
+            </div>
+
+            <div class="text-center w-full">
+              <div
+                class="font-bold text-lg mb-1 white-space-nowrap overflow-hidden text-overflow-ellipsis"
+                [pTooltip]="archivo.nombreOriginal"
+              >
+                {{ archivo.nombreOriginal }}
+              </div>
+              <div class="text-sm text-500 mb-1">{{ archivo.tipo | fileType }}</div>
+              <div class="text-xs text-400">
+                {{ ((archivo.tamanyo || archivo.tamano || 0) / 1024).toFixed(2) }} KB •
+                {{ archivo.fechaSubida | date: 'dd/MM/yyyy' }}
+              </div>
+              <div class="text-xs text-500 mt-1">
+                <i class="pi pi-user mr-1 text-xs"></i>{{ archivo.subidoPor }}
+              </div>
+            </div>
+
+            <div class="flex gap-2 mt-auto w-full justify-content-center">
+              <p-button
+                icon="pi pi-download"
+                styleClass="p-button-rounded p-button-outlined p-button-success"
+                (onClick)="onDownload.emit(archivo)"
+                pTooltip="Descargar"
+              >
+              </p-button>
+              <p-button
+                icon="pi pi-trash"
+                styleClass="p-button-rounded p-button-outlined p-button-danger"
+                (onClick)="onDelete.emit(archivo)"
+                pTooltip="Eliminar"
+              >
+              </p-button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="empty">
+    <div class="text-center p-5 surface-50 border-round w-full">
+      <i class="pi pi-folder-open text-4xl text-500 mb-3"></i>
+      <div class="text-xl text-500">El proyecto está vacío.</div>
+    </div>
+  </ng-template>
+</p-dataView>

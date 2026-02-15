@@ -1,0 +1,1713 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  VarianteFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/inventario/components/variante-form/variante-form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de formulario para la creación y edición de variantes de productos.
+Permite gestionar atributos específicos de un producto base como la talla, el color,
+los precios (compra y venta) y la imagen representativa de la variante.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-variante-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>AsyncPipe</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>DialogModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>InputNumberModule</code>
+                            <code>SelectModule</code>
+                            <code>FileUploadModule</code>
+                            <code>ToastModule</code>
+                            <code>SecureImagePipe</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./variante-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_catalogoService" >_catalogoService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_productoService" >_productoService</a>
+                            </li>
+                            <li>
+                                <a href="#archivoSeleccionado" >archivoSeleccionado</a>
+                            </li>
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#colores" >colores</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#fileUpload" >fileUpload</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#imagenPreview" >imagenPreview</a>
+                            </li>
+                            <li>
+                                <a href="#loadingProductos" >loadingProductos</a>
+                            </li>
+                            <li>
+                                <a href="#productoPreseleccionado" >productoPreseleccionado</a>
+                            </li>
+                            <li>
+                                <a href="#productos" >productos</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                <a href="#tallas" >tallas</a>
+                            </li>
+                            <li>
+                                <a href="#varianteEditar" >varianteEditar</a>
+                            </li>
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cargarDatos" >cargarDatos</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onCancel" >onCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onFileSelect" >onFileSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:125</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.
+Define un efecto reactivo que observa los cambios en los inputs <code>varianteEditar</code> y <code>productoPreseleccionado</code>.</p>
+<ul>
+<li>En modo edición: pre-rellena el formulario asociando los nombres de talla y color a sus respectivos IDs,
+y bloquea los campos clave (producto, talla, color) que no deben modificarse.</li>
+<li>En modo creación: limpia el formulario. Si hay un producto preseleccionado, asigna y bloquea
+el identificador del producto.</li>
+</ul>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <b>visible</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:56</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controla la visibilidad del diálogo modal. Es requerido.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancel"></a>
+                        <b>cancel</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:72</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario cancela la acción o cierra el modal.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarDatos"></a>
+                    <span class="name">
+                        <span ><b>cargarDatos</b></span>
+                        <a href="#cargarDatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarDatos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Realiza las peticiones HTTP concurrentes o secuenciales para llenar
+las listas de opciones del formulario: Productos, Tallas y Colores.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida que se ejecuta al iniciar el componente.
+Llama a <code>cargarDatos</code> para obtener las dependencias necesarias de los desplegables.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCancel"></a>
+                    <span class="name">
+                        <span ><b>onCancel</b></span>
+                        <a href="#onCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="258"
+                                    class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:258</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restablece el formulario a sus valores por defecto, limpia la selección
+y previsualización de imagen, y emite el evento <code>cancel</code> para notificar al padre.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileSelect"></a>
+                    <span class="name">
+                        <span ><b>onFileSelect</b></span>
+                        <a href="#onFileSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileSelect(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de selección de archivos desde el componente <code>FileUpload</code>.
+Captura el primer archivo seleccionado, lo guarda en el estado y genera
+su vista previa en base64 mediante <code>FileReader</code>.</p>
+<ul>
+<li>@param event - Evento emitido por el componente de archivo o input nativo.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento emitido por el componente de archivo o input nativo.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Procesa la solicitud de guardado del formulario.
+Si es válido, recopila y mapea los datos en bruto a un objeto <code>VarianteRequest</code>
+y los emite al componente padre a través de <code>save</code> junto al archivo seleccionado.
+Si es inválido, marca todos los controles como tocados para revelar los errores.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_catalogoService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_catalogoService</b></span>
+                        <a href="#_catalogoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(CatalogoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio inyectado para recuperar datos del catálogo como tallas y colores.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Constructor inyectado para generar el grupo de controles del formulario reactivo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_productoService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_productoService</b></span>
+                        <a href="#_productoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ProductoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio inyectado para recuperar la lista de productos disponibles.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archivoSeleccionado"></a>
+                    <span class="name">
+                        <span ><b>archivoSeleccionado</b></span>
+                        <a href="#archivoSeleccionado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;File | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que almacena el archivo de imagen temporalmente seleccionado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario cancela la acción o cierra el modal.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colores"></a>
+                    <span class="name">
+                        <span ><b>colores</b></span>
+                        <a href="#colores"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Color[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que almacena la lista de colores para el desplegable.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileUpload"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>fileUpload</b></span>
+                        <a href="#fileUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FileUpload</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(FileUpload)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al componente de subida de archivos de PrimeNG.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.group({
+    productoId: [null as number | null, [Validators.required, Validators.min(1)]],
+    tallaId: [null as number | null, [Validators.required, Validators.min(1)]],
+    colorId: [null as number | null, [Validators.required, Validators.min(1)]],
+    precioVenta: [0, [Validators.required, Validators.min(0)]],
+    precioCompra: [0, [Validators.required, Validators.min(0)]]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instancia del formulario reactivo. Contiene los campos:</p>
+<ul>
+<li><code>productoId</code>: Producto base asociado (requerido).</li>
+<li><code>tallaId</code>: Talla asociada (requerida).</li>
+<li><code>colorId</code>: Color asociado (requerido).</li>
+<li><code>precioVenta</code>: Precio al que se vende (requerido, min 0).</li>
+<li><code>precioCompra</code>: Coste de compra (requerido, min 0).</li>
+</ul>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imagenPreview"></a>
+                    <span class="name">
+                        <span ><b>imagenPreview</b></span>
+                        <a href="#imagenPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que contiene la URL en base64 o remota para la vista previa de la imagen.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingProductos"></a>
+                    <span class="name">
+                        <span ><b>loadingProductos</b></span>
+                        <a href="#loadingProductos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que indica si se están cargando los productos desde el servidor.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productoPreseleccionado"></a>
+                    <span class="name">
+                        <span ><b>productoPreseleccionado</b></span>
+                        <a href="#productoPreseleccionado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;number | undefined&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Identificador de un producto previamente seleccionado.
+Útil cuando se abre el formulario desde el detalle de un producto específico,
+bloqueando la selección de producto.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productos"></a>
+                    <span class="name">
+                        <span ><b>productos</b></span>
+                        <a href="#productos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Producto[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que almacena la lista de productos para el desplegable.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>output&lt;{ request: VarianteRequest, archivo: File | null }&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el formulario se envía exitosamente.
+Transmite la petición de datos procesada (<code>request</code>) y el archivo de imagen opcional (<code>archivo</code>).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tallas"></a>
+                    <span class="name">
+                        <span ><b>tallas</b></span>
+                        <a href="#tallas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;Talla[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que almacena la lista de tallas para el desplegable.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="varianteEditar"></a>
+                    <span class="name">
+                        <span ><b>varianteEditar</b></span>
+                        <a href="#varianteEditar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;Variante | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Datos de la variante a editar. Si es <code>null</code>, el componente opera en modo de creación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                        <span ><b>visible</b></span>
+                        <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/modules/inventario/components/variante-form/variante-form.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visibilidad del diálogo modal. Es requerido.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, input, output, signal, OnInit, effect } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { InputNumberModule } from &#x27;primeng/inputnumber&#x27;;
+import { SelectModule } from &#x27;primeng/select&#x27;;
+import { Variante, VarianteRequest } from &#x27;../../models/variante.model&#x27;;
+import { ProductoService } from &#x27;../../services/producto.service&#x27;;
+import { Producto } from &#x27;../../models/producto.model&#x27;;
+import { Talla, Color } from &#x27;../../../../shared/models/catalogo.model&#x27;;
+import { CatalogoService } from &#x27;../../../../shared/services/catalogo.service&#x27;;
+import { FileUploadModule } from &#x27;primeng/fileupload&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { ViewChild } from &#x27;@angular/core&#x27;;
+import { FileUpload } from &#x27;primeng/fileupload&#x27;;
+import { AsyncPipe } from &#x27;@angular/common&#x27;;
+import { SecureImagePipe } from &#x27;../../../../shared/pipes/secure-image.pipe&#x27;;
+
+/**
+ * Componente de formulario para la creación y edición de variantes de productos.
+ * Permite gestionar atributos específicos de un producto base como la talla, el color,
+ * los precios (compra y venta) y la imagen representativa de la variante.
+ */
+@Component({
+  selector: &#x27;app-variante-form&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    AsyncPipe,
+    ReactiveFormsModule,
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    InputNumberModule,
+    SelectModule,
+    FileUploadModule,
+    ToastModule,
+    SecureImagePipe
+  ],
+  templateUrl: &#x27;./variante-form.component.html&#x27;
+})
+export class VarianteFormComponent implements OnInit {
+  /** Referencia al componente de subida de archivos de PrimeNG. */
+  @ViewChild(FileUpload) fileUpload!: FileUpload;
+
+  // Inyección de dependencias
+  /** Constructor inyectado para generar el grupo de controles del formulario reactivo. */
+  private readonly _fb &#x3D; inject(FormBuilder);
+  /** Servicio inyectado para recuperar la lista de productos disponibles. */
+  private readonly _productoService &#x3D; inject(ProductoService);
+  /** Servicio inyectado para recuperar datos del catálogo como tallas y colores. */
+  private readonly _catalogoService &#x3D; inject(CatalogoService);
+
+  // Inputs
+  /** Controla la visibilidad del diálogo modal. Es requerido. */
+  visible &#x3D; input.required&lt;boolean&gt;();
+  /** * Identificador de un producto previamente seleccionado. 
+   * Útil cuando se abre el formulario desde el detalle de un producto específico,
+   * bloqueando la selección de producto.
+   */
+  productoPreseleccionado &#x3D; input&lt;number | undefined&gt;(undefined);
+  /** * Datos de la variante a editar. Si es &#x60;null&#x60;, el componente opera en modo de creación. 
+   */
+  varianteEditar &#x3D; input&lt;Variante | null&gt;(null);
+  
+  // Outputs
+  /** * Evento emitido cuando el formulario se envía exitosamente.
+   * Transmite la petición de datos procesada (&#x60;request&#x60;) y el archivo de imagen opcional (&#x60;archivo&#x60;).
+   */
+  save &#x3D; output&lt;{ request: VarianteRequest, archivo: File | null }&gt;();
+  /** Evento emitido cuando el usuario cancela la acción o cierra el modal. */
+  cancel &#x3D; output&lt;void&gt;();
+
+  // Signals para el archivo seleccionado y la preview
+  /** Señal reactiva que almacena el archivo de imagen temporalmente seleccionado. */
+  archivoSeleccionado &#x3D; signal&lt;File | null&gt;(null);
+  /** Señal reactiva que contiene la URL en base64 o remota para la vista previa de la imagen. */
+  imagenPreview &#x3D; signal&lt;string | null&gt;(null);
+
+  // Signals para rellenar los selects
+  /** Señal reactiva que almacena la lista de productos para el desplegable. */
+  productos &#x3D; signal&lt;Producto[]&gt;([]);
+  /** Señal reactiva que almacena la lista de tallas para el desplegable. */
+  tallas &#x3D; signal&lt;Talla[]&gt;([]);
+  /** Señal reactiva que almacena la lista de colores para el desplegable. */
+  colores &#x3D; signal&lt;Color[]&gt;([]);
+
+  /** Señal reactiva que indica si se están cargando los productos desde el servidor. */
+  loadingProductos &#x3D; signal(false);
+
+  /**
+   * Instancia del formulario reactivo. Contiene los campos:
+   * - &#x60;productoId&#x60;: Producto base asociado (requerido).
+   * - &#x60;tallaId&#x60;: Talla asociada (requerida).
+   * - &#x60;colorId&#x60;: Color asociado (requerido).
+   * - &#x60;precioVenta&#x60;: Precio al que se vende (requerido, min 0).
+   * - &#x60;precioCompra&#x60;: Coste de compra (requerido, min 0).
+   */
+  form &#x3D; this._fb.group({
+    productoId: [null as number | null, [Validators.required, Validators.min(1)]],
+    tallaId: [null as number | null, [Validators.required, Validators.min(1)]],
+    colorId: [null as number | null, [Validators.required, Validators.min(1)]],
+    precioVenta: [0, [Validators.required, Validators.min(0)]],
+    precioCompra: [0, [Validators.required, Validators.min(0)]]
+  });
+
+  /**
+   * Maneja el evento de selección de archivos desde el componente &#x60;FileUpload&#x60;.
+   * Captura el primer archivo seleccionado, lo guarda en el estado y genera 
+   * su vista previa en base64 mediante &#x60;FileReader&#x60;.
+   * * @param event - Evento emitido por el componente de archivo o input nativo.
+   */
+  onFileSelect(event: any) {
+    const file &#x3D; event.files[0];
+    if (file) {
+      this.archivoSeleccionado.set(file);
+
+      // Crear preview
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; (e) &#x3D;&gt; {
+        this.imagenPreview.set(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  /**
+   * Constructor del componente.
+   * Define un efecto reactivo que observa los cambios en los inputs &#x60;varianteEditar&#x60; y &#x60;productoPreseleccionado&#x60;.
+   * - En modo edición: pre-rellena el formulario asociando los nombres de talla y color a sus respectivos IDs,
+   * y bloquea los campos clave (producto, talla, color) que no deben modificarse.
+   * - En modo creación: limpia el formulario. Si hay un producto preseleccionado, asigna y bloquea
+   * el identificador del producto.
+   */
+  constructor() {
+    // Effect: Maneja la lógica de llenado del formulario reactivamente
+    effect(() &#x3D;&gt; {
+      const variante &#x3D; this.varianteEditar();
+      const preId &#x3D; this.productoPreseleccionado();
+
+      if (variante) {
+        // MODO EDICIÓN
+
+        // Necesitamos mapear los nombres de Talla/Color que vienen en la variante a sus IDs
+        const listaTallas &#x3D; this.tallas();
+        const listaColores &#x3D; this.colores();
+        // Buscamos el ID basándonos en el nombre que trae la variante
+        const foundTalla &#x3D; listaTallas.find(t &#x3D;&gt; t.nombre &#x3D;&#x3D;&#x3D; variante.talla);
+        const foundColor &#x3D; listaColores.find(c &#x3D;&gt; c.nombre &#x3D;&#x3D;&#x3D; variante.color);
+        
+        // Rellenamos datos
+        this.form.patchValue({
+          productoId: variante.producto.id,
+          tallaId: foundTalla ? foundTalla.id : null,
+          colorId: foundColor ? foundColor.id : null,
+          precioVenta: variante.precioVenta,
+          precioCompra: variante.precioCompra
+        });
+        // Deshabilitamos campos que no se pueden editar
+        this.form.controls.productoId.disable();
+        this.form.controls.tallaId.disable();
+        this.form.controls.colorId.disable();
+        if (variante.imagenUrl) {
+          this.imagenPreview.set(variante.imagenUrl || null);
+        } else {
+          this.imagenPreview.set(null);
+        }
+      } else {
+        // MODO CREACIÓN: Limpiamos y habilitamos todo
+        this.form.reset();
+        this.archivoSeleccionado.set(null);
+        this.imagenPreview.set(null);
+        // Habilitamos campos para creación
+        this.form.controls.tallaId.enable();
+        this.form.controls.colorId.enable();
+      }
+
+      // Lógica específica si NO estamos editando pero sí hay un producto preseleccionado
+      // (Ej: Creando variante desde la tabla de detalles de un producto específico)
+      if (!variante) {
+        if (preId) {
+          this.form.patchValue({ productoId: preId });
+          // Bloqueamos selector de producto
+          this.form.controls.productoId.disable();
+        } else {
+          // Si no hay preselección, habilitamos el selector
+          this.form.controls.productoId.enable();
+        }
+      }
+    });
+  }
+
+  /**
+   * Método del ciclo de vida que se ejecuta al iniciar el componente.
+   * Llama a &#x60;cargarDatos&#x60; para obtener las dependencias necesarias de los desplegables.
+   */
+  ngOnInit() {
+    this.cargarDatos();
+  }
+  /**
+   * Realiza las peticiones HTTP concurrentes o secuenciales para llenar
+   * las listas de opciones del formulario: Productos, Tallas y Colores.
+   */
+  cargarDatos() {
+    this.loadingProductos.set(true);
+    
+    // Cargar productos para el select
+    this._productoService.listar(0, 100).subscribe({
+      next: (page) &#x3D;&gt; {
+        this.productos.set(page.content);
+        this.loadingProductos.set(false);
+      },
+      error: () &#x3D;&gt; this.loadingProductos.set(false)
+    });
+
+    // Cargar Tallas para el select
+    this._catalogoService.obtenerTallas().subscribe({
+      next: (data) &#x3D;&gt; this.tallas.set(data)
+    });
+
+    // Cargar Colores para el select
+    this._catalogoService.obtenerColores().subscribe({
+      next: (data) &#x3D;&gt; this.colores.set(data)
+    });
+  }
+
+  /**
+   * Procesa la solicitud de guardado del formulario.
+   * Si es válido, recopila y mapea los datos en bruto a un objeto &#x60;VarianteRequest&#x60;
+   * y los emite al componente padre a través de &#x60;save&#x60; junto al archivo seleccionado.
+   * Si es inválido, marca todos los controles como tocados para revelar los errores.
+   */
+  onSubmit() {
+    if (this.form.valid) {
+      const rawValue &#x3D; this.form.getRawValue();
+      console.log(&#x27;Enviando Variante:&#x27;, rawValue);
+      
+      // Contruimos el objeto Request
+      const request: VarianteRequest &#x3D; {
+        productoId: rawValue.productoId!,
+        tallaId: rawValue.tallaId!,
+        colorId: rawValue.colorId!,
+        precioVenta: rawValue.precioVenta ?? 0,
+        precioCompra: rawValue.precioCompra ?? 0
+      };
+      const archivo &#x3D; this.archivoSeleccionado();
+      this.save.emit({ request, archivo });
+    } else {
+      // Marcar todos como touched para mostrar errores si el usuario fuerza el submit
+      this.form.markAllAsTouched();
+    }
+  }
+
+  /**
+   * Restablece el formulario a sus valores por defecto, limpia la selección 
+   * y previsualización de imagen, y emite el evento &#x60;cancel&#x60; para notificar al padre.
+   */
+  onCancel() {
+    this.form.reset();
+    this.imagenPreview.set(null);
+    this.archivoSeleccionado.set(null);
+    this.imagenPreview.set(null);
+    this.cancel.emit();
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-dialog
+  [header]&#x3D;&quot;varianteEditar() ? &#x27;Editar Variante&#x27; : &#x27;Nueva Variante&#x27;&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [visible]&#x3D;&quot;visible()&quot;
+  (visibleChange)&#x3D;&quot;onCancel()&quot;
+  [style]&#x3D;&quot;{ width: &#x27;450px&#x27; }&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;flex flex-column gap-3&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;producto&quot; class&#x3D;&quot;font-bold&quot;&gt;Producto&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;producto&quot;
+        formControlName&#x3D;&quot;productoId&quot;
+        [options]&#x3D;&quot;productos()&quot;
+        optionLabel&#x3D;&quot;nombre&quot;
+        optionValue&#x3D;&quot;id&quot;
+        placeholder&#x3D;&quot;Seleccione un producto&quot;
+        [filter]&#x3D;&quot;true&quot;
+        filterBy&#x3D;&quot;nombre,codigoBase&quot;
+        [loading]&#x3D;&quot;loadingProductos()&quot;
+        [virtualScroll]&#x3D;&quot;true&quot;
+        [virtualScrollItemSize]&#x3D;&quot;3&quot;
+        appendTo&#x3D;&quot;body&quot;
+        class&#x3D;&quot;w-full&quot;
+      &gt;
+      &lt;/p-select&gt;
+      @if (form.controls.productoId.invalid &amp;&amp; form.controls.productoId.touched) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;&gt;El producto es requerido.&lt;/small&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;talla&quot; class&#x3D;&quot;font-bold&quot;&gt;Talla&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;talla&quot;
+        formControlName&#x3D;&quot;tallaId&quot;
+        [options]&#x3D;&quot;tallas()&quot;
+        optionLabel&#x3D;&quot;nombre&quot;
+        optionValue&#x3D;&quot;id&quot;
+        placeholder&#x3D;&quot;Seleccione una talla&quot;
+        appendTo&#x3D;&quot;body&quot;
+        class&#x3D;&quot;w-full&quot;
+      &gt;
+      &lt;/p-select&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;color&quot; class&#x3D;&quot;font-bold&quot;&gt;Color&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;color&quot;
+        formControlName&#x3D;&quot;colorId&quot;
+        [options]&#x3D;&quot;colores()&quot;
+        optionLabel&#x3D;&quot;nombre&quot;
+        optionValue&#x3D;&quot;id&quot;
+        placeholder&#x3D;&quot;Seleccione un color&quot;
+        [filter]&#x3D;&quot;true&quot;
+        filterBy&#x3D;&quot;nombre&quot;
+        appendTo&#x3D;&quot;body&quot;
+        class&#x3D;&quot;w-full&quot;
+      &gt;
+      &lt;/p-select&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;formgrid grid&quot;&gt;
+      &lt;div class&#x3D;&quot;field col&quot;&gt;
+        &lt;label for&#x3D;&quot;precioCompra&quot; class&#x3D;&quot;font-bold&quot;&gt;Precio Compra&lt;/label&gt;
+        &lt;p-inputnumber
+          id&#x3D;&quot;precioCompra&quot;
+          formControlName&#x3D;&quot;precioCompra&quot;
+          mode&#x3D;&quot;currency&quot;
+          currency&#x3D;&quot;EUR&quot;
+          locale&#x3D;&quot;es-ES&quot;
+          class&#x3D;&quot;w-full&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;field col&quot;&gt;
+        &lt;label for&#x3D;&quot;precioVenta&quot; class&#x3D;&quot;font-bold&quot;&gt;Precio Venta&lt;/label&gt;
+        &lt;p-inputnumber
+          id&#x3D;&quot;precioVenta&quot;
+          formControlName&#x3D;&quot;precioVenta&quot;
+          mode&#x3D;&quot;currency&quot;
+          currency&#x3D;&quot;EUR&quot;
+          locale&#x3D;&quot;es-ES&quot;
+          class&#x3D;&quot;w-full&quot;
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label class&#x3D;&quot;font-bold&quot;&gt;Imagen de la Variante&lt;/label&gt;
+
+      &lt;p-fileUpload
+        mode&#x3D;&quot;basic&quot;
+        chooseLabel&#x3D;&quot;Seleccionar Imagen&quot;
+        accept&#x3D;&quot;image/*&quot;
+        maxFileSize&#x3D;&quot;1000000&quot;
+        [auto]&#x3D;&quot;true&quot;
+        customUpload&#x3D;&quot;true&quot;
+        (uploadHandler)&#x3D;&quot;onFileSelect($event)&quot;
+        class&#x3D;&quot;w-full&quot;
+        styleClass&#x3D;&quot;w-full&quot;
+      /&gt;
+
+      @if (imagenPreview()) {
+        &lt;div class&#x3D;&quot;mt-2 flex justify-content-center border-1 surface-border border-round p-3&quot;&gt;
+          &lt;img
+            [src]&#x3D;&quot;imagenPreview() | secureImage | async&quot;
+            alt&#x3D;&quot;Previsualización&quot;
+            class&#x3D;&quot;max-w-full h-10rem object-contain&quot;
+          /&gt;
+        &lt;/div&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-content-end gap-2 mt-4&quot;&gt;
+      &lt;p-button label&#x3D;&quot;Cancelar&quot; icon&#x3D;&quot;pi pi-times&quot; [text]&#x3D;&quot;true&quot; (onClick)&#x3D;&quot;onCancel()&quot; /&gt;
+      &lt;p-button label&#x3D;&quot;Guardar&quot; icon&#x3D;&quot;pi pi-check&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;form.invalid&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-dialog  [header]="varianteEditar() ? \'Editar Variante\' : \'Nueva Variante\'"  [modal]="true"  [visible]="visible()"  (visibleChange)="onCancel()"  [style]="{ width: \'450px\' }">  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3">    <div class="flex flex-column gap-2">      <label for="producto" class="font-bold">Producto</label>      <p-select        id="producto"        formControlName="productoId"        [options]="productos()"        optionLabel="nombre"        optionValue="id"        placeholder="Seleccione un producto"        [filter]="true"        filterBy="nombre,codigoBase"        [loading]="loadingProductos()"        [virtualScroll]="true"        [virtualScrollItemSize]="3"        appendTo="body"        class="w-full"      >      </p-select>      @if (form.controls.productoId.invalid && form.controls.productoId.touched) {        <small class="text-red-500">El producto es requerido.</small>      }    </div>    <div class="flex flex-column gap-2">      <label for="talla" class="font-bold">Talla</label>      <p-select        id="talla"        formControlName="tallaId"        [options]="tallas()"        optionLabel="nombre"        optionValue="id"        placeholder="Seleccione una talla"        appendTo="body"        class="w-full"      >      </p-select>    </div>    <div class="flex flex-column gap-2">      <label for="color" class="font-bold">Color</label>      <p-select        id="color"        formControlName="colorId"        [options]="colores()"        optionLabel="nombre"        optionValue="id"        placeholder="Seleccione un color"        [filter]="true"        filterBy="nombre"        appendTo="body"        class="w-full"      >      </p-select>    </div>    <div class="formgrid grid">      <div class="field col">        <label for="precioCompra" class="font-bold">Precio Compra</label>        <p-inputnumber          id="precioCompra"          formControlName="precioCompra"          mode="currency"          currency="EUR"          locale="es-ES"          class="w-full"        />      </div>      <div class="field col">        <label for="precioVenta" class="font-bold">Precio Venta</label>        <p-inputnumber          id="precioVenta"          formControlName="precioVenta"          mode="currency"          currency="EUR"          locale="es-ES"          class="w-full"        />      </div>    </div>    <div class="flex flex-column gap-2">      <label class="font-bold">Imagen de la Variante</label>      <p-fileUpload        mode="basic"        chooseLabel="Seleccionar Imagen"        accept="image/*"        maxFileSize="1000000"        [auto]="true"        customUpload="true"        (uploadHandler)="onFileSelect($event)"        class="w-full"        styleClass="w-full"      />      @if (imagenPreview()) {        <div class="mt-2 flex justify-content-center border-1 surface-border border-round p-3">          <img            [src]="imagenPreview() | secureImage | async"            alt="Previsualización"            class="max-w-full h-10rem object-contain"          />        </div>      }    </div>    <div class="flex justify-content-end gap-2 mt-4">      <p-button label="Cancelar" icon="pi pi-times" [text]="true" (onClick)="onCancel()" />      <p-button label="Guardar" icon="pi pi-check" type="submit" [disabled]="form.invalid" />    </div>  </form></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'VarianteFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'VarianteFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

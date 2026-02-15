@@ -1,0 +1,1865 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MovimientoListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente principal para la gestión de transacciones e historial de movimientos de inventario.
+Proporciona una tabla interactiva con soporte para filtrado avanzado, paginación (Lazy Load),
+exportación de reportes (PDF/CSV) y un modal para registrar nuevos movimientos.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.Default</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MessageService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-movimiento-list</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                            <code>TableModule</code>
+                            <code>ButtonModule</code>
+                            <code>ToolbarModule</code>
+                            <code>ToastModule</code>
+                            <code>DialogModule</code>
+                            <code>TagModule</code>
+                            <code>RippleModule</code>
+                            <code>SelectModule</code>
+                            <code>DatePickerModule</code>
+                                <code><a href="../components/MovimientoFormComponent.html" target="_self" >MovimientoFormComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./movimiento-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fileService" >_fileService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_messageService" >_messageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_movimientoService" >_movimientoService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#expandedRows" >expandedRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#filtrosActuales" >filtrosActuales</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarModal" >mostrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#movimientos" >movimientos</a>
+                            </li>
+                            <li>
+                                <a href="#pageSize" >pageSize</a>
+                            </li>
+                            <li>
+                                <a href="#tiposMovimiento" >tiposMovimiento</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirModalCrear" >abrirModalCrear</a>
+                            </li>
+                            <li>
+                                <a href="#cargarMovimientos" >cargarMovimientos</a>
+                            </li>
+                            <li>
+                                <a href="#cerrarModal" >cerrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#exportarArchivo" >exportarArchivo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formatDate" >formatDate</a>
+                            </li>
+                            <li>
+                                <a href="#getSeverity" >getSeverity</a>
+                            </li>
+                            <li>
+                                <a href="#guardarMovimiento" >guardarMovimiento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#recargarTabla" >recargarTabla</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalCrear"></a>
+                    <span class="name">
+                        <span ><b>abrirModalCrear</b></span>
+                        <a href="#abrirModalCrear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalCrear()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="200"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:200</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia el estado para mostrar el modal del formulario de creación de movimientos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarMovimientos"></a>
+                    <span class="name">
+                        <span ><b>cargarMovimientos</b></span>
+                        <a href="#cargarMovimientos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarMovimientos(event: TableLazyLoadEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Se ejecuta automáticamente por PrimeNG cuando cambia la página, el orden o se aplica un filtro.
+Extrae todos los parámetros del evento, formatea las fechas si es necesario y solicita los datos al servidor.</p>
+<ul>
+<li>@param event Evento emitido por la tabla que contiene el estado de la paginación y los filtros aplicados.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>TableLazyLoadEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento emitido por la tabla que contiene el estado de la paginación y los filtros aplicados.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarModal"></a>
+                    <span class="name">
+                        <span ><b>cerrarModal</b></span>
+                        <a href="#cerrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia el estado para ocultar el modal del formulario de creación.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exportarArchivo"></a>
+                    <span class="name">
+                        <span ><b>exportarArchivo</b></span>
+                        <a href="#exportarArchivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>exportarArchivo(formato: "pdf" | "csv")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:234</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Solicita al servidor un reporte de los movimientos actuales (aplicando los filtros activos de la tabla)
+y procede a descargarlo en el navegador del usuario.</p>
+<ul>
+<li>@param formato El formato deseado para el archivo exportado (<code>pdf</code> o <code>csv</code>).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>formato</td>
+                                            <td>
+                                                        <code>&quot;pdf&quot; | &quot;csv&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>El formato deseado para el archivo exportado (<code>pdf</code> o <code>csv</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formatDate</b></span>
+                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatDate(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:190</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Convierte un objeto <code>Date</code> de JavaScript a una cadena con formato <code>YYYY-MM-DD</code> compatible con la API.</p>
+<ul>
+<li>@param date Fecha a formatear.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha a formatear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Cadena de texto que representa la fecha.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSeverity"></a>
+                    <span class="name">
+                        <span ><b>getSeverity</b></span>
+                        <a href="#getSeverity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSeverity(tipo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="278"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:278</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determina la clase CSS de severidad (color) a aplicar en el componente <code>p-tag</code> de PrimeNG
+dependiendo del tipo de movimiento, para facilitar su identificación visual.</p>
+<ul>
+<li>@param tipo El tipo de movimiento (ej. <code>COMPRA</code>, <code>VENTA</code>, <code>SALIDA_DEFECTO</code>).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tipo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>El tipo de movimiento (ej. <code>COMPRA</code>, <code>VENTA</code>, <code>SALIDA_DEFECTO</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>&quot;success&quot; | &quot;info&quot; | &quot;warn&quot; | &quot;danger&quot; | &quot;secondary&quot; | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>El string correspondiente a la severidad soportada por PrimeNG, o <code>undefined</code> por defecto.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarMovimiento"></a>
+                    <span class="name">
+                        <span ><b>guardarMovimiento</b></span>
+                        <a href="#guardarMovimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarMovimiento(request: <a href="../interfaces/MovimientoRequest.html" target="_self">MovimientoRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recibe los datos validados del componente formulario y los envía al backend para registrar un nuevo movimiento.
+Muestra notificaciones de éxito o error, recarga la tabla y cierra el modal al finalizar correctamente.</p>
+<ul>
+<li>@param request Objeto DTO con los datos del nuevo movimiento a crear.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MovimientoRequest.html" target="_self" >MovimientoRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto DTO con los datos del nuevo movimiento a crear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recargarTabla"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>recargarTabla</b></span>
+                        <a href="#recargarTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recargarTabla()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método auxiliar privado que fuerza la recarga de la tabla devolviéndola a la primera página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fileService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fileService</b></span>
+                        <a href="#_fileService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FileDownloadService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_messageService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_messageService</b></span>
+                        <a href="#_messageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MessageService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_movimientoService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_movimientoService</b></span>
+                        <a href="#_movimientoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MovimientoService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de autenticación inyectado públicamente para validación de permisos en la plantilla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="expandedRows"></a>
+                    <span class="name">
+                        <span ><b>expandedRows</b></span>
+                        <a href="#expandedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto que rastrea qué filas de la tabla están expandidas (si se utiliza la función de row expansion).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filtrosActuales"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>filtrosActuales</b></span>
+                        <a href="#filtrosActuales"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MovimientoFilters.html" target="_self" >MovimientoFilters</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Almacena los filtros activos en la tabla de PrimeNG para usarlos en futuras peticiones o exportaciones.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que indica si la tabla está en proceso de carga de datos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarModal"></a>
+                    <span class="name">
+                        <span ><b>mostrarModal</b></span>
+                        <a href="#mostrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que controla la visibilidad del modal para crear un nuevo movimiento.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="movimientos"></a>
+                    <span class="name">
+                        <span ><b>movimientos</b></span>
+                        <a href="#movimientos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;MovimientoResponse[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que contiene la lista de movimientos a mostrar en la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageSize"></a>
+                    <span class="name">
+                        <span ><b>pageSize</b></span>
+                        <a href="#pageSize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(10)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que determina la cantidad de filas que se muestran por página.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tiposMovimiento"></a>
+                    <span class="name">
+                        <span ><b>tiposMovimiento</b></span>
+                        <a href="#tiposMovimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+        { label: &#x27;COMPRA&#x27;, value: &#x27;COMPRA&#x27; },
+        { label: &#x27;VENTA&#x27;, value: &#x27;VENTA&#x27; },
+        { label: &#x27;ENTRADA_FABRICACION&#x27;, value: &#x27;ENTRADA_FABRICACION&#x27; },
+        { label: &#x27;ENTRADA_DEVOLUCION&#x27;, value: &#x27;ENTRADA_DEVOLUCION&#x27; },
+        { label: &#x27;SALIDA_DEFECTO&#x27;, value: &#x27;SALIDA_DEFECTO&#x27; },
+        { label: &#x27;SALIDA_REGALO&#x27;, value: &#x27;SALIDA_REGALO&#x27; }
+    ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opciones disponibles para el selector de filtrado por tipo de movimiento en la cabecera de la tabla.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalRecords"></a>
+                    <span class="name">
+                        <span ><b>totalRecords</b></span>
+                        <a href="#totalRecords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/modules/transacciones/components/movimiento-list/movimiento-list.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal con el total de registros disponibles en el servidor para la configuración del paginador.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, signal } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { TableLazyLoadEvent, TableModule } from &#x27;primeng/table&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { ToolbarModule } from &#x27;primeng/toolbar&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { ToastModule } from &#x27;primeng/toast&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { TagModule } from &#x27;primeng/tag&#x27;;
+import { RippleModule } from &#x27;primeng/ripple&#x27;;
+import { SelectModule } from &#x27;primeng/select&#x27;;
+import { DatePickerModule } from &#x27;primeng/datepicker&#x27;;
+
+import { MovimientoService } from &#x27;../../services/movimiento.service&#x27;;
+import { MovimientoResponse, MovimientoRequest } from &#x27;../../models/movimiento.model&#x27;;
+import { MovimientoFormComponent } from &#x27;../movimiento-form/movimiento-form.component&#x27;;
+import { AuthService } from &#x27;../../../../core/auth/auth.service&#x27;;
+import { FileDownloadService } from &#x27;../../../../shared/services/file-download.service&#x27;;
+
+/**
+ * Interfaz interna que representa el estado actual de los filtros aplicados en la tabla.
+ * Se utiliza para mantener un registro de las búsquedas activas y aplicarlas al exportar archivos.
+ */
+interface MovimientoFilters {
+    /** Filtro para el nombre o SKU de la variante del producto. */
+    varianteNombre?: { value: string; matchMode?: string };
+    /** Filtro para el nombre o descripción del almacén. */
+    almacenNombre?: { value: string; matchMode?: string };
+    /** Filtro por el tipo de movimiento (ej. COMPRA, VENTA). */
+    tipo?: { value: string; matchMode?: string };
+    /** Filtro por el contenido de las observaciones. */
+    observaciones?: { value: string; matchMode?: string };
+    /** Fecha de inicio para el rango de búsqueda (formato YYYY-MM-DD). */
+    fechaInicio?: string | undefined;
+    /** Fecha de fin para el rango de búsqueda (formato YYYY-MM-DD). */
+    fechaFin?: string | undefined;
+    /** Filtro por el usuario que registró el movimiento. */
+    creadoPor?: { value: string; matchMode?: string };
+}
+
+/**
+ * Componente principal para la gestión de transacciones e historial de movimientos de inventario.
+ * Proporciona una tabla interactiva con soporte para filtrado avanzado, paginación (Lazy Load), 
+ * exportación de reportes (PDF/CSV) y un modal para registrar nuevos movimientos.
+ */
+@Component({
+    selector: &#x27;app-movimiento-list&#x27;,
+    changeDetection: ChangeDetectionStrategy.Default,
+    providers: [MessageService],
+    imports: [
+        CommonModule,
+        FormsModule,
+        TableModule,
+        ButtonModule,
+        ToolbarModule,
+        ToastModule,
+        DialogModule,
+        TagModule,
+        RippleModule,
+        SelectModule,
+        DatePickerModule,
+        MovimientoFormComponent
+    ],
+    templateUrl: &#x27;./movimiento-list.component.html&#x27;
+})
+export class MovimientoListComponent {
+    // Inyección de dependencias
+    private readonly _movimientoService &#x3D; inject(MovimientoService);
+    private readonly _messageService &#x3D; inject(MessageService);
+    private readonly _fileService &#x3D; inject(FileDownloadService);
+    /** Servicio de autenticación inyectado públicamente para validación de permisos en la plantilla. */
+    public readonly authService &#x3D; inject(AuthService);
+
+    /** Almacena los filtros activos en la tabla de PrimeNG para usarlos en futuras peticiones o exportaciones. */
+    private filtrosActuales: MovimientoFilters &#x3D; {};
+
+    // Signals para los datos
+    /** Señal que contiene la lista de movimientos a mostrar en la tabla. */
+    movimientos &#x3D; signal&lt;MovimientoResponse[]&gt;([]);
+    /** Señal con el total de registros disponibles en el servidor para la configuración del paginador. */
+    totalRecords &#x3D; signal(0);
+    /** Señal que indica si la tabla está en proceso de carga de datos. */
+    loading &#x3D; signal(true);
+    /** Señal que determina la cantidad de filas que se muestran por página. */
+    pageSize &#x3D; signal(10);
+    /** Señal que controla la visibilidad del modal para crear un nuevo movimiento. */
+    mostrarModal &#x3D; signal(false);
+    /** Objeto que rastrea qué filas de la tabla están expandidas (si se utiliza la función de row expansion). */
+    expandedRows: { [key: string]: boolean } &#x3D; {};
+
+    /** Opciones disponibles para el selector de filtrado por tipo de movimiento en la cabecera de la tabla. */
+    tiposMovimiento &#x3D; [
+        { label: &#x27;COMPRA&#x27;, value: &#x27;COMPRA&#x27; },
+        { label: &#x27;VENTA&#x27;, value: &#x27;VENTA&#x27; },
+        { label: &#x27;ENTRADA_FABRICACION&#x27;, value: &#x27;ENTRADA_FABRICACION&#x27; },
+        { label: &#x27;ENTRADA_DEVOLUCION&#x27;, value: &#x27;ENTRADA_DEVOLUCION&#x27; },
+        { label: &#x27;SALIDA_DEFECTO&#x27;, value: &#x27;SALIDA_DEFECTO&#x27; },
+        { label: &#x27;SALIDA_REGALO&#x27;, value: &#x27;SALIDA_REGALO&#x27; }
+    ];
+
+    /**
+     * Se ejecuta automáticamente por PrimeNG cuando cambia la página, el orden o se aplica un filtro.
+     * Extrae todos los parámetros del evento, formatea las fechas si es necesario y solicita los datos al servidor.
+     * * @param event Evento emitido por la tabla que contiene el estado de la paginación y los filtros aplicados.
+     */
+    cargarMovimientos(event: TableLazyLoadEvent) {
+        this.loading.set(true);
+        const page &#x3D; (event.first ?? 0) / (event.rows ?? 10);
+        const size &#x3D; event.rows ?? 10;
+
+        this.pageSize.set(size);
+
+        // Extraer filtros del evento de PrimeNG
+        const filters &#x3D; event.filters || {};
+
+        // Helper para extraer valor y matchMode
+        const extract &#x3D; (field: string) &#x3D;&gt; {
+            const meta &#x3D; filters[field];
+            if (!meta) return { value: undefined, matchMode: undefined };
+            if (Array.isArray(meta)) {
+                return { value: meta[0].value, matchMode: meta[0].matchMode };
+            }
+            return { value: meta?.value, matchMode: meta?.matchMode };
+        };
+
+        const tipo &#x3D; extract(&#x27;tipo&#x27;);
+        const observaciones &#x3D; extract(&#x27;observaciones&#x27;);
+        const creadoPor &#x3D; extract(&#x27;creadoPor&#x27;);
+        const productoNombre &#x3D; extract(&#x27;productoNombre&#x27;);
+        const almacenDescripcion &#x3D; extract(&#x27;almacenDescripcion&#x27;);
+        const fechaCreacion &#x3D; extract(&#x27;fechaCreacion&#x27;);
+
+        // Formatear fechas si existen
+        let fechaInicio: string | undefined;
+        let fechaFin: string | undefined;
+        if (fechaCreacion.value) {
+            const fechas &#x3D; fechaCreacion.value;
+            if (Array.isArray(fechas)) {
+                if (fechas[0]) fechaInicio &#x3D; this.formatDate(fechas[0]);
+                if (fechas[1]) fechaFin &#x3D; this.formatDate(fechas[1]);
+            } else if (fechas instanceof Date) {
+                fechaInicio &#x3D; this.formatDate(fechas);
+                fechaFin &#x3D; this.formatDate(fechas);
+            }
+        }
+
+        this.filtrosActuales &#x3D; {
+            tipo: tipo.value ? tipo : undefined,
+            observaciones: observaciones.value ? observaciones : undefined,
+            creadoPor: creadoPor.value ? creadoPor : undefined,
+            varianteNombre: productoNombre.value ? productoNombre : undefined,
+            almacenNombre: almacenDescripcion.value ? almacenDescripcion : undefined,
+            fechaInicio: fechaInicio,
+            fechaFin: fechaFin
+        };
+
+        this._movimientoService.listarMovimientos(
+            page,
+            size,
+            tipo.value,
+            observaciones.value,
+            observaciones.matchMode,
+            creadoPor.value,
+            creadoPor.matchMode,
+            productoNombre.value,
+            productoNombre.matchMode,
+            almacenDescripcion.value,
+            almacenDescripcion.matchMode,
+            fechaInicio,
+            fechaFin
+        ).subscribe({
+            next: (data) &#x3D;&gt; {
+                this.movimientos.set(data.content);
+                this.totalRecords.set(data.totalElements);
+                this.loading.set(false);
+            },
+            error: () &#x3D;&gt; {
+                this.loading.set(false);
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al cargar&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Convierte un objeto &#x60;Date&#x60; de JavaScript a una cadena con formato &#x60;YYYY-MM-DD&#x60; compatible con la API.
+     * * @param date Fecha a formatear.
+     * @returns Cadena de texto que representa la fecha.
+     */
+    private formatDate(date: Date): string {
+        const year &#x3D; date.getFullYear();
+        const month &#x3D; (&#x27;0&#x27; + (date.getMonth() + 1)).slice(-2);
+        const day &#x3D; (&#x27;0&#x27; + date.getDate()).slice(-2);
+        return &#x60;${year}-${month}-${day}&#x60;;
+    }
+
+    /**
+     * Cambia el estado para mostrar el modal del formulario de creación de movimientos.
+     */
+    abrirModalCrear() {
+        this.mostrarModal.set(true);
+    }
+
+    /**
+     * Cambia el estado para ocultar el modal del formulario de creación.
+     */
+    cerrarModal() {
+        this.mostrarModal.set(false);
+    }
+
+    /**
+     * Recibe los datos validados del componente formulario y los envía al backend para registrar un nuevo movimiento.
+     * Muestra notificaciones de éxito o error, recarga la tabla y cierra el modal al finalizar correctamente.
+     * * @param request Objeto DTO con los datos del nuevo movimiento a crear.
+     */
+    guardarMovimiento(request: MovimientoRequest) {
+        this._movimientoService.crearMovimiento(request).subscribe({
+            next: () &#x3D;&gt; {
+                this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Registrado correctamente&#x27; });
+                this.recargarTabla();
+                this.cerrarModal();
+            },
+            error: () &#x3D;&gt; {
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al registrar&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Solicita al servidor un reporte de los movimientos actuales (aplicando los filtros activos de la tabla) 
+     * y procede a descargarlo en el navegador del usuario.
+     * * @param formato El formato deseado para el archivo exportado (&#x60;pdf&#x60; o &#x60;csv&#x60;).
+     */
+    exportarArchivo(formato: &#x27;pdf&#x27; | &#x27;csv&#x27;) {
+        // this.loading.set(true);
+        const timestamp &#x3D; new Date().toISOString().split(&#x27;T&#x27;)[0];
+        const nombreArchivo &#x3D; &#x60;movimientos_${timestamp}.${formato}&#x60;;
+
+        this._movimientoService.exportar(
+            formato,
+            this.filtrosActuales?.varianteNombre?.value,
+            this.filtrosActuales?.varianteNombre?.matchMode,
+            this.filtrosActuales?.almacenNombre?.value,
+            this.filtrosActuales?.almacenNombre?.matchMode,
+            this.filtrosActuales?.tipo?.value,
+            this.filtrosActuales?.observaciones?.value,
+            this.filtrosActuales?.observaciones?.matchMode,
+            this.filtrosActuales?.fechaInicio,
+            this.filtrosActuales?.fechaFin,
+            this.filtrosActuales?.creadoPor?.value,
+            this.filtrosActuales?.creadoPor?.matchMode
+        ).subscribe({
+            next: (blob) &#x3D;&gt; {
+                this._fileService.download(blob, nombreArchivo);
+                // this.loading.set(false);
+                this._messageService.add({ severity: &#x27;success&#x27;, summary: &#x27;Éxito&#x27;, detail: &#x27;Archivo descargado&#x27; });
+            },
+            error: () &#x3D;&gt; {
+                // this.loading.set(false);
+                this._messageService.add({ severity: &#x27;error&#x27;, summary: &#x27;Error&#x27;, detail: &#x27;Error al exportar&#x27; });
+            }
+        });
+    }
+
+    /**
+     * Método auxiliar privado que fuerza la recarga de la tabla devolviéndola a la primera página.
+     */
+    private recargarTabla() {
+        this.cargarMovimientos({ first: 0, rows: this.pageSize() });
+    }
+
+    /**
+     * Determina la clase CSS de severidad (color) a aplicar en el componente &#x60;p-tag&#x60; de PrimeNG 
+     * dependiendo del tipo de movimiento, para facilitar su identificación visual.
+     * * @param tipo El tipo de movimiento (ej. &#x60;COMPRA&#x60;, &#x60;VENTA&#x60;, &#x60;SALIDA_DEFECTO&#x60;).
+     * @returns El string correspondiente a la severidad soportada por PrimeNG, o &#x60;undefined&#x60; por defecto.
+     */
+    getSeverity(tipo: string): &#x27;success&#x27; | &#x27;info&#x27; | &#x27;warn&#x27; | &#x27;danger&#x27; | &#x27;secondary&#x27; | undefined {
+        switch (tipo) {
+            case &#x27;COMPRA&#x27;:
+            case &#x27;ENTRADA_FABRICACION&#x27;:
+            case &#x27;ENTRADA_DEVOLUCION&#x27;: return &#x27;success&#x27;;
+            case &#x27;VENTA&#x27;: return &#x27;info&#x27;;
+            case &#x27;SALIDA_DEFECTO&#x27;: return &#x27;danger&#x27;;
+            case &#x27;SALIDA_REGALO&#x27;: return &#x27;warn&#x27;;
+            default: return undefined;
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card p-4&quot;&gt;
+  &lt;div class&#x3D;&quot;flex justify-content-between align-items-center mb-4&quot;&gt;
+    &lt;h2 class&#x3D;&quot;m-0 text-xl font-bold&quot;&gt;Movimientos&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;p-toast /&gt;
+
+  @if (authService.hasPermission(&#x27;MOVIMIENTO_CREAR&#x27;)) {
+    &lt;p-toolbar class&#x3D;&quot;mb-4 gap-2&quot;&gt;
+      &lt;ng-template pTemplate&#x3D;&quot;left&quot;&gt;
+        &lt;p-button
+          label&#x3D;&quot;Registrar Movimiento&quot;
+          icon&#x3D;&quot;pi pi-plus&quot;
+          class&#x3D;&quot;mr-2&quot;
+          (onClick)&#x3D;&quot;abrirModalCrear()&quot;
+        /&gt;
+      &lt;/ng-template&gt;
+      &lt;ng-template pTemplate&#x3D;&quot;right&quot;&gt;
+        &lt;div class&#x3D;&quot;flex gap-2&quot;&gt;
+          &lt;p-button
+            icon&#x3D;&quot;pi pi-file-excel&quot;
+            severity&#x3D;&quot;success&quot;
+            pTooltip&#x3D;&quot;Exportar CSV&quot;
+            tooltipPosition&#x3D;&quot;bottom&quot;
+            [outlined]&#x3D;&quot;true&quot;
+            (onClick)&#x3D;&quot;exportarArchivo(&#x27;csv&#x27;)&quot;
+          /&gt;
+
+          &lt;p-button
+            icon&#x3D;&quot;pi pi-file-pdf&quot;
+            severity&#x3D;&quot;danger&quot;
+            pTooltip&#x3D;&quot;Exportar PDF&quot;
+            tooltipPosition&#x3D;&quot;bottom&quot;
+            [outlined]&#x3D;&quot;true&quot;
+            (onClick)&#x3D;&quot;exportarArchivo(&#x27;pdf&#x27;)&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/ng-template&gt;
+    &lt;/p-toolbar&gt;
+  }
+
+  &lt;p-table
+    [value]&#x3D;&quot;movimientos()&quot;
+    [lazy]&#x3D;&quot;true&quot;
+    (onLazyLoad)&#x3D;&quot;cargarMovimientos($event)&quot;
+    [paginator]&#x3D;&quot;true&quot;
+    [rows]&#x3D;&quot;pageSize()&quot;
+    [totalRecords]&#x3D;&quot;totalRecords()&quot;
+    [rowsPerPageOptions]&#x3D;&quot;[5, 10, 20]&quot;
+    [loading]&#x3D;&quot;loading()&quot;
+    [rowHover]&#x3D;&quot;true&quot;
+    dataKey&#x3D;&quot;id&quot;
+    class&#x3D;&quot;p-datatable-sm&quot;
+    [showCurrentPageReport]&#x3D;&quot;true&quot;
+    currentPageReportTemplate&#x3D;&quot;Mostrando {first} a {last} de {totalRecords}&quot;
+    [expandedRowKeys]&#x3D;&quot;expandedRows&quot;
+  &gt;
+    &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+      &lt;tr&gt;
+        &lt;th style&#x3D;&quot;width: 3rem&quot;&gt;&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 20%&quot;&gt;Fecha&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 1%&quot;&gt;Tipo&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 20%&quot;&gt;SKU&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 17%&quot;&gt;Producto&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 2%&quot; class&#x3D;&quot;text-right&quot;&gt;Cantidad&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 2%&quot; class&#x3D;&quot;text-right&quot;&gt;Stock Final&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 11%&quot;&gt;Almacén&lt;/th&gt;
+        &lt;th style&#x3D;&quot;width: 1%&quot;&gt;Creado por&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;
+          &lt;p-columnFilter field&#x3D;&quot;fechaCreacion&quot; matchMode&#x3D;&quot;between&quot; [showMenu]&#x3D;&quot;false&quot;&gt;
+            &lt;ng-template pTemplate&#x3D;&quot;filter&quot; let-value let-filter&#x3D;&quot;filterCallback&quot;&gt;
+              &lt;p-datepicker
+                [ngModel]&#x3D;&quot;value&quot;
+                (ngModelChange)&#x3D;&quot;filter($event)&quot;
+                selectionMode&#x3D;&quot;range&quot;
+                dateFormat&#x3D;&quot;dd/mm/yy&quot;
+                placeholder&#x3D;&quot;Rango fechas&quot;
+                [showIcon]&#x3D;&quot;true&quot;
+                appendTo&#x3D;&quot;body&quot;
+                [style]&#x3D;&quot;{ &#x27;min-width&#x27;: &#x27;100%&#x27; }&quot;
+              /&gt;
+            &lt;/ng-template&gt;
+          &lt;/p-columnFilter&gt;
+        &lt;/th&gt;
+        &lt;th&gt;
+          &lt;p-columnFilter field&#x3D;&quot;tipo&quot; matchMode&#x3D;&quot;equals&quot; [showMenu]&#x3D;&quot;false&quot;&gt;
+            &lt;ng-template pTemplate&#x3D;&quot;filter&quot; let-value let-filter&#x3D;&quot;filterCallback&quot;&gt;
+              &lt;p-select
+                [ngModel]&#x3D;&quot;value&quot;
+                [options]&#x3D;&quot;tiposMovimiento&quot;
+                (onChange)&#x3D;&quot;filter($event.value)&quot;
+                placeholder&#x3D;&quot;Todos&quot;
+                [showClear]&#x3D;&quot;true&quot;
+                appendTo&#x3D;&quot;body&quot;
+                [style]&#x3D;&quot;{ &#x27;min-width&#x27;: &#x27;100%&#x27; }&quot;
+              &gt;
+                &lt;ng-template let-option #item&gt;
+                  &lt;p-tag [value]&#x3D;&quot;option.label&quot; [severity]&#x3D;&quot;getSeverity(option.value)&quot; /&gt;
+                &lt;/ng-template&gt;
+              &lt;/p-select&gt;
+            &lt;/ng-template&gt;
+          &lt;/p-columnFilter&gt;
+        &lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;
+          &lt;p-columnFilter
+            type&#x3D;&quot;text&quot;
+            field&#x3D;&quot;productoNombre&quot;
+            placeholder&#x3D;&quot;Buscar producto&quot;
+            ariaLabel&#x3D;&quot;Filtrar por producto&quot;
+            filterOn&#x3D;&quot;input&quot;
+          /&gt;
+        &lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;
+          &lt;p-columnFilter
+            type&#x3D;&quot;text&quot;
+            field&#x3D;&quot;almacenDescripcion&quot;
+            placeholder&#x3D;&quot;Buscar almacén&quot;
+            ariaLabel&#x3D;&quot;Filtrar por almacén&quot;
+            filterOn&#x3D;&quot;input&quot;
+          /&gt;
+        &lt;/th&gt;
+        &lt;th&gt;
+          &lt;p-columnFilter
+            type&#x3D;&quot;text&quot;
+            field&#x3D;&quot;creadoPor&quot;
+            placeholder&#x3D;&quot;Buscar usuario&quot;
+            ariaLabel&#x3D;&quot;Filtrar por usuario&quot;
+            filterOn&#x3D;&quot;input&quot;
+          /&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-mov let-expanded&#x3D;&quot;expanded&quot;&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;p-button
+            type&#x3D;&quot;button&quot;
+            pRipple
+            [pRowToggler]&#x3D;&quot;mov&quot;
+            [text]&#x3D;&quot;true&quot;
+            severity&#x3D;&quot;secondary&quot;
+            [rounded]&#x3D;&quot;true&quot;
+            [icon]&#x3D;&quot;expanded ? &#x27;pi pi-chevron-down&#x27; : &#x27;pi pi-chevron-right&#x27;&quot;
+          /&gt;
+        &lt;/td&gt;
+        &lt;td&gt;{{ mov.fechaCreacion }}&lt;/td&gt;
+        &lt;td&gt;
+          &lt;p-tag [value]&#x3D;&quot;mov.tipo&quot; [severity]&#x3D;&quot;getSeverity(mov.tipo)&quot; [rounded]&#x3D;&quot;true&quot; /&gt;
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;font-bold&quot;&gt;{{ mov.sku }}&lt;/td&gt;
+        &lt;td&gt;
+          &lt;div class&#x3D;&quot;flex flex-column&quot;&gt;
+            &lt;span&gt;{{ mov.productoNombre }}&lt;/span&gt;
+            &lt;small class&#x3D;&quot;text-500&quot;&gt;{{ mov.talla }} / {{ mov.color }}&lt;/small&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td
+          class&#x3D;&quot;text-right font-bold&quot;
+          [class.text-green-600]&#x3D;&quot;mov.tipo.startsWith(&#x27;ENTRADA&#x27;) || mov.tipo &#x3D;&#x3D;&#x3D; &#x27;COMPRA&#x27;&quot;
+          [class.text-blue-600]&#x3D;&quot;mov.tipo.startsWith(&#x27;SALIDA&#x27;) || mov.tipo &#x3D;&#x3D;&#x3D; &#x27;VENTA&#x27;&quot;
+        &gt;
+          {{ mov.cantidad }}
+        &lt;/td&gt;
+        &lt;td class&#x3D;&quot;text-right&quot;&gt;{{ mov.stockResultante }}&lt;/td&gt;
+        &lt;td&gt;{{ mov.almacenDescripcion }}&lt;/td&gt;
+        &lt;td&gt;
+          &lt;p-tag [value]&#x3D;&quot;mov.creadoPor&quot; severity&#x3D;&quot;info&quot; icon&#x3D;&quot;pi pi-user&quot; /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template #expandedrow let-mov&gt;
+      &lt;tr&gt;
+        &lt;td colspan&#x3D;&quot;9&quot;&gt;
+          &lt;div class&#x3D;&quot;p-2&quot;&gt;
+            &lt;h5 class&#x3D;&quot;mb-3 text-900&quot;&gt;
+              &lt;i class&#x3D;&quot;pi pi-comment mr-2&quot;&gt;&lt;/i&gt;Observaciones del Movimiento #{{ mov.id }}
+            &lt;/h5&gt;
+            @if (mov.observaciones &amp;&amp; mov.observaciones.trim().length &gt; 0) {
+              &lt;div class&#x3D;&quot;surface-ground p-4 border-round shadow-1&quot;&gt;
+                &lt;div class&#x3D;&quot;flex align-items-start&quot;&gt;
+                  &lt;i class&#x3D;&quot;pi pi-align-left text-600 mr-2 mt-1&quot;&gt;&lt;/i&gt;
+                  &lt;p class&#x3D;&quot;m-0 text-700 line-height-3&quot;&gt;{{ mov.observaciones }}&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            } @else {
+              &lt;div class&#x3D;&quot;surface-card p-4 border-round border-1 surface-border&quot;&gt;
+                &lt;div class&#x3D;&quot;flex align-items-center&quot;&gt;
+                  &lt;i class&#x3D;&quot;pi pi-info-circle text-500 mr-2&quot;&gt;&lt;/i&gt;
+                  &lt;p class&#x3D;&quot;m-0 text-500 italic&quot;&gt;Sin observaciones registradas&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            }
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+
+    &lt;ng-template pTemplate&#x3D;&quot;empty&quot;&gt;
+      &lt;tr&gt;
+        &lt;td colspan&#x3D;&quot;9&quot; class&#x3D;&quot;text-center p-4&quot;&gt;No se encontraron movimientos.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/ng-template&gt;
+  &lt;/p-table&gt;
+
+  &lt;app-movimiento-form
+    [visible]&#x3D;&quot;mostrarModal()&quot;
+    (save)&#x3D;&quot;guardarMovimiento($event)&quot;
+    (cancel)&#x3D;&quot;cerrarModal()&quot;
+  /&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card p-4">  <div class="flex justify-content-between align-items-center mb-4">    <h2 class="m-0 text-xl font-bold">Movimientos</h2>  </div>  <p-toast />  @if (authService.hasPermission(\'MOVIMIENTO_CREAR\')) {    <p-toolbar class="mb-4 gap-2">      <ng-template pTemplate="left">        <p-button          label="Registrar Movimiento"          icon="pi pi-plus"          class="mr-2"          (onClick)="abrirModalCrear()"        />      </ng-template>      <ng-template pTemplate="right">        <div class="flex gap-2">          <p-button            icon="pi pi-file-excel"            severity="success"            pTooltip="Exportar CSV"            tooltipPosition="bottom"            [outlined]="true"            (onClick)="exportarArchivo(\'csv\')"          />          <p-button            icon="pi pi-file-pdf"            severity="danger"            pTooltip="Exportar PDF"            tooltipPosition="bottom"            [outlined]="true"            (onClick)="exportarArchivo(\'pdf\')"          />        </div>      </ng-template>    </p-toolbar>  }  <p-table    [value]="movimientos()"    [lazy]="true"    (onLazyLoad)="cargarMovimientos($event)"    [paginator]="true"    [rows]="pageSize()"    [totalRecords]="totalRecords()"    [rowsPerPageOptions]="[5, 10, 20]"    [loading]="loading()"    [rowHover]="true"    dataKey="id"    class="p-datatable-sm"    [showCurrentPageReport]="true"    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords}"    [expandedRowKeys]="expandedRows"  >    <ng-template pTemplate="header">      <tr>        <th style="width: 3rem"></th>        <th style="width: 20%">Fecha</th>        <th style="width: 1%">Tipo</th>        <th style="width: 20%">SKU</th>        <th style="width: 17%">Producto</th>        <th style="width: 2%" class="text-right">Cantidad</th>        <th style="width: 2%" class="text-right">Stock Final</th>        <th style="width: 11%">Almacén</th>        <th style="width: 1%">Creado por</th>      </tr>      <tr>        <th></th>        <th>          <p-columnFilter field="fechaCreacion" matchMode="between" [showMenu]="false">            <ng-template pTemplate="filter" let-value let-filter="filterCallback">              <p-datepicker                [ngModel]="value"                (ngModelChange)="filter($event)"                selectionMode="range"                dateFormat="dd/mm/yy"                placeholder="Rango fechas"                [showIcon]="true"                appendTo="body"                [style]="{ \'min-width\': \'100%\' }"              />            </ng-template>          </p-columnFilter>        </th>        <th>          <p-columnFilter field="tipo" matchMode="equals" [showMenu]="false">            <ng-template pTemplate="filter" let-value let-filter="filterCallback">              <p-select                [ngModel]="value"                [options]="tiposMovimiento"                (onChange)="filter($event.value)"                placeholder="Todos"                [showClear]="true"                appendTo="body"                [style]="{ \'min-width\': \'100%\' }"              >                <ng-template let-option #item>                  <p-tag [value]="option.label" [severity]="getSeverity(option.value)" />                </ng-template>              </p-select>            </ng-template>          </p-columnFilter>        </th>        <th></th>        <th>          <p-columnFilter            type="text"            field="productoNombre"            placeholder="Buscar producto"            ariaLabel="Filtrar por producto"            filterOn="input"          />        </th>        <th></th>        <th></th>        <th>          <p-columnFilter            type="text"            field="almacenDescripcion"            placeholder="Buscar almacén"            ariaLabel="Filtrar por almacén"            filterOn="input"          />        </th>        <th>          <p-columnFilter            type="text"            field="creadoPor"            placeholder="Buscar usuario"            ariaLabel="Filtrar por usuario"            filterOn="input"          />        </th>      </tr>    </ng-template>    <ng-template pTemplate="body" let-mov let-expanded="expanded">      <tr>        <td>          <p-button            type="button"            pRipple            [pRowToggler]="mov"            [text]="true"            severity="secondary"            [rounded]="true"            [icon]="expanded ? \'pi pi-chevron-down\' : \'pi pi-chevron-right\'"          />        </td>        <td>{{ mov.fechaCreacion }}</td>        <td>          <p-tag [value]="mov.tipo" [severity]="getSeverity(mov.tipo)" [rounded]="true" />        </td>        <td class="font-bold">{{ mov.sku }}</td>        <td>          <div class="flex flex-column">            <span>{{ mov.productoNombre }}</span>            <small class="text-500">{{ mov.talla }} / {{ mov.color }}</small>          </div>        </td>        <td          class="text-right font-bold"          [class.text-green-600]="mov.tipo.startsWith(\'ENTRADA\') || mov.tipo === \'COMPRA\'"          [class.text-blue-600]="mov.tipo.startsWith(\'SALIDA\') || mov.tipo === \'VENTA\'"        >          {{ mov.cantidad }}        </td>        <td class="text-right">{{ mov.stockResultante }}</td>        <td>{{ mov.almacenDescripcion }}</td>        <td>          <p-tag [value]="mov.creadoPor" severity="info" icon="pi pi-user" />        </td>      </tr>    </ng-template>    <ng-template #expandedrow let-mov>      <tr>        <td colspan="9">          <div class="p-2">            <h5 class="mb-3 text-900">              <i class="pi pi-comment mr-2"></i>Observaciones del Movimiento #{{ mov.id }}            </h5>            @if (mov.observaciones && mov.observaciones.trim().length > 0) {              <div class="surface-ground p-4 border-round shadow-1">                <div class="flex align-items-start">                  <i class="pi pi-align-left text-600 mr-2 mt-1"></i>                  <p class="m-0 text-700 line-height-3">{{ mov.observaciones }}</p>                </div>              </div>            } @else {              <div class="surface-card p-4 border-round border-1 surface-border">                <div class="flex align-items-center">                  <i class="pi pi-info-circle text-500 mr-2"></i>                  <p class="m-0 text-500 italic">Sin observaciones registradas</p>                </div>              </div>            }          </div>        </td>      </tr>    </ng-template>    <ng-template pTemplate="empty">      <tr>        <td colspan="9" class="text-center p-4">No se encontraron movimientos.</td>      </tr>    </ng-template>  </p-table>  <app-movimiento-form    [visible]="mostrarModal()"    (save)="guardarMovimiento($event)"    (cancel)="cerrarModal()"  /></div></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MovimientoListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MovimientoListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

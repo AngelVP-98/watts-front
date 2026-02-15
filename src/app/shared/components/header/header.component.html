@@ -1,0 +1,27 @@
+<header>
+    <p-menubar [model]="items()">
+        <ng-template #start>
+            <div class="font-bold text-xl px-2">WATTS</div>
+        </ng-template>
+        
+        <ng-template #end>
+            <div class="flex flex-column align-items-center justify-content-center gap-1">
+                
+                @if (authService.getUsername(); as user) {
+                    <span class="text-sm font-bold text-primary">
+                        {{ user }}
+                    </span>
+                }
+
+                <p-button 
+                    label="Salir" 
+                    icon="pi pi-power-off" 
+                    severity="danger" 
+                    [text]="true" 
+                    size="small"
+                    (onClick)="logout()">
+                </p-button>
+            </div>
+        </ng-template>
+    </p-menubar>
+</header>

@@ -1,0 +1,1175 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MovimientoFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente encargado de renderizar el formulario modal para registrar un nuevo movimiento de inventario (transacción).
+Permite seleccionar el almacén, la variante de producto, el tipo de movimiento y definir la cantidad a registrar.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-movimiento-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>DialogModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>InputNumberModule</code>
+                            <code>TextareaModule</code>
+                            <code>Select</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./movimiento-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_almacenService" >_almacenService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_varianteService" >_varianteService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#almacenesResource" >almacenesResource</a>
+                            </li>
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#tiposMovimiento" >tiposMovimiento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#variantesResource" >variantesResource</a>
+                            </li>
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onCancel" >onCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <b>visible</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:43</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Señal de entrada que determina si el modal (diálogo) del formulario es visible o no.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancel"></a>
+                        <b>cancel</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:54</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando el usuario cancela la operación o cierra el cuadro de diálogo sin guardar.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="save"></a>
+                        <b>save</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido al componente padre cuando el usuario guarda correctamente el formulario.
+Entrega el objeto <code>MovimientoRequest</code> con los datos del nuevo movimiento listos para ser enviados al servidor.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCancel"></a>
+                    <span class="name">
+                        <span ><b>onCancel</b></span>
+                        <a href="#onCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restablece el formulario a sus valores por defecto (ej: cantidad en 1) y emite el evento <code>cancel</code>
+para notificar al componente padre que se debe cerrar el modal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Evalúa si el formulario es válido y, de ser así, extrae los valores crudos (raw value)
+para emitirlos a través del evento <code>save</code> hacia el componente contenedor.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_almacenService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_almacenService</b></span>
+                        <a href="#_almacenService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AlmacenService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_varianteService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_varianteService</b></span>
+                        <a href="#_varianteService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(VarianteService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="almacenesResource"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>almacenesResource</b></span>
+                        <a href="#almacenesResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>toSignal(
+        this._almacenService.listar(0, 100).pipe(
+            map(page &#x3D;&gt; page.content.map(a &#x3D;&gt; ({
+                ...a,
+                // CREAMOS UNA PROPIEDAD VIRTUAL PARA EL SELECT
+                displayLabel: &#x60;${a.codigo} - ${a.descripcion}&#x60;
+            })))
+        ),
+        { initialValue: [] }
+    )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que contiene la lista de almacenes disponibles recuperados del servicio.
+Los datos se formatean automáticamente para agregar una propiedad <code>displayLabel</code> útil para mostrar en el componente Select.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando el usuario cancela la operación o cierra el cuadro de diálogo sin guardar.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.nonNullable.group({
+        varianteSku: [&#x27;&#x27;, Validators.required],
+        almacenId: [null as number | null, [Validators.required, Validators.min(1)]],
+        cantidad: [1, [Validators.required, Validators.min(1)]],
+        tipo: [null as TipoMovimiento | null, Validators.required],
+        observaciones: [&#x27;&#x27;]
+    })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Grupo de formulario reactivo que administra los campos, valores y validaciones del registro de movimiento.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido al componente padre cuando el usuario guarda correctamente el formulario.
+Entrega el objeto <code>MovimientoRequest</code> con los datos del nuevo movimiento listos para ser enviados al servidor.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tiposMovimiento"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>tiposMovimiento</b></span>
+                        <a href="#tiposMovimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+        { label: &#x27;Compra&#x27;, value: &#x27;COMPRA&#x27; },
+        { label: &#x27;Venta&#x27;, value: &#x27;VENTA&#x27; },
+        { label: &#x27;Entrada Fabricación&#x27;, value: &#x27;ENTRADA_FABRICACION&#x27; },
+        { label: &#x27;Entrada Devolución&#x27;, value: &#x27;ENTRADA_DEVOLUCION&#x27; },
+        { label: &#x27;Salida Defecto&#x27;, value: &#x27;SALIDA_DEFECTO&#x27; },
+        { label: &#x27;Salida Regalo&#x27;, value: &#x27;SALIDA_REGALO&#x27; }
+    ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opciones disponibles para el selector de &quot;Tipo de Movimiento&quot;, formateadas para el componente Select de PrimeNG.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="variantesResource"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>variantesResource</b></span>
+                        <a href="#variantesResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>toSignal(
+        this._varianteService.listar(0, 100, undefined).pipe(
+            map(page &#x3D;&gt; page.content.map(v &#x3D;&gt; ({
+                ...v,
+                // Creamos una etiqueta personalizada: &quot;SKU123 - Camiseta (L / Rojo)&quot;
+                displayName: &#x60;${v.sku} - ${v.producto.nombre} (${v.talla} / ${v.color})&#x60;
+            })))
+        ),
+        { initialValue: [] }
+    )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal reactiva que contiene la lista de variantes de productos disponibles.
+Mapea los resultados agregando un <code>displayName</code> que concatena el SKU, nombre del producto, talla y color
+para facilitar la identificación visual por parte del usuario.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                        <span ><b>visible</b></span>
+                        <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/modules/transacciones/components/movimiento-form/movimiento-form.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal de entrada que determina si el modal (diálogo) del formulario es visible o no.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, input, output } from &#x27;@angular/core&#x27;;
+import { toSignal } from &#x27;@angular/core/rxjs-interop&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { InputNumberModule } from &#x27;primeng/inputnumber&#x27;;
+import { TextareaModule } from &#x27;primeng/textarea&#x27;;
+import { Select } from &#x27;primeng/select&#x27;;
+import { AlmacenService } from &#x27;../../../almacenes/services/almacen.service&#x27;;
+import { VarianteService } from &#x27;../../../inventario/services/variante.service&#x27;;
+import { MovimientoRequest, TipoMovimiento } from &#x27;../../models/movimiento.model&#x27;;
+
+/**
+ * Componente encargado de renderizar el formulario modal para registrar un nuevo movimiento de inventario (transacción).
+ * Permite seleccionar el almacén, la variante de producto, el tipo de movimiento y definir la cantidad a registrar.
+ */
+@Component({
+    selector: &#x27;app-movimiento-form&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        ReactiveFormsModule,
+        DialogModule,
+        ButtonModule,
+        InputTextModule,
+        InputNumberModule,
+        TextareaModule,
+        Select
+    ],
+    templateUrl: &#x27;./movimiento-form.component.html&#x27;
+})
+export class MovimientoFormComponent {
+    // Inyección de dependencias
+    private readonly _fb &#x3D; inject(FormBuilder);
+    private readonly _almacenService &#x3D; inject(AlmacenService);
+    private readonly _varianteService &#x3D; inject(VarianteService);
+
+    // Inputs
+    /**
+     * Señal de entrada que determina si el modal (diálogo) del formulario es visible o no.
+     */
+    visible &#x3D; input.required&lt;boolean&gt;();
+
+    // Outputs
+    /**
+     * Evento emitido al componente padre cuando el usuario guarda correctamente el formulario.
+     * Entrega el objeto &#x60;MovimientoRequest&#x60; con los datos del nuevo movimiento listos para ser enviados al servidor.
+     */
+    save &#x3D; output&lt;MovimientoRequest&gt;();
+    /**
+     * Evento emitido cuando el usuario cancela la operación o cierra el cuadro de diálogo sin guardar.
+     */
+    cancel &#x3D; output&lt;void&gt;();
+
+    // --- CARGA DE DATOS PARA SELECTS ---
+
+    /**
+     * Señal reactiva que contiene la lista de almacenes disponibles recuperados del servicio.
+     * Los datos se formatean automáticamente para agregar una propiedad &#x60;displayLabel&#x60; útil para mostrar en el componente Select.
+     */
+    readonly almacenesResource &#x3D; toSignal(
+        this._almacenService.listar(0, 100).pipe(
+            map(page &#x3D;&gt; page.content.map(a &#x3D;&gt; ({
+                ...a,
+                // CREAMOS UNA PROPIEDAD VIRTUAL PARA EL SELECT
+                displayLabel: &#x60;${a.codigo} - ${a.descripcion}&#x60;
+            })))
+        ),
+        { initialValue: [] }
+    );
+
+    /**
+     * Señal reactiva que contiene la lista de variantes de productos disponibles.
+     * Mapea los resultados agregando un &#x60;displayName&#x60; que concatena el SKU, nombre del producto, talla y color 
+     * para facilitar la identificación visual por parte del usuario.
+     */
+    readonly variantesResource &#x3D; toSignal(
+        this._varianteService.listar(0, 100, undefined).pipe(
+            map(page &#x3D;&gt; page.content.map(v &#x3D;&gt; ({
+                ...v,
+                // Creamos una etiqueta personalizada: &quot;SKU123 - Camiseta (L / Rojo)&quot;
+                displayName: &#x60;${v.sku} - ${v.producto.nombre} (${v.talla} / ${v.color})&#x60;
+            })))
+        ),
+        { initialValue: [] }
+    );
+
+    /**
+     * Opciones disponibles para el selector de &quot;Tipo de Movimiento&quot;, formateadas para el componente Select de PrimeNG.
+     */
+    readonly tiposMovimiento &#x3D; [
+        { label: &#x27;Compra&#x27;, value: &#x27;COMPRA&#x27; },
+        { label: &#x27;Venta&#x27;, value: &#x27;VENTA&#x27; },
+        { label: &#x27;Entrada Fabricación&#x27;, value: &#x27;ENTRADA_FABRICACION&#x27; },
+        { label: &#x27;Entrada Devolución&#x27;, value: &#x27;ENTRADA_DEVOLUCION&#x27; },
+        { label: &#x27;Salida Defecto&#x27;, value: &#x27;SALIDA_DEFECTO&#x27; },
+        { label: &#x27;Salida Regalo&#x27;, value: &#x27;SALIDA_REGALO&#x27; }
+    ];
+
+    /**
+     * Grupo de formulario reactivo que administra los campos, valores y validaciones del registro de movimiento.
+     */
+    form &#x3D; this._fb.nonNullable.group({
+        varianteSku: [&#x27;&#x27;, Validators.required],
+        almacenId: [null as number | null, [Validators.required, Validators.min(1)]],
+        cantidad: [1, [Validators.required, Validators.min(1)]],
+        tipo: [null as TipoMovimiento | null, Validators.required],
+        observaciones: [&#x27;&#x27;]
+    });
+
+    /**
+     * Evalúa si el formulario es válido y, de ser así, extrae los valores crudos (raw value) 
+     * para emitirlos a través del evento &#x60;save&#x60; hacia el componente contenedor.
+     */
+    onSubmit() {
+        if (this.form.valid) {
+            const formValue &#x3D; this.form.getRawValue();
+
+            // Emitimos al padre
+            this.save.emit({
+                varianteSku: formValue.varianteSku,
+                almacenId: formValue.almacenId!,
+                cantidad: formValue.cantidad,
+                tipo: formValue.tipo!,
+                observaciones: formValue.observaciones
+            });
+        }
+    }
+
+    /**
+     * Restablece el formulario a sus valores por defecto (ej: cantidad en 1) y emite el evento &#x60;cancel&#x60; 
+     * para notificar al componente padre que se debe cerrar el modal.
+     */
+    onCancel() {
+        this.form.reset({ cantidad: 1 });
+        this.cancel.emit();
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-dialog
+  header&#x3D;&quot;Registrar Nuevo Movimiento&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [visible]&#x3D;&quot;visible()&quot;
+  (visibleChange)&#x3D;&quot;onCancel()&quot;
+  [style]&#x3D;&quot;{ width: &#x27;500px&#x27; }&quot;
+  [draggable]&#x3D;&quot;false&quot;
+  [resizable]&#x3D;&quot;false&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;flex flex-column gap-3 pt-2&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;sku&quot; class&#x3D;&quot;font-bold&quot;&gt;Variante / Producto&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;sku&quot;
+        formControlName&#x3D;&quot;varianteSku&quot;
+        [options]&#x3D;&quot;variantesResource()&quot;
+        optionLabel&#x3D;&quot;displayName&quot;
+        optionValue&#x3D;&quot;sku&quot;
+        [filter]&#x3D;&quot;true&quot;
+        filterBy&#x3D;&quot;displayName,sku&quot;
+        placeholder&#x3D;&quot;Buscar por SKU o Nombre...&quot;
+        [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+        appendTo&#x3D;&quot;body&quot;
+      /&gt;
+      @if (form.controls.varianteSku.invalid &amp;&amp; form.controls.varianteSku.touched) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;&gt;Seleccione un producto/variante.&lt;/small&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;almacen&quot; class&#x3D;&quot;font-bold&quot;&gt;Almacén&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;almacen&quot;
+        formControlName&#x3D;&quot;almacenId&quot;
+        [options]&#x3D;&quot;almacenesResource()&quot;
+        optionLabel&#x3D;&quot;displayLabel&quot;
+        optionValue&#x3D;&quot;id&quot;
+        [filter]&#x3D;&quot;true&quot;
+        filterBy&#x3D;&quot;displayLabel,descripcion,codigo&quot;
+        placeholder&#x3D;&quot;Seleccione un almacén&quot;
+        [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+        appendTo&#x3D;&quot;body&quot;
+      /&gt;
+      @if (form.controls.almacenId.invalid &amp;&amp; form.controls.almacenId.touched) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;&gt;Seleccione un almacén.&lt;/small&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;tipo&quot; class&#x3D;&quot;font-bold&quot;&gt;Tipo de Movimiento&lt;/label&gt;
+      &lt;p-select
+        id&#x3D;&quot;tipo&quot;
+        formControlName&#x3D;&quot;tipo&quot;
+        [options]&#x3D;&quot;tiposMovimiento&quot;
+        optionLabel&#x3D;&quot;label&quot;
+        optionValue&#x3D;&quot;value&quot;
+        placeholder&#x3D;&quot;Seleccione tipo&quot;
+        [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+        appendTo&#x3D;&quot;body&quot;
+      /&gt;
+
+      @if (form.controls.tipo.invalid &amp;&amp; form.controls.tipo.touched) {
+        &lt;small class&#x3D;&quot;text-red-500&quot;&gt;El tipo es requerido.&lt;/small&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;cantidad&quot; class&#x3D;&quot;font-bold&quot;&gt;Cantidad&lt;/label&gt;
+      &lt;p-inputNumber
+        id&#x3D;&quot;cantidad&quot;
+        formControlName&#x3D;&quot;cantidad&quot;
+        [min]&#x3D;&quot;1&quot;
+        [showButtons]&#x3D;&quot;true&quot;
+        buttonLayout&#x3D;&quot;horizontal&quot;
+        inputId&#x3D;&quot;horizontal&quot;
+        spinnerMode&#x3D;&quot;horizontal&quot;
+        [step]&#x3D;&quot;1&quot;
+        decrementButtonClass&#x3D;&quot;p-button-secondary&quot;
+        incrementButtonClass&#x3D;&quot;p-button-secondary&quot;
+        incrementButtonIcon&#x3D;&quot;pi pi-plus&quot;
+        decrementButtonIcon&#x3D;&quot;pi pi-minus&quot;
+        [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;
+        class&#x3D;&quot;w-full&quot;
+      /&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+      &lt;label for&#x3D;&quot;obs&quot; class&#x3D;&quot;font-bold&quot;&gt;Observaciones&lt;/label&gt;
+      &lt;textarea
+        pInputTextarea
+        id&#x3D;&quot;obs&quot;
+        formControlName&#x3D;&quot;observaciones&quot;
+        rows&#x3D;&quot;3&quot;
+        [autoResize]&#x3D;&quot;true&quot;
+        class&#x3D;&quot;w-full&quot;
+      &gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-content-end gap-2 mt-4&quot;&gt;
+      &lt;p-button label&#x3D;&quot;Cancelar&quot; icon&#x3D;&quot;pi pi-times&quot; [text]&#x3D;&quot;true&quot; (onClick)&#x3D;&quot;onCancel()&quot; /&gt;
+      &lt;p-button label&#x3D;&quot;Guardar&quot; icon&#x3D;&quot;pi pi-check&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;form.invalid&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-dialog  header="Registrar Nuevo Movimiento"  [modal]="true"  [visible]="visible()"  (visibleChange)="onCancel()"  [style]="{ width: \'500px\' }"  [draggable]="false"  [resizable]="false">  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3 pt-2">    <div class="flex flex-column gap-2">      <label for="sku" class="font-bold">Variante / Producto</label>      <p-select        id="sku"        formControlName="varianteSku"        [options]="variantesResource()"        optionLabel="displayName"        optionValue="sku"        [filter]="true"        filterBy="displayName,sku"        placeholder="Buscar por SKU o Nombre..."        [style]="{ width: \'100%\' }"        appendTo="body"      />      @if (form.controls.varianteSku.invalid && form.controls.varianteSku.touched) {        <small class="text-red-500">Seleccione un producto/variante.</small>      }    </div>    <div class="flex flex-column gap-2">      <label for="almacen" class="font-bold">Almacén</label>      <p-select        id="almacen"        formControlName="almacenId"        [options]="almacenesResource()"        optionLabel="displayLabel"        optionValue="id"        [filter]="true"        filterBy="displayLabel,descripcion,codigo"        placeholder="Seleccione un almacén"        [style]="{ width: \'100%\' }"        appendTo="body"      />      @if (form.controls.almacenId.invalid && form.controls.almacenId.touched) {        <small class="text-red-500">Seleccione un almacén.</small>      }    </div>    <div class="flex flex-column gap-2">      <label for="tipo" class="font-bold">Tipo de Movimiento</label>      <p-select        id="tipo"        formControlName="tipo"        [options]="tiposMovimiento"        optionLabel="label"        optionValue="value"        placeholder="Seleccione tipo"        [style]="{ width: \'100%\' }"        appendTo="body"      />      @if (form.controls.tipo.invalid && form.controls.tipo.touched) {        <small class="text-red-500">El tipo es requerido.</small>      }    </div>    <div class="flex flex-column gap-2">      <label for="cantidad" class="font-bold">Cantidad</label>      <p-inputNumber        id="cantidad"        formControlName="cantidad"        [min]="1"        [showButtons]="true"        buttonLayout="horizontal"        inputId="horizontal"        spinnerMode="horizontal"        [step]="1"        decrementButtonClass="p-button-secondary"        incrementButtonClass="p-button-secondary"        incrementButtonIcon="pi pi-plus"        decrementButtonIcon="pi pi-minus"        [style]="{ width: \'100%\' }"        class="w-full"      />    </div>    <div class="flex flex-column gap-2">      <label for="obs" class="font-bold">Observaciones</label>      <textarea        pInputTextarea        id="obs"        formControlName="observaciones"        rows="3"        [autoResize]="true"        class="w-full"      ></textarea>    </div>    <div class="flex justify-content-end gap-2 mt-4">      <p-button label="Cancelar" icon="pi pi-times" [text]="true" (onClick)="onCancel()" />      <p-button label="Guardar" icon="pi pi-check" type="submit" [disabled]="form.invalid" />    </div>  </form></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MovimientoFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MovimientoFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<p-dialog
+  header="Registrar Nuevo Movimiento"
+  [modal]="true"
+  [visible]="visible()"
+  (visibleChange)="onCancel()"
+  [style]="{ width: '500px' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3 pt-2">
+    <div class="flex flex-column gap-2">
+      <label for="sku" class="font-bold">Variante / Producto</label>
+      <p-select
+        id="sku"
+        formControlName="varianteSku"
+        [options]="variantesResource()"
+        optionLabel="displayName"
+        optionValue="sku"
+        [filter]="true"
+        filterBy="displayName,sku"
+        placeholder="Buscar por SKU o Nombre..."
+        [style]="{ width: '100%' }"
+        appendTo="body"
+      />
+      @if (form.controls.varianteSku.invalid && form.controls.varianteSku.touched) {
+        <small class="text-red-500">Seleccione un producto/variante.</small>
+      }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="almacen" class="font-bold">Almacén</label>
+      <p-select
+        id="almacen"
+        formControlName="almacenId"
+        [options]="almacenesResource()"
+        optionLabel="displayLabel"
+        optionValue="id"
+        [filter]="true"
+        filterBy="displayLabel,descripcion,codigo"
+        placeholder="Seleccione un almacén"
+        [style]="{ width: '100%' }"
+        appendTo="body"
+      />
+      @if (form.controls.almacenId.invalid && form.controls.almacenId.touched) {
+        <small class="text-red-500">Seleccione un almacén.</small>
+      }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="tipo" class="font-bold">Tipo de Movimiento</label>
+      <p-select
+        id="tipo"
+        formControlName="tipo"
+        [options]="tiposMovimiento"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Seleccione tipo"
+        [style]="{ width: '100%' }"
+        appendTo="body"
+      />
+
+      @if (form.controls.tipo.invalid && form.controls.tipo.touched) {
+        <small class="text-red-500">El tipo es requerido.</small>
+      }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="cantidad" class="font-bold">Cantidad</label>
+      <p-inputNumber
+        id="cantidad"
+        formControlName="cantidad"
+        [min]="1"
+        [showButtons]="true"
+        buttonLayout="horizontal"
+        inputId="horizontal"
+        spinnerMode="horizontal"
+        [step]="1"
+        decrementButtonClass="p-button-secondary"
+        incrementButtonClass="p-button-secondary"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+        [style]="{ width: '100%' }"
+        class="w-full"
+      />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="obs" class="font-bold">Observaciones</label>
+      <textarea
+        pInputTextarea
+        id="obs"
+        formControlName="observaciones"
+        rows="3"
+        [autoResize]="true"
+        class="w-full"
+      ></textarea>
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <p-button label="Cancelar" icon="pi pi-times" [text]="true" (onClick)="onCancel()" />
+      <p-button label="Guardar" icon="pi pi-check" type="submit" [disabled]="form.invalid" />
+    </div>
+  </form>
+</p-dialog>

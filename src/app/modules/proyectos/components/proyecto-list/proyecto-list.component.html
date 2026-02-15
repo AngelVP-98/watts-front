@@ -1,0 +1,152 @@
+<div class="card p-4">
+  <div class="flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0 text-xl font-bold">Proyectos</h2>
+  </div>
+  @if (authService.hasPermission('PROYECTO_CREAR')) {
+    <p-toolbar class="mb-4 gap-2">
+      <ng-template pTemplate="left">
+        <p-button
+          label="Nuevo Proyecto"
+          icon="pi pi-plus"
+          (onClick)="abrirDialogoCrear()"
+        ></p-button>
+      </ng-template>
+    </p-toolbar>
+  }
+  <p-table
+    [value]="proyectos()"
+    [lazy]="true"
+    (onLazyLoad)="cargarProyectos($event)"
+    [paginator]="true"
+    [rows]="pageSize()"
+    [totalRecords]="totalRecords()"
+    [loading]="loading()"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    dataKey="id"
+    class="p-datatable-sm"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} proyectos"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 25%">Nombre</th>
+        <th style="width: 40%">Descripción</th>
+        <th style="width: 10%">Mi Rol</th>
+        <th style="width: 5%">Miembros</th>
+        <th style="width: 10%">Creación</th>
+        <th class="text-center" style="width: 20%">Acciones</th>
+      </tr>
+
+      <tr>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="nombre"
+            placeholder="Buscar por nombre"
+            filterOn="input"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th>
+          <p-columnFilter
+            type="text"
+            field="descripcion"
+            placeholder="Buscar en descripción"
+            filterOn="input"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-proyecto let-expanded="expanded">
+      <tr>
+        <td class="font-semibold text-primary cursor-pointer" (click)="verDetalle(proyecto.id)">
+          <i class="pi pi-folder mr-2"></i>{{ proyecto.nombre }}
+        </td>
+        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">
+          {{ proyecto.descripcion }}
+        </td>
+        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">
+          <span [class]="'badge-rol ' + proyecto.miRol.toLowerCase()">{{ proyecto.miRol }}</span>
+        </td>
+        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">
+          {{ proyecto.cantidadMiembros }}
+        </td>
+        <td class="cursor-pointer" (click)="verDetalle(proyecto.id)">
+          {{ proyecto.fechaCreacion | date: 'dd/MM/yyyy' }}
+        </td>
+        <td class="text-center">
+          @if (proyecto.miRol === 'PROPIETARIO') {
+            <p-button
+              icon="pi pi-pencil"
+              styleClass="p-button-rounded p-button-text p-button-warning mr-1"
+              (onClick)="abrirDialogoEditar(proyecto)"
+            >
+            </p-button>
+            <p-button
+              icon="pi pi-trash"
+              styleClass="p-button-rounded p-button-text p-button-danger"
+              (onClick)="eliminarProyecto(proyecto)"
+            >
+            </p-button>
+          }
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="empty">
+      <tr>
+        <td colspan="6" class="text-center p-4">No se encontraron proyectos.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [(visible)]="dialogVisible"
+  [header]="isEditMode() ? 'Editar Proyecto' : 'Nuevo Proyecto'"
+  [modal]="true"
+  [style]="{ width: '400px' }"
+>
+  <form [formGroup]="proyectoForm" class="flex flex-column gap-3 pt-3">
+    <div class="field">
+      <label for="nombre" class="block font-medium mb-1">Nombre</label>
+      <input pInputText id="nombre" formControlName="nombre" class="w-full" />
+    </div>
+    <div class="field">
+      <label for="desc" class="block font-medium mb-1">Descripción</label>
+      <textarea
+        pTextarea
+        id="desc"
+        formControlName="descripcion"
+        rows="3"
+        class="w-full"
+      ></textarea>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      label="Cancelar"
+      icon="pi pi-times"
+      styleClass="p-button-text"
+      (onClick)="dialogVisible.set(false)"
+    ></p-button>
+    <p-button
+      label="Guardar"
+      icon="pi pi-check"
+      (onClick)="guardarProyecto()"
+      [disabled]="proyectoForm.invalid"
+    ></p-button>
+  </ng-template>
+</p-dialog>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>

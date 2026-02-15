@@ -1,0 +1,22 @@
+<p-dialog
+  header="Nueva Talla"
+  [visible]="visible()"
+  [modal]="true"
+  [style]="{ width: '400px' }"
+  (onHide)="onCancel()"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4 mt-2">
+    <div class="flex flex-column gap-2">
+      <label for="nombre" class="font-bold">Nombre de la Talla</label>
+      <input pInputText id="nombre" formControlName="nombre" autofocus />
+      @if (form.controls.nombre.dirty && form.controls.nombre.invalid) {
+        <small class="text-red-500">El nombre es requerido.</small>
+      }
+    </div>
+
+    <div class="flex justify-content-end gap-2 mt-4">
+      <p-button label="Cancelar" severity="secondary" (onClick)="onCancel()" />
+      <p-button label="Guardar" type="submit" [loading]="saving()" [disabled]="form.invalid" />
+    </div>
+  </form>
+</p-dialog>

@@ -1,0 +1,97 @@
+<div class="card p-4">
+  <div class="flex justify-content-between align-items-center mb-4">
+    <div class="flex align-items-center gap-3">
+      <p-button icon="pi pi-arrow-left" styleClass="p-button-text" (onClick)="volver()"></p-button>
+      <h2 class="m-0 text-xl font-bold">{{ almacen()?.descripcion || 'Cargando...' }}</h2>
+    </div>
+  </div>
+
+  <p-table
+    [value]="stockItems()"
+    [lazy]="true"
+    (onLazyLoad)="cargarStock($event)"
+    [paginator]="true"
+    [rows]="pageSize()"
+    [totalRecords]="totalRecords()"
+    [loading]="loading()"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} variantes"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 30%">Producto</th>
+        <th style="width: 20%">SKU</th>
+        <th style="width: 5%">Talla</th>
+        <th style="width: 5%">Color</th>
+        <th style="width: 20%" class="text-center">Stock Disponible</th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="productoNombre"
+            placeholder="Buscar producto"
+            matchMode="contains"
+            filterOn="input"
+          ></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="sku"
+            placeholder="Buscar SKU"
+            matchMode="contains"
+            filterOn="input"
+          ></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="talla"
+            placeholder="Talla"
+            matchMode="equals"
+            filterOn="input"
+            [showMenu]="false"
+          ></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="color"
+            placeholder="Color"
+            matchMode="contains"
+            filterOn="input"
+            [showMenu]="false"
+          ></p-columnFilter>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.productoNombre }}</td>
+        <td class="font-medium">{{ item.sku }}</td>
+        <td>{{ item.talla }}</td>
+        <td>{{ item.color }}</td>
+        <td class="text-center">
+          <span
+            [class]="
+              'px-2 py-1 border-round text-sm font-bold ' +
+              (item.stock > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700')
+            "
+          >
+            {{ item.stock }}
+          </span>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5" class="text-center p-4">No hay stock registrado en este almacén.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

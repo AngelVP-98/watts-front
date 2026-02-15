@@ -1,0 +1,1317 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProyectoDetailGridComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente encargado de renderizar la vista de cuadrícula (grid) para los archivos de un proyecto.
+Permite visualizar los archivos mediante tarjetas, mostrando un icono representativo, y emitir eventos
+para acciones como descargar, previsualizar o eliminar un documento.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-proyecto-detail-grid</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>DataViewModule</code>
+                            <code>SharedModule</code>
+                            <code>ButtonModule</code>
+                            <code>TooltipModule</code>
+                            <code>FileTypePipe</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./proyecto-detail-grid.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#archivos" >archivos</a>
+                            </li>
+                            <li>
+                                <a href="#canDelete" >canDelete</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onDownload" >onDownload</a>
+                            </li>
+                            <li>
+                                <a href="#onLazyLoad" >onLazyLoad</a>
+                            </li>
+                            <li>
+                                <a href="#onPreview" >onPreview</a>
+                            </li>
+                            <li>
+                                <a href="#rows" >rows</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getIconClass" >getIconClass</a>
+                            </li>
+                            <li>
+                                <a href="#isPreviewable" >isPreviewable</a>
+                            </li>
+                            <li>
+                                <a href="#tryPreview" >tryPreview</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#canDelete" >canDelete</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#rows" >rows</a>
+                            </li>
+                            <li>
+                                <a href="#totalRecords" >totalRecords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onDownload" >onDownload</a>
+                            </li>
+                            <li>
+                                <a href="#onLazyLoad" >onLazyLoad</a>
+                            </li>
+                            <li>
+                                <a href="#onPreview" >onPreview</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="canDelete"></a>
+                        <b>canDelete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Indica si el usuario actual posee los permisos necesarios para eliminar archivos.
+Por defecto es <code>false</code>.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loading"></a>
+                        <b>loading</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:41</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Señal que indica si hay una operación de carga de datos en curso (para mostrar el spinner de PrimeNG).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rows"></a>
+                        <b>rows</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:45</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Cantidad de elementos que se mostrarán por cada página dentro de la cuadrícula.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalRecords"></a>
+                        <b>totalRecords</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:37</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Número total de registros disponibles en el servidor, utilizado por PrimeNG DataView para la paginación.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDelete"></a>
+                        <b>onDelete</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:62</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido al solicitar la eliminación de un archivo de la lista.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDownload"></a>
+                        <b>onDownload</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:58</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido al accionar el botón de descarga sobre un archivo específico.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onLazyLoad"></a>
+                        <b>onLazyLoad</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:54</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido cuando se requiere cargar una nueva página de datos (Lazy Load de PrimeNG).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onPreview"></a>
+                        <b>onPreview</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:66</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido al hacer clic en un documento soportado para su previsualización en el navegador.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIconClass"></a>
+                    <span class="name">
+                        <span ><b>getIconClass</b></span>
+                        <a href="#getIconClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getIconClass(fileName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Asigna una clase de icono (PrimeIcons) y un color de texto (TailwindCSS) adecuados
+basándose en la extensión del archivo proporcionado.</p>
+<ul>
+<li>@param fileName Nombre completo del archivo para extraer y evaluar su extensión.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fileName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre completo del archivo para extraer y evaluar su extensión.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una cadena de texto con las clases CSS a aplicar al icono (por ejemplo, <code>pi-file-pdf text-red-500</code>).</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPreviewable"></a>
+                    <span class="name">
+                        <span ><b>isPreviewable</b></span>
+                        <a href="#isPreviewable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isPreviewable(fileName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determina si un archivo tiene un formato soportado para poder ser previsualizado directamente en el navegador.
+Soporta extensiones comunes de imágenes y archivos PDF.</p>
+<ul>
+<li>@param fileName Nombre original del archivo, incluyendo su extensión.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fileName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre original del archivo, incluyendo su extensión.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p><code>true</code> si la extensión del archivo permite su previsualización, <code>false</code> en caso contrario.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tryPreview"></a>
+                    <span class="name">
+                        <span ><b>tryPreview</b></span>
+                        <a href="#tryPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>tryPreview(archivo: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método puente que evalúa si un archivo es previsualizable antes de emitir el evento correspondiente.
+Evita que se intente abrir una nueva pestaña con archivos no soportados.</p>
+<ul>
+<li>@param archivo Objeto que contiene los datos del archivo sobre el cual se hizo la acción.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>archivo</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto que contiene los datos del archivo sobre el cual se hizo la acción.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archivos"></a>
+                    <span class="name">
+                        <span ><b>archivos</b></span>
+                        <a href="#archivos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input.required&lt;any[]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de archivos a renderizar en la cuadrícula.
+Se utiliza <code>any[]</code> temporalmente para evitar conflictos de tipado relacionados a propiedades específicas.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canDelete"></a>
+                    <span class="name">
+                        <span ><b>canDelete</b></span>
+                        <a href="#canDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el usuario actual posee los permisos necesarios para eliminar archivos.
+Por defecto es <code>false</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Señal que indica si hay una operación de carga de datos en curso (para mostrar el spinner de PrimeNG).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDelete"></a>
+                    <span class="name">
+                        <span ><b>onDelete</b></span>
+                        <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido al solicitar la eliminación de un archivo de la lista.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDownload"></a>
+                    <span class="name">
+                        <span ><b>onDownload</b></span>
+                        <a href="#onDownload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido al accionar el botón de descarga sobre un archivo específico.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLazyLoad"></a>
+                    <span class="name">
+                        <span ><b>onLazyLoad</b></span>
+                        <a href="#onLazyLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido cuando se requiere cargar una nueva página de datos (Lazy Load de PrimeNG).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPreview"></a>
+                    <span class="name">
+                        <span ><b>onPreview</b></span>
+                        <a href="#onPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento emitido al hacer clic en un documento soportado para su previsualización en el navegador.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rows"></a>
+                    <span class="name">
+                        <span ><b>rows</b></span>
+                        <a href="#rows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cantidad de elementos que se mostrarán por cada página dentro de la cuadrícula.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalRecords"></a>
+                    <span class="name">
+                        <span ><b>totalRecords</b></span>
+                        <a href="#totalRecords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modules/proyectos/components/proyecto-detail-grid/proyecto-detail-grid.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Número total de registros disponibles en el servidor, utilizado por PrimeNG DataView para la paginación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, input, output } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+// Importamos SharedModule para asegurar que pTemplate funcione
+import { SharedModule } from &#x27;primeng/api&#x27;;
+import { DataViewModule } from &#x27;primeng/dataview&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { TooltipModule } from &#x27;primeng/tooltip&#x27;;
+import { FileTypePipe } from &#x27;../../../../shared/pipes/file-type.pipe&#x27;;
+
+/**
+ * Componente encargado de renderizar la vista de cuadrícula (grid) para los archivos de un proyecto.
+ * Permite visualizar los archivos mediante tarjetas, mostrando un icono representativo, y emitir eventos 
+ * para acciones como descargar, previsualizar o eliminar un documento.
+ */
+@Component({
+    selector: &#x27;app-proyecto-detail-grid&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        DataViewModule,
+        SharedModule, // CRÍTICO: Necesario para pTemplate en algunos contextos standalone
+        ButtonModule,
+        TooltipModule,
+        FileTypePipe
+    ],
+    templateUrl: &#x27;./proyecto-detail-grid.component.html&#x27;
+})
+export class ProyectoDetailGridComponent {
+    /**
+     * Lista de archivos a renderizar en la cuadrícula.
+     * Se utiliza &#x60;any[]&#x60; temporalmente para evitar conflictos de tipado relacionados a propiedades específicas.
+     */
+    archivos &#x3D; input.required&lt;any[]&gt;();
+    /**
+     * Número total de registros disponibles en el servidor, utilizado por PrimeNG DataView para la paginación.
+     */
+    totalRecords &#x3D; input.required&lt;number&gt;();
+    /**
+     * Señal que indica si hay una operación de carga de datos en curso (para mostrar el spinner de PrimeNG).
+     */
+    loading &#x3D; input.required&lt;boolean&gt;();
+    /**
+     * Cantidad de elementos que se mostrarán por cada página dentro de la cuadrícula.
+     */
+    rows &#x3D; input.required&lt;number&gt;();
+    /**
+     * Indica si el usuario actual posee los permisos necesarios para eliminar archivos.
+     * Por defecto es &#x60;false&#x60;.
+     */
+    canDelete &#x3D; input&lt;boolean&gt;(false);
+    /**
+     * Evento emitido cuando se requiere cargar una nueva página de datos (Lazy Load de PrimeNG).
+     */
+    onLazyLoad &#x3D; output&lt;any&gt;();
+    /**
+     * Evento emitido al accionar el botón de descarga sobre un archivo específico.
+     */
+    onDownload &#x3D; output&lt;any&gt;();
+    /**
+     * Evento emitido al solicitar la eliminación de un archivo de la lista.
+     */
+    onDelete &#x3D; output&lt;any&gt;();
+    /**
+     * Evento emitido al hacer clic en un documento soportado para su previsualización en el navegador.
+     */
+    onPreview &#x3D; output&lt;any&gt;();
+
+    /**
+     * Determina si un archivo tiene un formato soportado para poder ser previsualizado directamente en el navegador.
+     * Soporta extensiones comunes de imágenes y archivos PDF.
+     * * @param fileName Nombre original del archivo, incluyendo su extensión.
+     * @returns &#x60;true&#x60; si la extensión del archivo permite su previsualización, &#x60;false&#x60; en caso contrario.
+     */
+    isPreviewable(fileName: string): boolean {
+        if (!fileName) return false;
+        const ext &#x3D; fileName.split(&#x27;.&#x27;).pop()?.toLowerCase();
+        return [&#x27;pdf&#x27;, &#x27;jpg&#x27;, &#x27;jpeg&#x27;, &#x27;png&#x27;, &#x27;gif&#x27;, &#x27;webp&#x27;].includes(ext || &#x27;&#x27;);
+    }
+
+    /**
+     * Método puente que evalúa si un archivo es previsualizable antes de emitir el evento correspondiente.
+     * Evita que se intente abrir una nueva pestaña con archivos no soportados.
+     * * @param archivo Objeto que contiene los datos del archivo sobre el cual se hizo la acción.
+     */
+    tryPreview(archivo: any) {
+        if (this.isPreviewable(archivo.nombreOriginal)) {
+            this.onPreview.emit(archivo);
+        }
+    }
+
+    /**
+     * Asigna una clase de icono (PrimeIcons) y un color de texto (TailwindCSS) adecuados 
+     * basándose en la extensión del archivo proporcionado.
+     * * @param fileName Nombre completo del archivo para extraer y evaluar su extensión.
+     * @returns Una cadena de texto con las clases CSS a aplicar al icono (por ejemplo, &#x60;pi-file-pdf text-red-500&#x60;).
+     */
+    getIconClass(fileName: string): string {
+        if (!fileName) return &#x27;pi-file text-gray-500&#x27;;
+        const ext &#x3D; fileName.split(&#x27;.&#x27;).pop()?.toLowerCase();
+        switch (ext) {
+            case &#x27;pdf&#x27;: return &#x27;pi-file-pdf text-red-500&#x27;;
+            case &#x27;doc&#x27;: case &#x27;docx&#x27;: return &#x27;pi-file-word text-blue-500&#x27;;
+            case &#x27;xls&#x27;: case &#x27;xlsx&#x27;: return &#x27;pi-file-excel text-green-500&#x27;;
+            case &#x27;jpg&#x27;: case &#x27;jpeg&#x27;: case &#x27;png&#x27;: case &#x27;gif&#x27;: return &#x27;pi-image text-purple-500&#x27;;
+            case &#x27;zip&#x27;: case &#x27;rar&#x27;: return &#x27;pi-box text-orange-500&#x27;;
+            default: return &#x27;pi-file text-gray-500&#x27;;
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-dataView
+  [value]&#x3D;&quot;archivos()&quot;
+  [lazy]&#x3D;&quot;true&quot;
+  (onLazyLoad)&#x3D;&quot;onLazyLoad.emit($event)&quot;
+  [paginator]&#x3D;&quot;true&quot;
+  [rows]&#x3D;&quot;rows()&quot;
+  [totalRecords]&#x3D;&quot;totalRecords()&quot;
+  [rowsPerPageOptions]&#x3D;&quot;[12, 24, 48]&quot;
+  [showCurrentPageReport]&#x3D;&quot;true&quot;
+  [loading]&#x3D;&quot;loading()&quot;
+  [layout]&#x3D;&quot;&#x27;grid&#x27;&quot;
+&gt;
+  &lt;ng-template #grid pTemplate&#x3D;&quot;grid&quot; let-items&gt;
+    &lt;div class&#x3D;&quot;grid grid-nogutter&quot;&gt;
+      @for (archivo of items; track archivo.id) {
+        &lt;div class&#x3D;&quot;col-12 sm:col-6 md:col-4 xl:col-3 p-2&quot;&gt;
+          &lt;div
+            class&#x3D;&quot;p-4 border-1 surface-border surface-card border-round flex flex-column align-items-center gap-3 shadow-1 hover:shadow-3 transition-duration-200 h-full&quot;
+          &gt;
+            &lt;div
+              class&#x3D;&quot;relative transition-transform transition-duration-200 hover:scale-110&quot;
+              [ngClass]&#x3D;&quot;{ &#x27;cursor-pointer&#x27;: isPreviewable(archivo.nombreOriginal) }&quot;
+              (click)&#x3D;&quot;tryPreview(archivo)&quot;
+              [pTooltip]&#x3D;&quot;isPreviewable(archivo.nombreOriginal) ? &#x27;Clic para abrir&#x27; : &#x27;&#x27;&quot;
+              tooltipPosition&#x3D;&quot;top&quot;
+            &gt;
+              &lt;i class&#x3D;&quot;pi text-6xl&quot; [ngClass]&#x3D;&quot;getIconClass(archivo.nombreOriginal)&quot;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;text-center w-full&quot;&gt;
+              &lt;div
+                class&#x3D;&quot;font-bold text-lg mb-1 white-space-nowrap overflow-hidden text-overflow-ellipsis&quot;
+                [pTooltip]&#x3D;&quot;archivo.nombreOriginal&quot;
+              &gt;
+                {{ archivo.nombreOriginal }}
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;text-sm text-500 mb-1&quot;&gt;{{ archivo.tipo | fileType }}&lt;/div&gt;
+              &lt;div class&#x3D;&quot;text-xs text-400&quot;&gt;
+                {{ ((archivo.tamanyo || archivo.tamano || 0) / 1024).toFixed(2) }} KB •
+                {{ archivo.fechaSubida | date: &#x27;dd/MM/yyyy&#x27; }}
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;text-xs text-500 mt-1&quot;&gt;
+                &lt;i class&#x3D;&quot;pi pi-user mr-1 text-xs&quot;&gt;&lt;/i&gt;{{ archivo.subidoPor }}
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;flex gap-2 mt-auto w-full justify-content-center&quot;&gt;
+              &lt;p-button
+                icon&#x3D;&quot;pi pi-download&quot;
+                styleClass&#x3D;&quot;p-button-rounded p-button-outlined p-button-success&quot;
+                (onClick)&#x3D;&quot;onDownload.emit(archivo)&quot;
+                pTooltip&#x3D;&quot;Descargar&quot;
+              &gt;
+              &lt;/p-button&gt;
+              &lt;p-button
+                icon&#x3D;&quot;pi pi-trash&quot;
+                styleClass&#x3D;&quot;p-button-rounded p-button-outlined p-button-danger&quot;
+                (onClick)&#x3D;&quot;onDelete.emit(archivo)&quot;
+                pTooltip&#x3D;&quot;Eliminar&quot;
+              &gt;
+              &lt;/p-button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      }
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+
+  &lt;ng-template pTemplate&#x3D;&quot;empty&quot;&gt;
+    &lt;div class&#x3D;&quot;text-center p-5 surface-50 border-round w-full&quot;&gt;
+      &lt;i class&#x3D;&quot;pi pi-folder-open text-4xl text-500 mb-3&quot;&gt;&lt;/i&gt;
+      &lt;div class&#x3D;&quot;text-xl text-500&quot;&gt;El proyecto está vacío.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/p-dataView&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-dataView  [value]="archivos()"  [lazy]="true"  (onLazyLoad)="onLazyLoad.emit($event)"  [paginator]="true"  [rows]="rows()"  [totalRecords]="totalRecords()"  [rowsPerPageOptions]="[12, 24, 48]"  [showCurrentPageReport]="true"  [loading]="loading()"  [layout]="\'grid\'">  <ng-template #grid pTemplate="grid" let-items>    <div class="grid grid-nogutter">      @for (archivo of items; track archivo.id) {        <div class="col-12 sm:col-6 md:col-4 xl:col-3 p-2">          <div            class="p-4 border-1 surface-border surface-card border-round flex flex-column align-items-center gap-3 shadow-1 hover:shadow-3 transition-duration-200 h-full"          >            <div              class="relative transition-transform transition-duration-200 hover:scale-110"              [ngClass]="{ \'cursor-pointer\': isPreviewable(archivo.nombreOriginal) }"              (click)="tryPreview(archivo)"              [pTooltip]="isPreviewable(archivo.nombreOriginal) ? \'Clic para abrir\' : \'\'"              tooltipPosition="top"            >              <i class="pi text-6xl" [ngClass]="getIconClass(archivo.nombreOriginal)"></i>            </div>            <div class="text-center w-full">              <div                class="font-bold text-lg mb-1 white-space-nowrap overflow-hidden text-overflow-ellipsis"                [pTooltip]="archivo.nombreOriginal"              >                {{ archivo.nombreOriginal }}              </div>              <div class="text-sm text-500 mb-1">{{ archivo.tipo | fileType }}</div>              <div class="text-xs text-400">                {{ ((archivo.tamanyo || archivo.tamano || 0) / 1024).toFixed(2) }} KB •                {{ archivo.fechaSubida | date: \'dd/MM/yyyy\' }}              </div>              <div class="text-xs text-500 mt-1">                <i class="pi pi-user mr-1 text-xs"></i>{{ archivo.subidoPor }}              </div>            </div>            <div class="flex gap-2 mt-auto w-full justify-content-center">              <p-button                icon="pi pi-download"                styleClass="p-button-rounded p-button-outlined p-button-success"                (onClick)="onDownload.emit(archivo)"                pTooltip="Descargar"              >              </p-button>              <p-button                icon="pi pi-trash"                styleClass="p-button-rounded p-button-outlined p-button-danger"                (onClick)="onDelete.emit(archivo)"                pTooltip="Eliminar"              >              </p-button>            </div>          </div>        </div>      }    </div>  </ng-template>  <ng-template pTemplate="empty">    <div class="text-center p-5 surface-50 border-round w-full">      <i class="pi pi-folder-open text-4xl text-500 mb-3"></i>      <div class="text-xl text-500">El proyecto está vacío.</div>    </div>  </ng-template></p-dataView></div>'
+    var COMPONENTS = [{'name': 'AlmacenDetailComponent', 'selector': 'app-almacen-detail'},{'name': 'AlmacenFormComponent', 'selector': 'app-almacen-form'},{'name': 'AlmacenListComponent', 'selector': 'app-almacen-list'},{'name': 'App', 'selector': 'app-root'},{'name': 'ColorFormComponent', 'selector': 'app-color-form'},{'name': 'ColorListComponent', 'selector': 'app-color-list'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MovimientoFormComponent', 'selector': 'app-movimiento-form'},{'name': 'MovimientoListComponent', 'selector': 'app-movimiento-list'},{'name': 'ProductoFormComponent', 'selector': 'app-producto-form'},{'name': 'ProductoListComponent', 'selector': 'app-producto-list'},{'name': 'ProyectoDetailComponent', 'selector': 'app-proyecto-detail'},{'name': 'ProyectoDetailGridComponent', 'selector': 'app-proyecto-detail-grid'},{'name': 'ProyectoDetailListComponent', 'selector': 'app-proyecto-detail-list'},{'name': 'ProyectoListComponent', 'selector': 'app-proyecto-list'},{'name': 'RolFormComponent', 'selector': 'app-rol-form'},{'name': 'RolListComponent', 'selector': 'app-rol-list'},{'name': 'StatsWidgetComponent', 'selector': 'app-stats-widget'},{'name': 'TallaFormComponent', 'selector': 'app-talla-form'},{'name': 'TallaListComponent', 'selector': 'app-talla-list'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'},{'name': 'UsuarioListComponent', 'selector': 'app-usuario-list'},{'name': 'VarianteFormComponent', 'selector': 'app-variante-form'},{'name': 'VarianteListComponent', 'selector': 'app-variante-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProyectoDetailGridComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProyectoDetailGridComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

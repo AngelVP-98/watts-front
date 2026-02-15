@@ -1,0 +1,193 @@
+<div class="card p-4">
+  <div class="flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0 text-xl font-bold">Almacenes</h2>
+  </div>
+  <p-toast />
+  <p-confirmDialog />
+
+  @if (authService.hasPermission('ALMACEN_CREAR')) {
+    <p-toolbar class="mb-4 gap-2">
+      <ng-template pTemplate="left">
+        <p-button
+          label="Nuevo Almacen"
+          icon="pi pi-plus"
+          class="mr-2"
+          (onClick)="abrirModalCrear()"
+        />
+      </ng-template>
+    </p-toolbar>
+  }
+
+  <p-table
+    [value]="almacenes()"
+    [lazy]="true"
+    (onLazyLoad)="cargarAlmacenes($event)"
+    [paginator]="true"
+    [rows]="pageSize()"
+    [totalRecords]="totalRecords()"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [loading]="loading()"
+    dataKey="id"
+    class="p-datatable-sm"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} almacenes"
+    [expandedRowKeys]="expandedRows"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem"></th>
+        <th style="width: 30%">Código</th>
+        <th style="width: 25%">Descripción</th>
+        <th rowspan="2" style="width: 25%">Ubicacion</th>
+        <th style="width: 12%">Estado</th>
+        @if (authService.hasPermission('ALMACEN_EDITAR')) {
+          <th rowspan="2" class="text-center" style="width: 20%">Acciones</th>
+        }
+      </tr>
+      <tr>
+        <th></th>
+        <th>
+          <p-columnFilter
+            type="text"
+            field="codigo"
+            placeholder="Buscar código"
+            ariaLabel="Filtrar por código"
+            filterOn="input"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th>
+          <p-columnFilter
+            type="text"
+            field="descripcion"
+            placeholder="Buscar descripcion"
+            ariaLabel="Filtrar por descripcion"
+            filterOn="input"
+          >
+          </p-columnFilter>
+        </th>
+
+        <th>
+          <p-columnFilter field="activo" matchMode="equals" [showMenu]="false">
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-select
+                [ngModel]="value"
+                [options]="statuses"
+                (onChange)="filter($event.value)"
+                placeholder="Todos"
+                [showClear]="true"
+                [style]="{ 'min-width': '100%' }"
+              >
+                <ng-template let-option #item>
+                  <p-tag [value]="option.label" [severity]="getSeverity(option.value)" />
+                </ng-template>
+              </p-select>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-almacen let-expanded="expanded">
+      <tr>
+        <td>
+          <p-button
+            type="button"
+            pRipple
+            [pRowToggler]="almacen"
+            [text]="true"
+            severity="secondary"
+            [rounded]="true"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+          />
+        </td>
+        <td class="cursor-pointer" (click)="verStock(almacen.id)">
+          {{ almacen.codigo }}
+        </td>
+        <td class="cursor-pointer" (click)="verStock(almacen.id)">
+          {{ almacen.descripcion }}
+        </td>
+        <td class="cursor-pointer" (click)="verStock(almacen.id)">
+          {{ almacen.ubicacionMaps }}
+        </td>
+        <td class="cursor-pointer" (click)="verStock(almacen.id)">
+          <span
+            [class]="
+              'px-2 py-1 border-round text-sm font-bold ' +
+              (almacen.activo ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700')
+            "
+          >
+            {{ almacen.activo ? 'ACTIVO' : 'INACTIVO' }}
+          </span>
+        </td>
+
+        @if (authService.hasPermission('ALMACEN_EDITAR')) {
+          <td class="text-center">
+            @if (authService.hasPermission('ALMACEN_EDITAR')) {
+              <p-button
+                icon="pi pi-pencil"
+                [rounded]="true"
+                [text]="true"
+                severity="success"
+                (onClick)="abrirModalEditar(almacen)"
+              />
+            }
+            @if (authService.hasPermission('ALMACEN_ELIMINAR')) {
+              <p-button
+                icon="pi pi-trash"
+                [rounded]="true"
+                [text]="true"
+                severity="danger"
+                (onClick)="confirmarEliminacion(almacen)"
+              />
+            }
+          </td>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #expandedrow let-almacen>
+      <tr>
+        <td colspan="6">
+          <div class="p-3">
+            @if (almacen.ubicacionMaps) {
+              <h5>Ubicación del almacén</h5>
+
+              <iframe
+                width="100%"
+                height="300"
+                frameborder="0"
+                style="border: 0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                [src]="getGoogleMapsUrl(almacen.ubicacionMaps)"
+              >
+              </iframe>
+            } @else {
+              <div
+                class="flex align-items-center justify-content-center bg-gray-100 border-round text-gray-500"
+                style="width: 150px; height: 150px"
+              >
+                <i class="pi pi-image text-3xl"></i>
+              </div>
+            }
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="empty">
+      <tr>
+        <td colspan="6" class="text-center p-4">No se encontraron almacenes.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <app-almacen-form
+    [visible]="mostrarModal()"
+    [almacenEditar]="almacenSeleccionado()"
+    (save)="guardarAlmacen($event)"
+    (cancel)="cerrarModal()"
+  />
+</div>

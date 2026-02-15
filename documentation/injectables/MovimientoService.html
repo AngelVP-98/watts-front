@@ -1,0 +1,1163 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>practica-watts-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">practica-watts-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >MovimientoService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/modules/transacciones/services/movimiento.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio encargado de gestionar las peticiones HTTP relacionadas con los movimientos
+o transacciones de inventario (entradas, salidas, compras, ventas, etc.).</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_apiUrl" >_apiUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_http" >_http</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#crearMovimiento" >crearMovimiento</a>
+                            </li>
+                            <li>
+                                <a href="#exportar" >exportar</a>
+                            </li>
+                            <li>
+                                <a href="#listarMovimientos" >listarMovimientos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crearMovimiento"></a>
+                    <span class="name">
+                        <span ><b>crearMovimiento</b></span>
+                        <a href="#crearMovimiento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>crearMovimiento(request: <a href="../interfaces/MovimientoRequest.html" target="_self">MovimientoRequest</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/modules/transacciones/services/movimiento.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Envía una petición para registrar un nuevo movimiento de inventario en el sistema.</p>
+<ul>
+<li>@param request Objeto DTO que contiene los detalles del movimiento (SKU, almacén, cantidad, tipo, etc.).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>request</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MovimientoRequest.html" target="_self" >MovimientoRequest</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto DTO que contiene los detalles del movimiento (SKU, almacén, cantidad, tipo, etc.).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Un <code>Observable</code> que emite la respuesta del servidor tras procesar la creación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exportar"></a>
+                    <span class="name">
+                        <span ><b>exportar</b></span>
+                        <a href="#exportar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>exportar(formato: "pdf" | "csv", varianteNombre?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, varianteMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, almacenNombre?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, almacenMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, tipo?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observaciones?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observacionesMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fechaInicio?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fechaFin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, creadoPor?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, creadoPorMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/modules/transacciones/services/movimiento.service.ts:125</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Solicita la exportación del historial de movimientos en un archivo descargable (PDF o CSV).
+Soporta los mismos parámetros de filtrado que el método <code>listarMovimientos</code> para asegurar
+que el archivo exportado coincida con la vista actual del usuario en la tabla.</p>
+<ul>
+<li>@param formato Formato del archivo a generar (<code>pdf</code> o <code>csv</code>).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>formato</td>
+                                            <td>
+                                                        <code>&quot;pdf&quot; | &quot;csv&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Formato del archivo a generar (<code>pdf</code> o <code>csv</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>varianteNombre</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Filtro por nombre o SKU de la variante.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>varianteMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Modo de coincidencia para la variante.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>almacenNombre</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Filtro por nombre del almacén.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>almacenMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Modo de coincidencia para el almacén.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>tipo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Filtro por tipo de movimiento.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>observaciones</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Filtro por observaciones.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>observacionesMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Modo de coincidencia para observaciones.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fechaInicio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha inicial para el rango de exportación.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fechaFin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha final para el rango de exportación.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>creadoPor</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Filtro por usuario creador.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>creadoPorMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Modo de coincidencia para el creador.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;Blob&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Un <code>Observable</code> que emite el archivo generado en formato binario (<code>Blob</code>).</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listarMovimientos"></a>
+                    <span class="name">
+                        <span ><b>listarMovimientos</b></span>
+                        <a href="#listarMovimientos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listarMovimientos(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, size: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, tipo?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observaciones?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observacionesMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, creadoPor?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, creadoPorMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, varianteNombre?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, varianteMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, almacenNombre?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, almacenMatchMode?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fechaInicio?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fechaFin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/modules/transacciones/services/movimiento.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene una lista paginada de los movimientos de inventario registrados en el sistema.
+Permite aplicar múltiples filtros opcionales para realizar búsquedas avanzadas.
+Los resultados se devuelven ordenados por fecha de creación de manera descendente por defecto.</p>
+<ul>
+<li>@param page Índice de la página a consultar (comienza en 0).</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>0</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Índice de la página a consultar (comienza en 0).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>size</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>10</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Cantidad máxima de registros a devolver por página.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>tipo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Filtro exacto por el tipo de movimiento (ej. <code>COMPRA</code>, <code>VENTA</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>observaciones</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Texto para filtrar por las observaciones del movimiento.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>observacionesMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Modo de coincidencia para las observaciones (ej. <code>contains</code>, <code>startsWith</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>creadoPor</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Nombre de usuario para filtrar quién registró el movimiento.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>creadoPorMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Modo de coincidencia para el creador del registro.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>varianteNombre</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Filtro por el nombre o SKU de la variante del producto afectada.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>varianteMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Modo de coincidencia para la variante.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>almacenNombre</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Filtro por la descripción o nombre del almacén asociado.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>almacenMatchMode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Modo de coincidencia para el almacén.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fechaInicio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Fecha inicial (formato <code>YYYY-MM-DD</code>) para filtrar por un rango temporal.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fechaFin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Fecha final (formato <code>YYYY-MM-DD</code>) para filtrar por un rango temporal.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;Page&lt;MovimientoResponse&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Un <code>Observable</code> que emite un objeto <code>Page</code> conteniendo la lista de movimientos y los datos de paginación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_apiUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_apiUrl</b></span>
+                        <a href="#_apiUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;${environment.apiUrl}/movimientos&#x60;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/modules/transacciones/services/movimiento.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL base para los endpoints de movimientos, construida a partir de las variables de entorno.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_http"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_http</b></span>
+                        <a href="#_http"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(HttpClient)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/modules/transacciones/services/movimiento.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cliente HTTP inyectado para realizar las peticiones a la API.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
+import { Injectable, inject } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { environment } from &#x27;../../../environments/environment&#x27;;
+import { Page } from &#x27;../../../shared/models/page.model&#x27;;
+import { MovimientoRequest, MovimientoResponse } from &#x27;../models/movimiento.model&#x27;;
+import { map } from &#x27;rxjs&#x27;;
+
+/**
+ * Servicio encargado de gestionar las peticiones HTTP relacionadas con los movimientos
+ * o transacciones de inventario (entradas, salidas, compras, ventas, etc.).
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class MovimientoService {
+  /** Cliente HTTP inyectado para realizar las peticiones a la API. */
+  private readonly _http &#x3D; inject(HttpClient);
+  /** URL base para los endpoints de movimientos, construida a partir de las variables de entorno. */
+  private readonly _apiUrl &#x3D; &#x60;${environment.apiUrl}/movimientos&#x60;;
+
+  /**
+   * Obtiene una lista paginada de los movimientos de inventario registrados en el sistema.
+   * Permite aplicar múltiples filtros opcionales para realizar búsquedas avanzadas.
+   * Los resultados se devuelven ordenados por fecha de creación de manera descendente por defecto.
+   * * @param page Índice de la página a consultar (comienza en 0).
+   * @param size Cantidad máxima de registros a devolver por página.
+   * @param tipo Filtro exacto por el tipo de movimiento (ej. &#x60;COMPRA&#x60;, &#x60;VENTA&#x60;).
+   * @param observaciones Texto para filtrar por las observaciones del movimiento.
+   * @param observacionesMatchMode Modo de coincidencia para las observaciones (ej. &#x60;contains&#x60;, &#x60;startsWith&#x60;).
+   * @param creadoPor Nombre de usuario para filtrar quién registró el movimiento.
+   * @param creadoPorMatchMode Modo de coincidencia para el creador del registro.
+   * @param varianteNombre Filtro por el nombre o SKU de la variante del producto afectada.
+   * @param varianteMatchMode Modo de coincidencia para la variante.
+   * @param almacenNombre Filtro por la descripción o nombre del almacén asociado.
+   * @param almacenMatchMode Modo de coincidencia para el almacén.
+   * @param fechaInicio Fecha inicial (formato &#x60;YYYY-MM-DD&#x60;) para filtrar por un rango temporal.
+   * @param fechaFin Fecha final (formato &#x60;YYYY-MM-DD&#x60;) para filtrar por un rango temporal.
+   * @returns Un &#x60;Observable&#x60; que emite un objeto &#x60;Page&#x60; conteniendo la lista de movimientos y los datos de paginación.
+   */
+  listarMovimientos(
+    page: number &#x3D; 0,
+    size: number &#x3D; 10,
+    tipo?: string,
+    observaciones?: string,
+    observacionesMatchMode?: string,
+    creadoPor?: string,
+    creadoPorMatchMode?: string,
+    varianteNombre?: string,
+    varianteMatchMode?: string,
+    almacenNombre?: string,
+    almacenMatchMode?: string,
+    fechaInicio?: string,
+    fechaFin?: string
+  ): Observable&lt;Page&lt;MovimientoResponse&gt;&gt; {
+    let params &#x3D; new HttpParams()
+      .set(&#x27;page&#x27;, page.toString())
+      .set(&#x27;size&#x27;, size.toString())
+      .set(&#x27;sort&#x27;, &#x27;fechaCreacion,desc&#x27;);
+
+    if (tipo) {
+      params &#x3D; params.set(&#x27;tipo&#x27;, tipo);
+    }
+    if (observaciones) {
+      params &#x3D; params.set(&#x27;observaciones&#x27;, observaciones);
+      if (observacionesMatchMode) {
+        params &#x3D; params.set(&#x27;observacionesMatchMode&#x27;, observacionesMatchMode);
+      }
+    }
+    if (creadoPor) {
+      params &#x3D; params.set(&#x27;creadoPor&#x27;, creadoPor);
+      if (creadoPorMatchMode) {
+        params &#x3D; params.set(&#x27;creadoPorMatchMode&#x27;, creadoPorMatchMode);
+      }
+    }
+    if (varianteNombre) {
+      params &#x3D; params.set(&#x27;varianteNombre&#x27;, varianteNombre);
+      if (varianteMatchMode) {
+        params &#x3D; params.set(&#x27;varianteMatchMode&#x27;, varianteMatchMode);
+      }
+    }
+    if (almacenNombre) {
+      params &#x3D; params.set(&#x27;almacenNombre&#x27;, almacenNombre);
+      if (almacenMatchMode) {
+        params &#x3D; params.set(&#x27;almacenMatchMode&#x27;, almacenMatchMode);
+      }
+    }
+    if (fechaInicio) {
+      params &#x3D; params.set(&#x27;fechaInicio&#x27;, fechaInicio);
+    }
+    if (fechaFin) {
+      params &#x3D; params.set(&#x27;fechaFin&#x27;, fechaFin);
+    }
+
+    return this._http.get&lt;Page&lt;MovimientoResponse&gt;&gt;(this._apiUrl, { params });
+  }
+
+  /**
+   * Envía una petición para registrar un nuevo movimiento de inventario en el sistema.
+   * * @param request Objeto DTO que contiene los detalles del movimiento (SKU, almacén, cantidad, tipo, etc.).
+   * @returns Un &#x60;Observable&#x60; que emite la respuesta del servidor tras procesar la creación.
+   */
+  crearMovimiento(request: MovimientoRequest): Observable&lt;any&gt; {
+    return this._http.post(this._apiUrl, request);
+  }
+
+  /**
+   * Solicita la exportación del historial de movimientos en un archivo descargable (PDF o CSV).
+   * Soporta los mismos parámetros de filtrado que el método &#x60;listarMovimientos&#x60; para asegurar 
+   * que el archivo exportado coincida con la vista actual del usuario en la tabla.
+   * * @param formato Formato del archivo a generar (&#x60;pdf&#x60; o &#x60;csv&#x60;).
+   * @param varianteNombre Filtro por nombre o SKU de la variante.
+   * @param varianteMatchMode Modo de coincidencia para la variante.
+   * @param almacenNombre Filtro por nombre del almacén.
+   * @param almacenMatchMode Modo de coincidencia para el almacén.
+   * @param tipo Filtro por tipo de movimiento.
+   * @param observaciones Filtro por observaciones.
+   * @param observacionesMatchMode Modo de coincidencia para observaciones.
+   * @param fechaInicio Fecha inicial para el rango de exportación.
+   * @param fechaFin Fecha final para el rango de exportación.
+   * @param creadoPor Filtro por usuario creador.
+   * @param creadoPorMatchMode Modo de coincidencia para el creador.
+   * @returns Un &#x60;Observable&#x60; que emite el archivo generado en formato binario (&#x60;Blob&#x60;).
+   */
+  exportar(
+    formato: &#x27;pdf&#x27; | &#x27;csv&#x27;,
+    varianteNombre?: string,
+    varianteMatchMode?: string,
+    almacenNombre?: string,
+    almacenMatchMode?: string,
+    tipo?: string,
+    observaciones?: string,
+    observacionesMatchMode?: string,
+    fechaInicio?: string,
+    fechaFin?: string,
+    creadoPor?: string,
+    creadoPorMatchMode?: string
+  ): Observable&lt;Blob&gt; {
+    let params &#x3D; new HttpParams().set(&#x27;formato&#x27;, formato);
+
+    if (varianteNombre) {
+      params &#x3D; params.set(&#x27;varianteNombre&#x27;, varianteNombre);
+      if (varianteMatchMode) params &#x3D; params.set(&#x27;varianteMatchMode&#x27;, varianteMatchMode);
+    }
+    if (almacenNombre) {
+      params &#x3D; params.set(&#x27;almacenNombre&#x27;, almacenNombre);
+      if (almacenMatchMode) params &#x3D; params.set(&#x27;almacenMatchMode&#x27;, almacenMatchMode);
+    }
+    if (tipo) params &#x3D; params.set(&#x27;tipo&#x27;, tipo);
+    if (observaciones) {
+      params &#x3D; params.set(&#x27;observaciones&#x27;, observaciones);
+      if (observacionesMatchMode) params &#x3D; params.set(&#x27;observacionesMatchMode&#x27;, observacionesMatchMode);
+    }
+    if (fechaInicio) params &#x3D; params.set(&#x27;fechaInicio&#x27;, fechaInicio);
+    if (fechaFin) params &#x3D; params.set(&#x27;fechaFin&#x27;, fechaFin);
+
+    if (creadoPor) {
+      params &#x3D; params.set(&#x27;creadoPor&#x27;, creadoPor);
+      if (creadoPorMatchMode) params &#x3D; params.set(&#x27;creadoPorMatchMode&#x27;, creadoPorMatchMode);
+    }
+
+    return this._http.get(&#x60;${this._apiUrl}/exportar&#x60;, {
+      params,
+      // Hack necesario en Angular HttpClient para recibir un Blob sin errores de parseo de JSON
+      responseType: &#x27;blob&#x27; as &#x27;json&#x27;
+    }).pipe(
+      map(response &#x3D;&gt; response as Blob)
+    );
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MovimientoService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
